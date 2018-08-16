@@ -16,6 +16,6 @@ urlpatterns = [
     url(r'^login/$', views.signin, name='login'),
     url(r'^register/$', views.signup, name='register'),
     url(r'^resumes/$', login_required(views.resumes), name='resumes'),
-   url(r'^resume/(?P<slug>[\w-]+)/$', login_required(views.resume_view), name='resume_view'),
+    url(r'^resume/(?P<slug>[\w-]+)/$', login_required(views.resume_view), name='resume_view'),
     url(r'^resumes/new/$', login_required(views.upload_resume), name='upload_resume'),
 ]
