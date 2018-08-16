@@ -34,7 +34,7 @@ def jobs(request):
 	if location:
 	    title = "All jobs in " + location
 	    results = Jobs.objects.filter(title__icontains=query, company__city__icontains=location)
-	else :
+	elif not query and not location:
 	    title = "Job results"
 	    results = 0
 	context = {
