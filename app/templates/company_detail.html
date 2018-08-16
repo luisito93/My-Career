@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load thumbnail %}
+<div class="company-profile main-body" id="main-content">
+	<div class="row">
+		<div class="small-12 large-6 large-push-3 columns">
+			<div class="card with-padding company-description">
+				<div class="small-12 item margin-bottom">
+					<h1>{{company.title}}</h1>
+				</div>
+				<div class="row bump">
+					<div class="small-12 columns item company-facts">
+						<span class="tag">Private</span>
+						<span class="tag">Training</span>
+						<span class="tag">Social Services</span>
+						<a class="tag clickable" href="/jobs/company/{{company.slug}}">{{jobs.count}} Active Jobs</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 large-3 large-pull-6 columns left-sidebar">
+			<div class="card with-padding company-info-panel margin-below">
+				<div class="row">
+					<div class="small-12 columns item">
+						{% thumbnail company.logo "135x60" corp="centre" format="PNG" as im %} <center><img src="{{ im.url }}"></center> {% endthumbnail %}
+					</div>
+					<hr>
+					{% if company.website%}
+					<div class="small-12 columns item">
+						<h4>Website</h4>
+						<a href="http://{{company.website}}">https://{{company.website}}</a>
+					</div>
+					{% endif%}
+					<div class="small-12 medium-6 large-12 columns item bump">
+						<h4>Connect with Us</h4>
+						<div class="company-social">
+							<ul>
+								<li class="social-item">
+									<a class="facebook" href="https://www.facebook.com/NCSAsports" title="visit company facebook">
+										<img aria-hidden="true" src="{% static 'assets/social_icons/facebook-circle-079c9216f571cb2e35e488abd1cda7a03345f6749903ceb553698e34c04020c8.svg' %}">
+									</a>
+								</li>
+								{% if company.twitter != '' %}
+								<li class="social-item">
+									<a class="twitter" href="https://{{company.twitter}}" title="visit company twitter" target="blank">
+										<img aria-hidden="true" src="{% static 'assets/social_icons/twitter-circle-2195455afb835c81fa5beab78b43a448deeb4f0527f70e3acfecbebcf0a60d2c.svg' %}">
+									</a>
+								</li>
+{% endif %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="small-12 large-3 columns">
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

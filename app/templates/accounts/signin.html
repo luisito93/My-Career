@@ -1,0 +1,90 @@
+<link rel="stylesheet" type="text/css" href="https://secure.icbdr.com/v39.27/css/share/v6/login.css">
+<div class="row expanded columns top-bar">
+    <a id="cbLogoLink" title="Click to go to the CareerBuilder homepage" class="cblogo" href="/">
+    	<img id="cbHeaderLogo" class="cblogo" alternativetext="Careerbuilder Logo" src="https://secure.icbdr.com/images/cblogo.svg" border="0">
+    </a>
+</div>
+<header id="page-header">
+    <div class="row">
+        <div class="small-12 columns">
+            <span id="text-banner">Empowering Employment</span>
+        </div>
+    </div>
+</header>
+{% for message in messages %}
+<span id="messagebox">
+    <table id="MXMessageBoxError" cellspacing="4" cellpadding="0" align="Center" border="0" style="">
+        <tbody>
+            <tr>
+                <td valign="top"></td>
+                <td valign="top" style="text-align: center;">
+                    <span style="color: rgb(221, 77, 57); font-weight: 700; font-size: 16px;">{{message}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</span>
+{% endfor %}
+<div class="row">
+    <form name="aspnetForm" method="post" id="aspnetForm">
+        <div class="columns small-12 medium-6 medium-push-3 large-6 large-push-3">
+            <div class="card">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="columns">
+                        <h2 class="text-left" id="sign-in-title">
+                            Sign In
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-2 medium-2 large-2">
+                        <a id="fbLoginLink" rel="nofollow" href=""><img src="https://secure.icbdr.com/images/shared/img/social-btn-facebook.png" id="fbImg" alt="Facebook Login Link"></a>
+                    </div>
+                    <div class="columns small-2 medium-2 large-2">
+                        <a id="googleLoginLink" rel="nofollow" href=""><img src="https://secure.icbdr.com/images/shared/img/social-btn-googleplus.png" id="googleImg" alt="Google Login Link"></a>
+                    </div>
+                    <div class="columns small-7 medium-7 large-8">
+                        <h5>
+                            <small>CareerBuilder will never Share content</small>
+                        </h5>
+                    </div>
+                </div>
+                <div id="emailrow" class="row">
+                    <div class="columns small-12">
+                        <label class="login-field-name" for="cbsys_login_email">Username</label>
+                        <input name="username" maxlength="128" id="cbsys_login_email" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-12">
+                        <label class="login-field-name" for="cbsys_login_password">Password</label>
+                        <input name="password" type="password" id="cbsys_login_password">  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-12">
+                        <input id="elui_remember_me" type="checkbox" name="cbsys_login_rememberme">
+                        <label for="elui_remember_me">Remember Me</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-12">
+                        <input type="submit" name="btnsigninemp" value="Sign In" id="btnsigninemp" class="button expand button-signin">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns small-12 text-center text-bottom">
+                        <a id="employerForgotPasswordLink" data-open="forgotpassword" href="https://accounts.careerbuilder.com/share/forgotmypassword.aspx" aria-controls="forgotpassword" aria-haspopup="true" tabindex="0">Forgot Password?</a>
+                    </div>
+                </div>
+                <div id="CreateAccountMessage" class="row">
+                   	<br>
+                    <div class="columns small-12 text-center text-bottom">
+                                Don't have an account? <a id="registrationLink" href={% if next %} "/register/?next={{next}} "{% else %} "/register/" {% endif %}>Create One.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

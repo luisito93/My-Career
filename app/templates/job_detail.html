@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load thumbnail %}
+<div class="job-details main-body" id="main-content">
+	<div class="main">
+		<div class="row">
+			<div class="large-12 columns show-for-medium-up">
+				<img id="branded-header-image" role="presentation" src="https://secure.icbdr.com/MediaManagement/54/MH56FY70NN0VGVHF454.jpg">
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 large-6 large-push-3 columns">
+				<div class="card with-padding">
+					<div class="small-12 item">
+						<h1>{{jobs.title|capfirst}}</h1>
+					</div>
+					<div class="small-12 item">
+						<h2 id="job-company-name">{{jobs.company.title|capfirst}} • {{jobs.company.city|capfirst}}, DZ</h2>
+					</div>
+					<div class="small-12">
+						<div id="top-actions">
+							<div class="job-actions">
+								<div class="small-12 large-5 columns apply">
+									<a class="apply-now btn" id="apply-now-top">Apply Now</a>
+								</div>
+								<div class="small-12 large-7 columns action-links">
+									<a class="email-job-button" data-gtm="job-action|email-link" data-job-did="J2N4DD620C710015XJT" href="#">
+										<span class="fa fa-envelope"></span>
+										Email Job
+									</a>
+									<save-job job-id="J2N4DD620C710015XJT"><a> 
+										<i class="fa  fa-star-o"></i> Save Job </a>
+									</save-job>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<h3>Job Snapshot</h3>
+							<div class="job-facts item">
+								<div class="tag">Contractor</div>
+								<div class="tag">Experience - At least 3 year(s)</div>
+								<div class="tag">Degree - 4 Year Degree</div>
+								<div class="tag" id="job-industry">Consulting, Automotive - Motor Vehicles - Parts, Computer Software</div>
+								<div class="tag" id="job-categories">Information Technology</div>
+							</div>
+						</div>
+					</div>
+					<div class="row margin-below" id="competition-snapshot">
+						<div class="small-12 medium-2 columns applications center-text">
+							<div class="application-count">0</div>
+							<h4>Applicant</h4>
+						</div>
+						<div class="small-12 medium-7 columns education tease">
+							<div class="copy">How Do You Compare to the Competition?</div>
+							<h4>Get facts about other applicants with a CareerBuilder Account</h4>
+						</div>
+						<div class="small-12 medium-3 columns cta">
+							<a class="btn secondary" href="">Sign Up</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns item">
+							<h3>Job Description</h3>
+							<div class="description">
+								{{jobs.Description|safe|linebreaks}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="small-12 large-3 large-pull-6 columns left-sidebar">
+				<div class="company-info-panel card with-padding">
+					<div class="row hide-for-medium">
+						<div class="small-12 small-centered columns">
+							{% thumbnail jobs.company.logo "135x60" corp="centre" format="PNG" as im %} <center><img src="{{ im.url }}"></center> {% endthumbnail %}
+						</div>
+						<hr>
+					</div>
+					<div class="row show-for-large-up"></div>
+					<div class="company-info">
+						<header>
+							<h4>{{jobs.company.name}}</h4>
+						</header>
+						<p>
+							{{jobs.company.Description}}
+						</p>
+					</div>
+					<h4>Contact Info</h4>
+					<ul class="address">
+						<li>{{jobs.company.contact_info}}</li>
+					</ul>
+					<div class="social">
+						<h4>Connect with us!</h4>
+						<div class="company-social">
+							<ul>
+								<li class="social-item">
+									<a class="facebook" href="{{jobs.company.facebook}}" title="visit company facebook">
+										<img aria-hidden="true" src="{% static '/assets/social_icons/facebook-circle-079c9216f571cb2e35e488abd1cda7a03345f6749903ceb553698e34c04020c8.svg' %}">
+									</a>
+								</li>
+								<li class="social-item">
+									<a class="linkedin" href="{{jobs.company.linkedin}}" title="visit company linkedin">
+										<img aria-hidden="true" src="{% static '/assets/social_icons/linkedin-circle-ad20fbacc0fb38c54ad69e6e4a06e2114332eec5b2ec4a82169f09ff2e96a2a5.svg' %}">
+									</a>
+								</li>
+								<li class="social-item">
+									<a class="twitter" href="{{jobs.company.twitter}}" title="visit company twitter">
+										<img aria-hidden="true" src="{% static '/assets/social_icons/twitter-circle-2195455afb835c81fa5beab78b43a448deeb4f0527f70e3acfecbebcf0a60d2c.svg' %}">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<a class="btn tertiary" href="/company/{{jobs.company.slug}}">View Company Profile</a>
+				</div>
+			</div>
+			<div class="small-12 large-3 columns">
+				<div class="job-alert card with-padding">
+					<div class="row">
+						<div id="create-job-alert">
+							<form id="create-job-alert-sidebar" action="/saved-searches/create" accept-charset="UTF-8" method="post">
+								<input name="utf8" type="hidden" value="✓">
+								<input type="hidden" name="authenticity_token" value="">
+								<input type="hidden" name="location" value="Taylor, MI">
+								<input type="hidden" name="keywords" value="Software Engineer">
+								<input type="hidden" name="site_id" value="PSAJDP">
+								<div class="small-12 columns">
+									<div class="envelope">
+										<img role="presentation" aria-hidden="true" src="https://www.careerbuilder.com/assets/job_alert/envelope-1baf9f9314c26bd660d5ed4e8cec2d84760d29e391da383f248c4ee92734f303.svg">
+									</div>
+								</div>
+								<div class="small-12 columns bump">
+									<div class="job-alert-heading">Don't miss out on new jobs like this</div>
+								</div>
+								<div class="small-12 columns bump">
+									<div class="job-alert-text">Get the latest jobs delivered to your inbox. Unsubscribe at any time.</div>
+								</div>
+								<div class="small-12 columns">
+									<input type="email" name="email" id="email_field" value="" placeholder="Enter in your email address" class="required"><span class="clear-field" style="display: none;"></span>
+								</div>
+								<div class="small-12 columns">
+									<button name="button" type="submit" class="btn tertiary">Create Job Alert</button>
+								</div>
+							</form>
+						</div>
+						<div class="hide" id="saving-job-alert">
+							<div class="small-12 columns">
+								<h2>
+									<span class="fa fa-spinner fa-spin"></span>Saving Your Job Alert
+								</h2>
+							</div>
+						</div>
+						<div class="hide" id="job-alert-created">
+							<div class="row">
+								<div class="small-12 columns">
+									<div class="alert-created">
+										<h2>
+											<span class="fa fa-check-circle success"></span>
+											Job Alert Created
+										</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					<div class="hide" id="error-saving-job-alert">
+						<div class="row">
+							<div class="small-12 columns">Well, this is embarrassing. We are having trouble saving your search. You can try again or come back at a later time.</div>
+						</div>
+					</div>
+					<div class="hide" id="max-saved-searches-error">
+						<div class="row">
+							<div class="small-12 columns">
+								<h2>Maximum Email Alerts</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-12 columns">This email address has reached the maximum of 5 email alerts. To create a new alert, you will need to log into your email and unsubscribe from at least one.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

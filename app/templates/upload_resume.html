@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% for message in messages %}
+<span id="messagebox">
+    <table id="MXMessageBoxError" cellspacing="4" cellpadding="0" align="Center" border="0" style="">
+        <tbody>
+            <tr>
+                <td valign="top"></td>
+                <td valign="top" style="text-align: center;">
+                    <span style="color: rgb(221, 77, 57); font-weight: 700; font-size: 16px;">{{message}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</span>
+{% endfor %}
+<div class="main-body" id="main-content">
+<div class="page-header">
+<div class="row">
+<div class="small-12 columns">
+<h1>Add New Resume</h1>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns">
+Reach thousands of <strong>active employers</strong> when you upload a resume.
+</div>
+</div>
+<form id="resume-form" enctype="multipart/form-data" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="aENVhi0dSfjjLbyYc0Bf6qkC9JpuUiBgTHQ2rUk0xMrXe/lI6mawMlaSJY9yuIq8UtYQfbe4wsvfKhzEQZqT9g=="><div class="double-bump">
+{% csrf_token %}
+<div class="row">
+<div class="small-12 columns">
+<div class="card with-padding">
+<div class="row">
+<div class="small-12 columns">
+<h3><label for="resume_title">Desired Job Title</label></h3>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns">
+    <input type="text" name="job_title" id="resume_title" class="required ui-autocomplete-input" maxlength="128" data-autocomplete="jobtitles" autocomplete="off">
+    <span class="clear-field" style="display: none;"></span>
+</div>
+</div>
+<div class="row bump">
+<div class="small-12 columns">
+<h3 id="resume-select-header">
+Upload Options
+</h3>
+<h3 class="hide" id="resume-selected-header" style="display: none;">
+Selected Resume
+</h3>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns bold error-message hide" id="resume-selection-error" style="display: none;"></div>
+</div>
+<div class="row">
+<div class="small-12 columns error-message hide" id="resume-selection-error-desc" style="display: none;"></div>
+</div>
+<div class="row">
+<div class="small-12 columns resume-select" id="resume-select">
+<label class="dropdown-top row" for="resume_file" id="browse-for-resume">
+<input type="file" name="cv" id="resume_file">
+<div class="small-1 columns icon">
+&nbsp;
+</div>
+<div class="small-11 columns">
+<span class="dropdown-header">Upload Resume</span>
+</div>
+</label>
+</div>
+</div>
+<div class="bump" id="restrictions">
+<div class="row">
+<div class="small-12 columns">
+<div class="tips">We accept .DOC, .DOCX, .PDF, .RTF, .TXT, .ODT, .WPS up to 1 MB.</div>
+<div class="tips">We do not accept scanned documents, images, or resumes containing images and/or icons.</div>
+<div class="tips">It is recommended that you keep your resume less than 5 pages long.</div>
+</div>
+</div>
+</div>
+<div class="row hide resume-selected" id="resume-selected" style="display: none;">
+<div class="small-12 columns">
+<div class="row dropdown-top dropdown-bottom">
+<div class="small-10 medium-11 columns">
+<div id="resume-file-name"></div>
+<input type="hidden" name="copy_paste_resume_text" id="copy-paste-resume-text" value="">
+</div>
+<i class="text-right fa fa-times small-2 medium-1 columns" id="remove"></i>
+</div>
+</div>
+</div>
+<div class="row double-bump">
+<div class="small-12 columns">
+<h3>Resume Privacy</h3>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns margin-below">
+<input type="checkbox" name="resume_privacy" id="resume_privacy" value="true" checked="checked">
+<label for="resume_privacy" class="make-resume-public required">Visible to employers searching resumes</label>
+<span class="tips">
+<a target="_blank" href="/privacy">Privacy Policy</a>
+</span>
+</div>
+</div>
+<div class="row bump">
+<div class="small-12 medium-6 columns">
+<input type="submit" name="commit" value="Save" id="save_resume" class="btn" data-disable-with="Save">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+{% endblock %}

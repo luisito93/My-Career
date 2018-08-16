@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="root">
+</div>
+{% load marktags %}
+<div class="home-index main-body" id="main-content">
+	<div id="hero">
+		<div class="row">
+			<div class="small-12 columns">
+				<h1 class="white hero-header">
+					<div class="light-weight hero-header-part">CareerBuilder: Find the right job.</div>
+					<div class="hero-header-part">Right now.</div>
+				</h1>
+			</div>
+		</div>
+		<div class="row search-form">
+			<form action="{% url 'app:jobs' %}" method="get">
+				<article class="small-12 medium-5 columns search-form-column">
+					<div class="search-input-container">
+
+						<input name="keywords" type="text" placeholder="          Job Title, Skills, or Company" id="postcode" class="c-form__input" aria-label="Enter your postcode" minlength="5" max-length="6"/>
+
+							<span class="clear-field" style="display: none;"></span>
+						<label class="input-icon fa fa-search" for="keywords">
+							<span class="small-screen-search">Search</span>
+						</label>
+					</div>
+				</article>
+				
+				<article class="small-12 medium-5 columns search-form-column">
+					<div class="search-input-container">
+					<input name="location" type="text" placeholder="         Location" id="postcode" class="c-form__input" aria-label="Enter your postcode" minlength="5" max-length="6"/>
+						<span class="clear-field" style="display: none;"></span>
+						<label class="input-icon fa fa-location-arrow" for="location">
+							<span class="accessibility-hide-text">Location</span>
+						</label>
+					</div>
+				</article>
+				<article class="small-12 medium-2 columns search-form-column">
+					<input class="c-btn c-btn--primary tracking-standard-link" type="submit" value="Find Jobs">
+				</article>
+			</form>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<div id="recent-searches">
+					<div class="row hide" id="recent-searches-header" style="display: block;">
+						<div class="small-12 columns">
+							<h3>{% cookie 'search' %}</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns" id="searches">
+							<br class="hide-for-medium-up">
+						</div>
+					</div>
+					<div class="row hide" id="no-recent-searches">
+						<div class="small-12 columns bold">No Recent Searches</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if user.is_authenticated %}
+	<div id="home-resume-activity" style="display: block;">
+		<div class="home-container" id="home-resume-activity-section">
+			<div class="row">
+				<div class="small-12 columns">
+					<h2>Job Search Overview</h2>
+				</div>
+			</div>
+			<div class="row hide" id="recent-resume-container">
+				<div class="small-12 columns">
+					<p>Resume views and searches are using your recent resume, <a class="resume-link" href=""><span id="resume-title"></span></a>.</p>
+				</div>
+			</div>
+			<div id="home-resume-activity-stats">
+				<div class="row">
+					<div class="small-12 medium-4 columns">
+						<a data-gtm="homepage|resume-activity-views" href="/resumes/activity">
+							<div class="home-resume-activity-stat card" id="home-resume-views">
+								<div class="home-resume-activity-count center-text" id="resume-views">0</div>
+								<div class="home-resume-activity-text">Resume Views</div>
+							</div>
+						</a>
+					</div>
+					<div class="small-12 medium-4 columns">
+						<a data-gtm="homepage|resume-activity-searches" href="/resumes/activity">
+							<div class="home-resume-activity-stat card" id="home-resume-activity-searches">
+								<div class="home-resume-activity-count center-text" id="resume-searches">0</div>
+								<div class="home-resume-activity-text">Resume Searches</div>
+							</div>
+						</a>
+					</div>
+					<div class="small-12 medium-4 columns">
+						<a data-gtm="homepage|resume-activity-saved-and-applied-jobs" href="/saved-jobs">
+							<div class="home-resume-activity-stat card" id="home-resume-activity-applications">
+								<div class="home-resume-activity-count center-text" id="saved-jobs">{% if applyed_jobs == 0 %}0{% else %}  {{applyed_jobs.count}} {% endif%}</div>
+								<div class="home-resume-activity-text">Saved &amp; Applied Jobs</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div id="keyword-insights-loading" style="display: none;">
+				<div class="loading-section">
+					<div class="row">
+						<div class="small-12 columns">
+							<div class="loading-bar"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<div class="loading-bar"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hide" id="keyword-insights">
+				<div class="row bump">
+					<div class="small-12 columns">
+						Employers found you by searching for these skills, make sure to keep your resume up-to-date. <a data-gtm="homepage|resume-activity-resumes-update-resume" href="" class="resume-link">Update resume</a>.
+					</div>
+				</div>
+				<div class="row bump">
+					<div class="small-12 columns" id="keywords-list"></div>
+				</div>
+			</div>
+			<div class="" id="home-resume-callout">
+				<div class="row">
+					<div class="small-12 columns" id="home-resume-activity-callout">
+						<div class="hide" id="cta-resume-public">
+							You currently do not have a resume posted publicly. To be found by employers, <a data-gtm="homepage|resume-activity-resumes-privateonly" id="make-resume-public" href="/resumes"> make your resume public</a>.
+						</div>
+						<div class="" id="not-getting-results">
+							Not getting the results you want? <a data-gtm="homepage|resume-activity-resumes" href="/resumes">Update</a> your resume to attract more companies.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div id="add-resume">
+		<div class="row home-container">
+			<div class="small-12 columns">
+				<div class="card with-padding add-resume-card">
+					<div class="bump columns large-9 medium-8 small-12">
+						<h2>Add your resume and let your next job find you.</h2>
+					</div>
+					<div class="bump columns large-3 medium-4 small-12">
+						<a id="add_resume" class="btn secondary" data-gtm="homepage|add-resume-btn" href="/resumes/new">Add Your Resume
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	<div class="row home-container salary-banner">
+		<a data-gtm="salary-banner-wide|view-click" href="/salary"></a>
+		<div class="small-12 columns">
+			<a data-gtm="salary-banner-wide|view-click" href="/salary"></a>
+			<div class="card">
+				<a data-gtm="salary-banner-wide|view-click" href="/salary">
+					<div class="small-12 large-9 columns banner-heading">
+						<div class="small-12 large-3 columns banner-bg-color show-for-large-up"></div>
+						<div class="small-12 large-8 columns banner-color banner-arrow-right banner-arrow-bottom">
+							<div class="small-12 medium-8 large-12 columns">
+								<h3 class="banner-primary-heading">Is your salary keeping up with your career?</h3>
+							</div>
+							<div class="small-12 medium-4 large-12 columns banner-color center-text salary-banner-image show-for-medium-down">
+								<img role="presentation" aria-hidden="true" src="static/assets/salary/salary_banner_laptop-c4c7a71168a339fbfb6aa9512637ccd00f136241b77e263018ef45e7d9541db8.svg">
+							</div>
+							<div class="small-12 columns show-for-large-up">
+								Find out what you could be earning with<span class="bold">My Career Path</span>.
+							</div>
+						</div>
+						<div class="small-12 columns banner-secondary-heading show-for-medium-down">
+							Find out what you could be earning with <span class="bold">My Career Path</span>.
+						</div>
+					</div>
+				</a>
+				<div class="small-12 large-3 columns banner-button show-for-large-up">
+					<a data-gtm="salary-banner-wide|view-click" href="/salary"></a>
+					<a class="btn tertiary" data-gtm="salary-banner|view-click" href="/salary">See My Career Path</a>
+				</div>
+				<div class="small-12 columns banner-link show-for-medium-down">
+					<a data-gtm="salary-banner-wide|view-click" href="/salary">Check it out</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row last">
+		<div class="small-12 large-3 columns home-container">
+			<div class="card with-padding">
+				<div class="small-12 columns">
+					<h2>Quick Links</h2>
+					<div class="quick-link">
+						<a href="/resumes">Resumes</a>
+					</div>
+					<div class="quick-link">
+						<a href="/cover-letters">Cover Letters</a>
+					</div>
+					<div class="quick-link">
+						<a href="/saved-jobs">Saved &amp; Applied Jobs</a>
+					</div>
+					<div class="quick-link">
+						<a href="/saved-searches">Saved Searches</a>
+					</div>
+					<div class="quick-link">
+						<a href="/user/profile">Profile</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div id="home-recommendations">
+			<div class="small-12 large-9 columns home-container">
+				<div class="card with-padding">
+					<h2>Job Recommendations</h2>
+					<div data-ipath-modifier-code="H" id="recommendations-module">
+						<div class="row">
+							<div class="small-12 columns">
+{% if reco_jobs == 0 %}
+								<div class="blank-slate" id="no-recommendations">
+									<p>No job recommendations yet, but opportunity is out there!</p>
+									<p>To start getting recommendations, <a href="/resumes/new">upload a resume</a> or complete a job application.</p>
+								</div>
+							</div>
+				{% else %}
+				{% for i in reco_jobs %}
+				<div class="row">
+								<div class="column small-10">
+									<h2 class="job-title show-for-medium-up">
+										<a href="/jobs/{{i.slug}}">{{i.title|capfirst}}</a>
+									</h2>
+								</div>
+							</div>
+							<div class="row job-information">
+								<div class="columns medium-6 large-8">
+									<h4 class="job-text employment-info">{{i.job_type}}</h4>
+									<div class="job-description show-for-medium-up">		
+										{{ i.Description|safe|truncatewords:25 }}
+									</div>
+								</div>
+								<div class="columns large-2 medium-3 small-12">
+									<h4 class="job-text">
+										<a href="/company/{{i.company.slug}}">{{i.company.title|capfirst}}</a>
+									</h4>
+								</div>
+								<div class="columns end large-2 medium-3 small-12">
+									<h4 class="job-text">{{i.company.city}}, DZ</h4>
+								</div>
+							</div>
+{% if not i == reco_jobs.last%}																<hr>
+{% endif %}
+				{% endfor %}			
+				{% endif%}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
