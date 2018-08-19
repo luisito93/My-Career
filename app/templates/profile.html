@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load subtractify %}
+<section class="overlape">
+	<div class="block no-padding">
+		<div data-velocity="-.1" style="background: url(% static 'images/resource/slider2.jpg' %}) 50% -76.3px repeat scroll transparent;" class="parallax scrolly-invisible no-parallax"></div>
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="inner-header">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="text-socail">
+										<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+										<a href="#" title=""><i class="fab fa-twitter"></i></a>
+										<a href="#" title=""><i class="fab fa-instagram"></i></a>
+										<a href="#" title=""><i class="fab fa-pinterest-p"></i></a>
+										<a href="#" title=""><i class="la la-dribbble"></i></a>
+										<a href="#" title=""><i class="la la-google"></i></a>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="action-inner style2">
+										<div class="download-cv">
+							 				<a href="/media/{{cv.cv}}" title="">Download CV <i class="la la-download"></i></a>
+							 			</div>
+										<a href="#" title=""><i class="la la-map-marker"></i>{{profile.userprofile.city}} / {{profile.userprofile.country.name}}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="overlape">
+	<div class="block remove-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="cand-single-user">
+						<div class="share-bar circle"></div>
+			 			<div class="can-detail-s">
+			 				<div class="cst"><img src="{{profile.userprofile.avatar.url}}" alt=""></div>
+			 				<h3>{{profile.first_name}} {{profile.last_name}}</h3>
+			 				{% if experience %}
+			 				<span><i>{{experience.0.job_title}}</i> at {{experience.0.company}}</span>
+			 				{% else %}
+			 					<p>No Working History</p>
+			 				{% endif %}
+			 				<p>{{profile.email}}</p>
+			 				<p>Member Since, {{profile.userprofile.created|date:"Y"}}</p>
+			 				<p><i class="la la-map-marker"></i>{{profile.userprofile.city}} / {{profile.userprofile.country.name}}</p>
+			 				<div class="skills-badge">
+			 					<span>Photoshop</span><span>Designer</span><span>Ilustrator</span>
+			 				</div>
+			 			</div>
+			 			<div class="download-cv"></div>
+			 		</div>
+			 		<div class="cand-details-sec">
+			 			<div class="row no-gape">
+			 				<div class="col-lg-9 column">
+			 					<div class="cand-details">
+			 						<div class="job-overview style2">
+							 			<ul>
+							 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£15,000 - £20,000</span></li>
+							 				<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{profile.userprofile.gender}}</span></li>
+							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>Executive</span></li>
+							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>Management</span></li>
+							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>
+							 				{% if experience.count == 0 %} 
+							 					0 Years
+							 				{% else %} 
+							 					{% subtractify experience.last.job_from experience.0.job_to %} Years
+							 				{% endif %}
+							 				</span></li>
+							 				<li><i class="la la-line-chart "></i><h3>Qualification</h3><span>{% if education %} {{education.0.degree}} Degree {% else %} No Education History {% endif %}</span></li>
+							 			</ul>
+							 		</div>
+							 		<h2>Candidates About</h2>
+			 						{{profile.userprofile.about|safe}}
+			 						<div class="edu-history-sec">
+			 							<h2>Education</h2>
+			 							{% if education.count == 0 %}
+			 							<p>No Education History</p>
+			 							{% else %}
+				 							{% for i in education %}
+				 							<div class="edu-history">
+				 								<i class="la la-graduation-cap"></i>
+				 								<div class="edu-hisinfo">
+				 									<h3>{{i.education_level}}</h3>
+				 									<i>{{i.year}}</i>
+				 									<span>{{i.school.name}} 
+				 										<i>{{i.degree}}</i>
+				 									</span>
+				 									<p>{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+				 								</div>
+				 							</div>
+				 							{% endfor %}
+			 							{% endif %}
+			 						</div>
+			 						<div class="edu-history-sec">
+			 							<h2>Work &amp; Experience</h2>
+			 							{% if experience.count == 0 %}
+				 							<p>No Education History</p>
+				 							{% else %}
+					 							{% for i in experience %}
+						 							<div class="edu-history style2">
+						 								<i></i>
+						 								<div class="edu-hisinfo">
+						 									<h3>{{i.job_title}} <span>{{i.company.title}}</span></h3>
+						 									<i>{{i.job_from}} - {{i.job_to}}</i>
+						 									<p>{{i.experience_description}}</p>
+						 								</div>
+						 							</div>
+					 							{% endfor %}
+			 							{% endif %}
+			 						</div>
+			 						<div class="progress-sec">
+			 							<h2>Professional Skills</h2>
+			 							<div class="progress-sec style2">
+			 								<span>Adobe Photoshop</span>
+			 								<div class="progressbar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> 
+			 									<div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div> 
+			 								</div>
+			 								<p>80%</p>
+			 							</div>
+			 							<div class="progress-sec style2">
+			 								<span>Production In Html</span>
+			 								<div class="progressbar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> 
+			 									<div class="progress"><i></i><i></i><i></i><i></i><i></i></div> 
+			 								</div>
+			 								<p>50%</p>
+			 							</div>
+			 							<div class="progress-sec style2">
+			 								<span>Graphic Design</span>
+			 								<div class="progressbar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i> 
+			 									<div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div> 
+			 								</div>
+			 								<p>100%</p>
+			 							</div>
+			 						</div>
+			 						<div class="edu-history-sec">
+			 							<h2>Awards</h2>
+			 							{% if awards.count == 0 %}
+				 							<p>No Awards</p>
+				 							{% else %}
+					 							{% for i in awards %}
+						 							<div class="edu-history style2">
+						 								<i></i>
+						 								<div class="edu-hisinfo">
+						 									<h3>{{i.company}}</h3>
+						 									<i>{{i.year}}</i>
+						 									<p>{{i.award_description}}</p>
+						 								</div>
+						 							</div>
+				 							{% endfor %}
+			 							{% endif %}
+			 						</div>
+			 					</div>
+			 				</div>
+			 				<div class="col-lg-3 column">
+					 			<div class="job-overview style3">
+						 			<ul>
+						 				<li><i class="la la-briefcase"></i><h3>Candidates About</h3></li>
+						 				<li><i class="la la-graduation-cap"></i><h3>Education</h3></li>
+						 				<li><i class="la la-file-text"></i><h3>Work Experience</h3></li>
+						 				<li><i class="la la-puzzle-piece"></i><h3>Portfolio</h3></li>
+						 				<li><i class="la la-thumb-tack"></i><h3>Professional Skills</h3></li>
+						 				<li><i class="la la-line-chart "></i><h3>Awards</h3></li>
+						 				<li><i class="la la-user "></i><h3>Companies Followed By</h3></li>
+						 			</ul>
+						 			<a href="/media/{{cv.cv}}" title="" class="save-resume">Save Resume</a>
+						 			<a href="#" title="" class="contct-user">Contact David</a>
+						 		</div>
+					 		</div>
+			 			</div>
+			 		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,274 +1,89 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row search-form">
-	<form action="{% url 'app:jobs' %}" method="get">
-		<article class="small-12 medium-5 columns search-form-column">
-			<div class="search-input-container">
-				<input class="search-input keywords ui-autocomplete-input" data-autocomplete="keywords" id="header-keywords" name="keywords" placeholder="Job Title, Skills, or Company" type="text" value="{{query|capfirst}}" autocomplete="off"><span class="clear-field"></span>
-				<label class="input-icon fa fa-search" for="header-keywords">
-					<span class="small-screen-search">Search</span>
-				</label>
-			</div>
-		</article>
-		<article class="small-12 medium-5 columns search-form-column">
-			<div class="search-input-container">
-				<input class="search-input location" data-autocomplete="location" id="header-location" name="location" placeholder="City, State or ZIP" type="text" value="{{location}}"><span class="clear-field" style="display: none;"></span>
-				<label class="input-icon fa fa-location-arrow" for="header-location">
-					<span class="accessibility-hide-text">Location</span>
-				</label>
-			</div>
-		</article>
-		<article class="small-12 medium-2 columns search-form-column">
-			<input class="btn search-jobs" data-gtm="header_search_form_find_jobs_btn_clicked" type="submit" value="Find Jobs">
-		</article>
-	</form>
-</div>
-
-
-<div class="job-results main-body" id="main-content">
-	<div class="page-header">
-		<div class="row">
-			<div class="small-12 columns">
-				<h1>{% if query %} {{query|capfirst}} {% else %} All {% endif %} Jobs {% if company %} in <a href="/company/{{company.slug}}">{{company.title}}</a> {% endif %} {% if location %} in {{location|capfirst}} {% endif %}</h1>
-				<div class="count">({{items.count}} Jobs)</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="more-option">
-			<div class="small-12 medium-3 columns">
-				<div class="open-filters" style="display: none;">
-					<button class="btn secondary small-12 hide-for-large-up" id="btn-open-filter">Filter &amp; Sort</button>
+{% load thumbnail %}
+{% load static %}
+<section class="overlape">
+		<div class="block no-padding">
+			<div data-velocity="-.1" style="background: url({% static 'images/resource/slider1.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div>
+			<div class="container fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="inner-header wform">
+							<div class="job-search-sec">
+								<div class="job-search">
+									<h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
+									<form method="GET" action="jobs-">
+										<div class="row">
+											<div class="col-lg-7">
+												<div class="job-field">
+													<input value="{{query}}" name="keywords" type="text" placeholder="Job title, keywords or company name" />
+													<i class="la la-keyboard-o"></i>
+												</div>
+											</div>
+											<div class="col-lg-4">
+												<div class="job-field">
+													<input value="{{location}}" type="text" placeholder="City, province or region" name="location" />
+													<i class="la la-map-marker"></i>
+												</div>
+											</div>
+											<div class="col-lg-1">
+												<button type="submit"><i class="la la-search"></i></button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="row">
-		<div class="small-12 large-2 columns no-padding">
-			<div class="filter-list small-12 columns show-for-large-up">
-				<form action="/jobs" id="filter-search-form" method="get">
-					<div class="small-12 hide-for-large-up">
-						<h3>Sort By</h3>
-						<dl class="accordion">
-							<label class="accessibility-hide-text" for="sort">Sort By:</label>
-							<select class="drop-down-filter" id="sort" name="sort">
-								<option disabled="disabled">Sort By:</option>
-								<option value="relevance_desc" selected="selected">Relevance</option>
-								<option value="date_desc">Date</option>
-								<option value="company_asc">Company</option>
-							</select>
-						</dl>
-					</div>
-					<div class="small-12">
-						<div class="hide-for-large-up filter-results-group">
-							<h3 class="filter-results">Filter Results</h3>
-						</div>
-						<div class="card">
-							<div class="filter-reset hide show-for-large-up small-12">
-								<a class="btn tertiary" data-gtm="jrp-job-list|filter-reset-click" href="/jobs">Reset Filters</a>
-							</div>
-							<dl class="accordion">
-								<dt class="posted-within accordion-active">Date Posted</dt>
-								<dd class="posted-within active" style="display: block;">
-									<fieldset class="accessibility-hide">
-										<legend class="accessibility-hide-text">Date Posted</legend>
-										<ul>
-											<li class="filter-option">
-												<input type="radio" name="posted" id="posted_1" value="1" data-tag="filters-date-posted-1">
-												<label for="posted_1">24 hours</label>
-											</li>
-											<li class="filter-option">
-												<input type="radio" name="posted" id="posted_3" value="3" data-tag="filters-date-posted-3">
-												<label for="posted_3">3 days</label>
-											</li>
-											<li class="filter-option">
-												<input type="radio" name="posted" id="posted_7" value="7" data-tag="filters-date-posted-7">
-												<label for="posted_7">7 days</label>
-											</li>
-											<li class="filter-option">
-												<input type="radio" name="posted" id="posted_30" value="30" data-tag="filters-date-posted-30" checked="checked">
-												<label for="posted_30">30 days</label>
-											</li>
-										</ul>
-									</fieldset>
-								</dd>
-								<dt class="employment-type accordion-active">Employment Type</dt>
-								<dd class="employment-type active" style="display: block;">
-									<fieldset class="accessibility-hide">
-										<legend class="accessibility-hide-text">Employment Type</legend>
-										<ul>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_all" value="all" class="emp" data-tag="filters-emp-type-all" checked="checked">
-												<label for="emp_all">All</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtft" value="jtft,jtfp" class="emp emp-type" data-tag="filters-emp-type-full-time">
-												<label for="emp_jtft">Full Time</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtpt" value="jtpt,jtfp" class="emp emp-type" data-tag="filters-emp-type-part-time">
-												<label for="emp_jtpt">Part Time</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtct" value="jtct" class="emp emp-type" data-tag="filters-emp-type-contractor">
-												<label for="emp_jtct">Contractor</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtch" value="jtch" class="emp emp-type" data-tag="filters-emp-type-contract-to-hire">
-												<label for="emp_jtch">Contract to Hire</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtin" value="jtin" class="emp emp-type" data-tag="filters-emp-type-intern">
-												<label for="emp_jtin">Intern</label>
-											</li>
-											<li class="filter-option">
-												<input type="checkbox" id="emp_jtse" value="jtse" class="emp emp-type" data-tag="filters-emp-type-seasonal-temp">
-												<label for="emp_jtse">Seasonal / Temp</label>
-											</li>
-										</ul>
-									</fieldset>
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-		<div class="small-12 large-10 columns">
-			{% if items.count > 0 %}
-			<div class="results-area">
-				<div class="job-list card">
-					<div class="show-for-large-up sort-by" id="sort-links">
-						<div class="sorting-options">Sort By:
-							<a class="selected-sort-option" href="/jobs-civil?sort=relevance_desc">Relevance</a>|
-							<a href="?keywords={{query}}&?location={{location}}&?sort=date_desc">Date</a>|
-							<a href="/jobs-civil?sort=company_asc">Company</a>
-						</div>
-					</div>
-					<div class="jobs">
-						<div class="job-row">
-							{% for i in items %}
+</section>
+<section>
+		<div class="block">
+			<div class="container">
+				 <div class="row">
+				 	<div class="col-lg-12">
+				 		<span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
+				 		<div class="filterbar">
+				 			<h5>{{items.count}} Jobs &amp; Vacancies</h5>
+				 			<div class="sortby-sec">
+				 				<span>Sort by</span>
+				 				<select data-placeholder="Most Recent" class="chosen" style="display: none;">
+									<option>Most Recent</option>
+									<option>Most Recent</option>
+									<option>Most Recent</option>
+									<option>Most Recent</option>
+								</select>
+								<select data-placeholder="20 Per Page" class="chosen" style="display: none;">
+									<option>30 Per Page</option>
+									<option>40 Per Page</option>
+									<option>50 Per Page</option>
+									<option>60 Per Page</option>
+								</select>
+				 			</div>
+				 		</div>
+				 		<div class="job-grid-sec">
 							<div class="row">
-								<div class="column small-10">
-									<h2 class="job-title show-for-medium-up">
-										<a href="/jobs/{{i.slug}}">{{i.title|capfirst}}</a>
-									</h2>
-								</div>
-							</div>
-							<div class="row job-information">
-								<div class="columns medium-6 large-8">
-									<h4 class="job-text employment-info">{{i.job_type}}</h4>
-									<div class="job-description show-for-medium-up">		
-										{{ i.Description|truncatewords:25 }}
+								{% for i in items %}
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid border">
+										<div class="job-title-sec">
+											<div class="c-logo"> {% thumbnail i.office.company.logo "235x115" corp="centre" format="PNG" as im %} <center><img src="{{ im.url }}"></center> {% endthumbnail %} </div>
+											<h3><a href="/jobs/{{i.slug}}" title="">{{i.office.title}}</a></h3>
+											<span>{{i.office.company.title}}</span>
+											<span class="fav-job"><i class="la la-heart-o"></i></span>
+										</div>
+										<span class="job-lctn">{{i.office.company.city}}</span>
+										<a href="/jobs/{{i.slug}}" title="">APPLY NOW</a>
 									</div>
 								</div>
-								<div class="columns large-2 medium-3 small-12">
-									<h4 class="job-text">
-										<a href="/company/{{i.company.slug}}">{{i.company.title|capfirst}}</a>
-									</h4>
-								</div>
-								<div class="columns end large-2 medium-3 small-12">
-									<h4 class="job-text">{{i.company.city}}, DZ</h4>
-								</div>
-							</div>
-							<div class="row user-actions">
-								<div class="small-12 columns job-actions">
-									<span class="save-job">
-										<a href="#">
-											<span class="fa fa-star-o"></span> Save Job
-										</a>
-									</span>
-									<span class="hide saved-job" js-id="">
-										<a class="saved-job-text" href="#">
-											<span class="fa fa-star"></span>Saved Job
-										</a>
-										<a href="/saved-jobs">(View Saved Jobs)</a>
-									</span>
-									<a class="email-job-jrp" href="#">
-										<span class="fa fa-envelope"></span> Email Job
-									</a>
-								</div>
-							</div>
-							<hr>
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			</div>
-			{% else %}
-			<div class="no-results-container card">
-				<div class="no-results">
-					<h3>Sorry, no results were found based upon your search request</h3>
-					<ul>
-						<li>Try using the form at the top to start a new search.</li>
-						<li>Try widening your search filters.</li>
-						<li>Try browsing <a href="{% url 'app:jobs' %}">all jobs</a>.</li>
-						<li>Try searching the recommended jobs below:</li>
-					</ul>
-					<br>
-					<h3>Jobs that might interest you</h3>
-					<div data-ipath-modifier-code="J" id="recommendations-module">
-						<div class="row">
-							<div class="small-12 columns">
-								<div class="blank-slate" id="no-recommendations">
-									<p>No job recommendations yet, but opportunity is out there!</p>
-									<p>To start getting recommendations, 
-									<a href="/resumes/new">upload a resume</a> or complete a job application.</p>
-								</div>
+								{% endfor %}
 							</div>
 						</div>
-					</div>
-				</div>
+				 	</div>
+				 </div>
 			</div>
-{% endif %}
 		</div>
-	</div>
-</div>
-
-<div class="remodal-wrapper remodal-is-opened" style="display: none;"><div class="remodal remodal-is-initialized remodal-is-opened" data-remodal-id="jobs-email-job-modal" id="jobs-email-job-modal">
-<button class="remodal-close" data-remodal-action="close">
-<span class="accessibility-hide-text">Close</span>
-</button>
-<div class="row">
-<div class="small-12 large-10 large-push-1 columns">
-<form id="email-job-form" novalidate="novalidate" action="/jobs/email" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="4t3qBhBNMXNlx/UopfUfGrHR1il79j0OiUnWwysvGgGjzTbnbXWItqNqQticGbNhuJPPM7geG7dS8AW9+mFm8Q=="><input type="hidden" name="job_id" id="job_id_email_job" value="JDF1686R3RBJ9KKS6TQ">
-<div class="row">
-<div class="small-12 columns">
-<h2>Email this Job to Yourself or a Friend</h2>
-<label for="from_address">From (your email)</label>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<input type="email" name="from_address" id="from_address" class="required"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label for="to_address">To (recipient's email)</label>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<input type="email" name="to_address" id="to_address" class="required"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<input class="btn" type="submit" value="Send Email">
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<a class="btn negative" data-remodal-action="cancel" href="#">
-Cancel
-</a>
-</div>
-</div>
-</form></div>
-</div>
-</div></div>
+</section>
 {% endblock %}

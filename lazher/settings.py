@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'app',
     'api',
+    'django_countries',
+    'mathfilters',
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

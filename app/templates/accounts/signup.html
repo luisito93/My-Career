@@ -1,223 +1,102 @@
 ﻿{% extends 'base.html' %}
-
 {% block content %}
 {% load static %}
-<div class="main-body registration-page" id="main-content">
-<div class="row with-max-width">
-<div class="registration-form white-background small-12 large-7 columns">
-<div class="row">
-<div class="small-10 small-offset-1 large-6 large-offset-3 columns">
-<div class="page-header">
-<div class="row">
-<div class="small-12 columns">
-<h1>Sign Up</h1>
-<a href="/user/sign-in">or Sign In Here</a>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-Registration for
-<a href="https://employer.careerbuilder.com/share/register.aspx?usertype=UTEMPR&amp;next=http%253a%252f%252femployer.careerbuilder.com%252fjobposter%252fmycb.aspx">employer or staffing agency</a>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns double-bump">
-<a class="btn facebook social" data-gtm="registration|facebook-sign-up-clicked" href="http://www.careerbuilder.com/share/socialloginproxy.aspx?facebookLogin=true&amp;next=https%3A%2F%2Faccounts.careerbuilder.com%2Foauth%2Fauthorize%3Fnlui%3Dtrue%26scope%3Dopenid%26client_id%3D81d4d612%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fwww.careerbuilder.com%252Fsingle-sign-on%252Fgateway%253Fnext%253Dhttps%25253A%25252F%25252Fwww.careerbuilder.com%25252F" id="facebook-sign-up">
-<span class="fa fa-facebook-official fa-pull-left"></span>
-<span>Sign up with Facebook</span>
-</a>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns double-bump">
-<a class="btn google social" href="" id="google-sign-up">
-<span class="fa fa-google fa-pull-left"></span>
-<span>Sign up with Google</span>
-</a>
-</div>
-</div>
-<div class="double-bump">
-<div class="split-hr">
-<span>or</span>
-<br>
-</div>
-</div>
-<div id="registration-form-container">
-<div class="double-bump">
-{% if form.username.errors %}
-<div class="row">
-<div class="small-12 columns val-error-msg error margin-below">
-{{form.username.errors}}
-</div>
-</div>
-{% else %}
-{% if form.email.errors %}
-<div class="row">
-<div class="small-12 columns val-error-msg error margin-below">
-{{form.email.errors}}
-</div>
-</div>
-{% endif %}
-{% endif %}
-<form id="registration-form" class="scroll-error" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
-{% csrf_token %}
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="first_name">Username</label>
-</div>
-<div class="small-12 columns end">
-<input type="text" name="username" id="username" class="required" maxlength="128"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="first_name">First Name</label>
-</div>
-<div class="small-12 columns end">
-<input type="text" name="first_name" id="first_name" class="required" maxlength="128"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="last_name">Last Name</label>
-</div>
-<div class="small-12 columns end">
-<input type="text" name="last_name" id="last_name" class="required" maxlength="128"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="free_text_location">Zip</label>
-</div>
-<div class="small-12 medium-12 columns end">
-<input type="text" name="zipcode" id="free_text_location" class="required zipcode" inputmode="numeric"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="email">Email</label>
-</div>
-<div class="small-12 columns end">
-<input type="email" name="email" id="email" class="required"><span class="clear-field" style="display: none;"></span>
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns">
-<label class="form-lab required-field" for="password">Password</label>
-</div>
-<div class="small-12 columns end">
-<input type="password" name="password1" id="password" value="" class="required"><span class="clear-field" style="display: none;"></span>
-<label class="password-display-toggle" for="password">
-<span class="password-hidden" data-gtm="edit-password|show-password">Show</span>
-<span class="password-displayed hide" data-gtm="edit-password|hide-password">Hide</span>
-</label>
-<div class="hide" id="password-tip">
-<div>Password Must Contain</div>
-<div class="password-requirement" id="password-requirement-length">
-<span>•&nbsp;</span>
-<div class="fa fa-check hide"></div>
-8 to 15 characters
-</div>
-<div class="password-requirement" id="password-requirement-uppercase">
-<span>•&nbsp;</span>
-<div class="fa fa-check hide"></div>
-1 uppercase letter
-</div>
-<div class="password-requirement" id="password-requirement-number-or-symbol">
-<span>•&nbsp;</span>
-<div class="fa fa-check hide"></div>
-1 number or symbol
-</div>
-<div class="password-requirement" id="password-requirement-lowercase">
-<span>•&nbsp;</span>
-<div class="fa fa-check hide"></div>
-1 lowercase letter
-</div>
-</div>
-</div>
-</div>
-<div class="row email-opt-in">
-<div class="small-12 columns">
-<label for="email_preference">Email Preferences</label>
-</div>
-<div class="small-12 columns">
-<input type="checkbox" name="allow_job_recs" id="allow_job_recs" value="true" checked="checked">
-<label for="allow_job_recs">Job Recommendations</label>
-</div>
-<div class="small-12 columns margin-below email-subtext">
-based on your activity
-</div>
-<div class="small-12 columns">
-<input type="checkbox" name="allow_resume_application_emails" id="allow_resume_application_emails" value="true" checked="checked">
-<label for="allow_resume_application_emails">Resume and Application Activity Alerts</label>
-</div>
-<div class="small-12 columns end margin-below email-subtext">
-when your application is viewed
-</div>
-</div>
-<div class="row">
-<div class="small-12 columns double-bump">
-<button name="button" type="submit" class="btn" id="sign-up">Sign up</button>
-</div>
-</div>
-</form></div>
-</div>
-</div>
-</div>
-</div>
-<div class="value-props small-12 large-5 columns show-for-large-up">
-<div class="row double-bump">
-<div class="small-12 columns">
-<div class="row rocket-ship">
-<div class="small-7 small-offset-3 medium-6 medium-offset-4 columns">
-<img alt="Create an Account" src="{% static 'assets/registration/rocket-9c7738d6bc095d177576fbbffa842b381aaacf55acfebaa12b832d431.svg' %}">
-</div>
-</div>
-<div class="row triple-bump">
-<div class="small-10 small-offset-1 large-11 large-offset-1 columns">
-<h3>Create an Account with CareerBuilder to unlock these great features</h3>
-</div>
-</div>
-<div class="row">
-<div class="small-10 small-offset-1 columns">
-<div class="value-prop-container row double-bump">
-<span class="small-2 columns">
-<img alt="Check" src="{% static '/assets/green-check-07631e1f59aa109a3f909e670c24ca94253be1ec149c670c079a6458caee939d.svg' %}">
-</span>
-<span class="small-10 columns">
-See similar job titles and skills to help you make your next move
-</span>
-</div>
-<div class="value-prop-container row double-bump">
-<span class="small-2 columns">
-<img alt="Check" src="{% static '/assets/green-check-07631e1f59aa109a3f909e670c24ca94253be1ec149c670c079a6458caee939d.svg' %}">
-</span>
-<span class="small-10 columns">
-Upload a resume and become visible to Hiring Managers and Employers
-</span>
-</div>
-<div class="value-prop-container row double-bump">
-<span class="small-2 columns">
-<img alt="Check" src="{% static '/assets/green-check-07631e1f59aa109a3f909e670c24ca94253be1ec149c670c079a6458caee939d.svg' %}">
-</span>
-<span class="small-10 columns">
-Compare Salary Information to see where you stand amongst your peers
-</span>
-</div>
-<div class="value-prop-container row double-bump">
-<span class="small-2 columns">
-<img alt="Check" src="{% static '/assets/green-check-07631e1f59aa109a3f909e670c24ca94253be1ec149c670c079a6458caee939d.svg' %}">
-</span>
-<span class="small-10 columns">
-Easily Quick Apply to jobs with just one click!
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section class="overlape">
+	<div class="block no-padding">
+		<div data-velocity="-.1" style="background: url({% static 'images/resource/slider1.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div>
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="inner-header wform">
+						<div class="job-search-sec">
+	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="block no-padding  gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="inner2">
+						<div class="inner-title2">
+							<h3>Register</h3>
+							<span>Keep up to date with the latest news</span>
+						</div>
+						<div class="page-breacrumbs">
+							<ul class="breadcrumbs">
+								<li><a href="#" title="">Home</a></li>
+								<li><a href="#" title="">Pages</a></li>
+								<li><a href="#" title="">Register</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="block remove-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="account-popup-area signup-popup-box static">
+						<div class="account-popup">
+							<h3>Sign Up</h3>
+							<span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
+							<div class="select-user">
+								<span>Candidate</span>
+								<span>Employer</span>
+							</div>
+							<form method="POST">
+								{% csrf_token %}
+								<div class="cfield">
+									<input name="first_name" type="text" placeholder="First Name" />
+									<i class="la la-user"></i>
+								</div>
+								<div class="cfield">
+									<input name="last_name" type="text" placeholder="Last Name" />
+									<i class="la la-user"></i>
+								</div>
+								<div class="cfield">
+									<input name="username" type="text" placeholder="Username" />
+									<i class="la la-user"></i>
+								</div>
+								<div class="cfield">
+									<input name="password1" type="password" placeholder="********" />
+									<i class="la la-key"></i>
+								</div>
+								<div class="cfield">
+									<input name="email" type="text" placeholder="Email" />
+									<i class="la la-envelope-o"></i>
+								</div>
+								<div class="cfield">
+									<input name="zipcode" type="text" placeholder="Zip Code" />
+									<i class="la la-map-marker"></i>
+								</div>
+								<div class="cfield">
+									<input type="text" placeholder="Phone Number" />
+									<i class="la la-phone"></i>
+								</div>
+								<button type="submit">Signup</button>
+							</form>
+							<div class="extra-login">
+								<span>Or</span>
+								<div class="login-social">
+									<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
+									<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+					</div><!-- SIGNUP POPUP -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 {% endblock %}

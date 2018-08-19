@@ -4,327 +4,332 @@
 	<title>{{title}}</title>
 	{% load static %}
 	{% load thumbnail %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/autho.css' %}">
-	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chosen.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/colors.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
-	<header id="header-main">
-		<div class="row" id="header-primary">
-			<div class="small-2 columns hide-for-large-up">
-				<div id="show-menu">
-					<span class="fa fa-bars"></span>
+	<div class="responsive-header">
+		<div class="responsive-menubar">
+			<div class="res-logo"><a href="/" title=""><img src="{% static 'images/resource/logo.png' %}" alt="" /></a></div>
+			<div class="menu-resaction">
+				<div class="res-openmenu">
+					<img src="{% static 'images/icon.png' %}" alt="" /> Menu
+				</div>
+				<div class="res-closemenu">
+					<img src="{% static 'images/icon2.png' %}" alt="" /> Close
 				</div>
 			</div>
-		<div class="small-8 large-no-columns columns center-text end">
-			<a data-gtm="mobile-header|logo-home" href="/" id="header-logo">
-				<img alt="Find Jobs at CareerBuilder" height="32" width="210" src="https://www.careerbuilder.com/assets/logo-dc8fa8da7aeb1a433576741a4254e541e62ce218db95347461dfe25e924629bf.svg">
-			</a>
 		</div>
-		<div id="header-menu" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-				<div id="header-menu-links">
-					<div class="show-for-large-up" id="header-menu-employer-link">
-						<a data-gtm="mobile-header|employer-home" href="https://hiring.careerbuilder.com">Post Jobs</a>
-					</div>
-					<ul>
-						<li id="header-menu-authentication-links">
-							<div class="row">
-								{% if user.is_authenticated %}
-								<a id="account-links" class="account-links show-for-large-up" href="#">Hello. {{request.user.first_name|capfirst}}
-									<span class="fa fa-user account-icon"></span>
-								</a>
-								{% else %}
-								<div class="small-6 large-no-columns columns header-menu-authentication-link">
-									<a id="header-menu-sign-in-link" class="btn tertiary" data-gtm="mobile-header|sign-in" href="/login">
-										<span>
-											<span class="show-for-large-up">
-												<div class="fa fa-lock"></div>
-											</span>
-										</span>Sign In
-									</a>
-								</div>
-								<div class="small-6 large-no-columns columns header-menu-authentication-link">
-									<a id="header-menu-register-link" class="btn tertiary" href="/register">Sign Up</a>
-								</div>
-								{% endif%}
-							</div>
-						</li>
-							<a data-gtm="mobile-header|home" class="show-for-medium-down" href="https://www.careerbuilder.com/">
-								<li>Home</li>
-							</a>
-							<a data-gtm="mobile-header|add-resume" href="/resumes/new">
-								<li>Add Resume</li>
-							</a>
-							<a id="header-menu-browse-jobs-link" data-gtm="mobile-header|browse-jobs" href="https://www.careerbuilder.com/browse">
-								<li>Browse Jobs</li>
-							</a>
-							<a data-gtm="mobile-header|insights" href="https://www.careerbuilder.com/insights">
-								<li>Explore Careers</li>
-							</a>
-							<a data-gtm="mobile-header|search-resources" href="https://www.careerbuilder.com/advice">
-								<li>Search Resources</li>
-							</a>
-							<a href="#">
-								<li class="hide-for-large-up" id="qualtrics_window"></li>
-							</a>
-							<li class="header-menu-employer-text light-weight hide-for-large-up">Looking to Hire?</li>
-							<a data-gtm="mobile-header|employer-home" class="hide-for-large-up" href="https://hiring.careerbuilder.com">
-								<li>Post Jobs</li>
-							</a>
-					</ul>
+		<div class="responsive-opensec">
+			{% if not user.is_authenticated %}
+			<div class="btn-extars">
+				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+				<ul class="account-btns">
+					<li class="signup-popup"><a href="/register" title=""><i class="la la-key"></i> Sign Up</a></li>
+					<li class="signin-popup"><a href="/login" title=""><i class="la la-external-link-square"></i> Login</a></li>
+				</ul>
+			</div>
+			{% else %}
+				<div class="my-profiles-sec">
+					<span>
+						{% thumbnail user.userprofile.avatar "50x50" corp="centre" format="PNG" as im %} <img src="{{ im.url }}"> {% endthumbnail %} {{request.user.first_name|capfirst}}<i class="la la-bars"></i>
+					</span>
 				</div>
-				<div class="notched-box hide" id="quick-links-header" style="opacity: 1;">
-					<div class="notched-box-text">
-						<ul>
-							<a data-gtm="mobile-header|resumes" href="/resumes"><li>Resumes</li>
-							</a><a data-gtm="mobile-header|cover-letters" href="https://www.careerbuilder.com/cover-letters"><li>Cover Letters</li>
-							</a><a data-gtm="mobile-header|saved-applied-jobs" href="https://www.careerbuilder.com/saved-jobs"><li>Saved &amp; Applied Jobs</li>
-							</a><a data-gtm="mobile-header|saved-searches" href="https://www.careerbuilder.com/saved-searches"><li>Saved Searches</li>
-							</a><a data-gtm="mobile-header|profile" href="https://www.careerbuilder.com/user/profile"><li>Profile</li>
-							</a><a data-gtm="mobile-header|sign-out" class="show-for-large-up" href="{% url 'logout' %}?next=/"><li>Sign Out</li>
-							</a>
+			{% endif %}
+			<form class="res-search">
+				<input name="keywords" type="text" placeholder="Job title, keywords or company name" />
+				<button type="submit"><i class="la la-search"></i></button>
+			</form>
+			<div class="responsivemenu">
+				<ul>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Home</a>
+							<ul>
+								<li><a href="index.html" title="">Home Layout 1</a></li>
+								<li><a href="index2.html" title="">Home Layout 2</a></li>
+								<li><a href="index3.html" title="">Home Layout 3</a></li>
+								<li><a href="index4.html" title="">Home Layout 4</a></li>
+								<li><a href="index5.html" title="">Home Layout 5</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Employers</a>
+							<ul>
+								<li><a href="" title=""> Employer List 1</a></li>
+								<li><a href="" title="">Employer List 2</a></li>
+								<li><a href="" title="">Employer List 3</a></li>
+								<li><a href="" title="">Employer List 4</a></li>
+								<li><a href="" title="">Employer Single 1</a></li>
+								<li><a href="" title="">Employer Single 2</a></li>
+								<li class="menu-item-has-children">
+									<a href="#" title="">Employer Dashboard</a>
+									<ul>
+										<li><a href="employer_manage_jobs.html" title="">Employer Job Manager</a></li>
+										<li><a href="employer_packages.html" title="">Employer Packages</a></li>
+										<li><a href="employer_post_new.html" title="">Employer Post New</a></li>
+										<li><a href="employer_profile.html" title="">Employer Profile</a></li>
+										<li><a href="employer_resume.html" title="">Employer Resume</a></li>
+										<li><a href="employer_transactions.html" title="">Employer Transaction</a></li>
+										<li><a href="employer_job_alert.html" title="">Employer Job Alert</a></li>
+										<li><a href="employer_change_password.html" title="">Employer Change Password</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Candidates</a>
+							<ul>
+								<li><a href="candidates_list.html" title="">Candidates List 1</a></li>
+								<li><a href="candidates_list2.html" title="">Candidates List 2</a></li>
+								<li><a href="candidates_list3.html" title="">Candidates List 3</a></li>
+								<li><a href="candidates_single.html" title="">Candidates Single 1</a></li>
+								<li><a href="candidates_single2.html" title="">Candidates Single 2</a></li>
+								<li class="menu-item-has-children">
+									<a href="#" title="">Candidates Dashboard</a>
+									<ul>
+										<li><a href="candidates_my_resume.html" title="">Candidates Resume</a></li>
+										<li><a href="candidates_my_resume_add_new.html" title="">Candidates Resume new</a></li>
+										<li><a href="candidates_profile.html" title="">Candidates Profile</a></li>
+										<li><a href="candidates_shortlist.html" title="">Candidates Shortlist</a></li>
+										<li><a href="candidates_job_alert.html" title="">Candidates Job Alert</a></li>
+										<li><a href="candidates_dashboard.html" title="">Candidates Dashboard</a></li>
+										<li><a href="candidates_cv_cover_letter.html" title="">CV Cover Letter</a></li>
+										<li><a href="candidates_change_password.html" title="">Change Password</a></li>
+										<li><a href="candidates_applied_jobs.html" title="">Candidates Applied Jobs</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Blog</a>
+							<ul>
+								<li><a href="blog_list.html"> Blog List 1</a></li>
+								<li><a href="blog_list2.html">Blog List 2</a></li>
+								<li><a href="blog_list3.html">Blog List 3</a></li>
+								<li><a href="blog_single.html">Blog Single</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Job</a>
+							<ul>
+								<li><a href="job_list_classic.html">Job List Classic</a></li>
+								<li><a href="job_list_grid.html">Job List Grid</a></li>
+								<li><a href="job_list_modern.html">Job List Modern</a></li>
+								<li><a href="job_single1.html">Job Single 1</a></li>
+								<li><a href="job_single2.html">Job Single 2</a></li>
+								<li><a href="job-single3.html">Job Single 3</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#" title="">Pages</a>
+							<ul>
+								<li><a href="about.html" title="">About Us</a></li>
+								<li><a href="404.html" title="">404 Error</a></li>
+								<li><a href="contact.html" title="">Contact Us 1</a></li>
+								<li><a href="contact2.html" title="">Contact Us 2</a></li>
+								<li><a href="faq.html" title="">FAQ's</a></li>
+								<li><a href="how_it_works.html" title="">How it works</a></li>
+								<li><a href="login.html" title="">Login</a></li>
+								<li><a href="pricing.html" title="">Pricing Plans</a></li>
+								<li><a href="register.html" title="">Register</a></li>
+								<li><a href="terms_and_condition.html" title="">Terms & Condition</a></li>
+							</ul>
+						</li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="theme-layout" id="scrollup">
+		<header class="stick-top forsticky ">
+			<div class="menu-sec">
+				<div class="container">
+					<div class="logo">
+						<a href="/" title=""><img class="hidesticky" src="{% static 'images/resource/logo.png' %}" alt=""><img class="showsticky" src="{% static 'images/resource/logo10.png' %}" alt=""></a>
+					</div>
+					{% if not user.is_authenticated %}
+					<div class="btn-extars">
+						<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+						<ul class="account-btns">
+							<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
+							<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
 						</ul>
 					</div>
+					{% else %}
+					<div class="btns-profiles-sec">
+					<span>
+						{% if user.userprofile.avatar.url is null %}
+						{% thumbnail user.userprofile.avatar "50x50" corp="centre" format="PNG" as im %} 
+						<img src="{{ im }}"> 
+						{% endthumbnail %} 
+						{% else %}
+						{% thumbnail user.userprofile.avatar "50x50" corp="centre" format="PNG" as im %} 
+						<img src="{{ im.url }}"> 
+						{% endthumbnail %}
+						{% endif %}
+						{{user.first_name}} {{user.last_name}} 
+						<i class="la la-angle-down"></i>
+					</span>
+					<ul style="display: none;">
+						<li><a href="#" title=""><i class="la la-briefcase"></i> Manage Jobs</a></li>
+						<li><a href="/resumes" title=""><i class="la la-magnet"></i> Resumes</a></li>
+						<li><a href="#" title=""><i class="la la-phone"></i> Job Alerts</a></li>
+						<li><a href="#" title=""><i class="la la-key"></i> Change Password</a></li>
+						<li><a href="/logout" title=""><i class="la la-history"></i> Logout</a></li>
+					</ul>
+				</div>
+					{% endif %}
+					<nav>
+						<ul>
+							<li class="menu-item">
+								<a href="/" title="">Home</a>
+							</li>
+							<li class="menu-item">
+								<a href="/resumes" title="">Resumes</a>
+							</li>
+							<li class="menu-item">
+								<a href="/jobs-?keywords=&location=" title="">Browse Jobs</a>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#" title="">Blog</a>
+								<ul>
+									<li><a href="blog_list.html"> Blog List 1</a></li>
+									<li><a href="blog_list2.html">Blog List 2</a></li>
+									<li><a href="blog_list3.html">Blog List 3</a></li>
+									<li><a href="blog_single.html">Blog Single</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#" title="">Job</a>
+								<ul>
+									<li><a href="job_list_classic.html">Job List Classic</a></li>
+									<li><a href="job_list_grid.html">Job List Grid</a></li>
+									<li><a href="job_list_modern.html">Job List Modern</a></li>
+									<li><a href="job_single1.html">Job Single 1</a></li>
+									<li><a href="job_single2.html">Job Single 2</a></li>
+									<li><a href="job-single3.html">Job Single 3</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#" title="">Pages</a>
+								<ul>
+									<li><a href="about.html" title="">About Us</a></li>
+									<li><a href="404.html" title="">404 Error</a></li>
+									<li><a href="contact.html" title="">Contact Us 1</a></li>
+									<li><a href="contact2.html" title="">Contact Us 2</a></li>
+									<li><a href="faq.html" title="">FAQ's</a></li>
+									<li><a href="how_it_works.html" title="">How it works</a></li>
+									<li><a href="login.html" title="">Login</a></li>
+									<li><a href="pricing.html" title="">Pricing Plans</a></li>
+									<li><a href="register.html" title="">Register</a></li>
+									<li><a href="terms_and_condition.html" title="">Terms &amp; Condition</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav><!-- Menus -->
 				</div>
 			</div>
-			<div class="small-12 columns no-padding">
-				<div class="hide-for-large-up" id="header-menu-greeting">
-					<div class="row">
-						{% if user.is_authenticated %}
-						<div class="small-12 columns">
-							<h2 class="light-weight">Hello. {{request.user|capfirst}}</h2>
-						</div>
-					</div>
-					{% else %}
-					<div class="row">
-						<div class="small-12 columns">
-							<h3 class="light-weight">Sign in to find your next job.</h3>
-						</div>
-					</div>
-					{% endif %}
-				</div>
-		</div>
-		</div>
-    	</header>
+		</header>
     	{% block content %}
 		{% endblock %}
-    <footer class="universal-footer">
-<div class="row" id="footer-links">
-<section class="columns small-9 small-offset-3 margin-below hide-section" id="back-to-section-list">
-<a>
-<span class="fa fa-angle-left bold"></span>
-Back
-</a>
-</section>
-<section class="small-5 columns small-offset-3 medium-offset-0" id="footer-sections-list">
-<ul>
-<li data-section="footer-job-seeker-links">
-<a>
-<strong>Job Seekers</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-<li data-section="footer-help-center-links">
-<a>
-<strong>Help Center</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-<li data-section="footer-employer-links">
-<a>
-<strong>Employers</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-<li data-section="footer-careerbuilder-links">
-<a>
-<strong>CareerBuilder</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-<li data-section="footer-social-links">
-<a>
-<strong>Stay Connected</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-<li data-section="footer-legal-links">
-<a>
-<strong>Legal</strong>
-<span class="fa fa-angle-right bold"></span>
-</a>
-</li>
-</ul>
-</section>
-<section class="small-6 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-job-seeker-links">
-<h4>Job Seekers</h4>
-<ul>
-<li>
-<a data-gtm="footer|international-jobs" href="https://www.careerbuilder.com/jobseeker/jobs/jobfindil.aspx" target="">International Jobs</a>
-</li>
-<li>
-<a data-gtm="footer|blog" href="https://www.careerbuilder.com/advice" target="">Blog</a>
-</li>
-<li>
-<a data-gtm="footer|career-insights" href="https://www.careerbuilder.com/insights" target="">Career Insights</a>
-</li>
-<li>
-<a data-gtm="footer|talent-networks" href="https://www.careerbuilder.com/s/talent-networks" target="">Talent Networks</a>
-</li>
-<li>
-<a data-gtm="footer|sitemap" href="https://www.careerbuilder.com/sitemap.aspx" target="">Sitemap</a>
-</li>
-<li>
-<a data-gtm="footer|accessibility" href="http://accesscb.net/" target="">Accessibility</a>
-</li>
-</ul>
-</section>
-<section class="small-6 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-help-center-links">
-<h4>Help Center</h4>
-<ul>
-<li>
-<a data-gtm="footer|manage-email" href="https://www.careerbuilder.com/email-subscriptions" target="">Manage Email</a>
-</li>
-<li>
-<a data-gtm="footer|reset-password" href="https://www.careerbuilder.com/user/settings" target="">Reset Password</a>
-</li>
-<li>
-<a data-gtm="footer|customer-support" href="https://www.fuzeqna.com/careerbuilder/ext/answer.aspx?md=3&amp;dt=kb&amp;widgetid=55" target="_blank">Customer Support</a>
-</li>
-</ul>
-</section>
-<section class="small-6 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-employer-links">
-<h4>Employers</h4>
-<ul>
-<li>
-<a data-gtm="footer|browse-products" href="https://hiring.careerbuilder.com" target="">Browse Products</a>
-</li>
-<li>
-<a data-gtm="footer|post-jobs" href="https://hiring.careerbuilder.com/recruiting-solutions/job-postings" target="">Post Jobs</a>
-</li>
-<li>
-<a data-gtm="footer|recruiting-solutions" href="https://hiring.careerbuilder.com/recruiting-solutions" target="">Recruiting Solutions</a>
-</li>
-<li>
-<a data-gtm="footer|screening" href="https://hiring.careerbuilder.com/employment-screening" target="">Screening</a>
-</li>
-<li>
-<a data-gtm="footer|hcm" href="https://hiring.careerbuilder.com/human-capital-management" target="">HCM</a>
-</li>
-<li>
-<a data-gtm="footer|advertise-with-us" href="https://hiring.careerbuilder.com/recruiting-solutions/display-advertising" target="">Advertise with Us</a>
-</li>
-</ul>
-</section>
-<section class="small-6 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-careerbuilder-links">
-<h4>CareerBuilder</h4>
-<ul>
-<li>
-<a data-gtm="footer|about-us" href="https://hiring.careerbuilder.com/company/overview" target="">About Us</a>
-</li>
-<li>
-<a data-gtm="footer|work-at-careerbuilder" href="https://www.careerbuildercareers.com/" target="">Work at CareerBuilder</a>
-</li>
-<li id="qualtrics_footer"><a class="QSILink SI_cvTrIleJaQOviYd_Link" href="javascript:void(0);">Send Feedback</a></li>
-</ul>
-<p class="bump">
-200 N. LaSalle St.
-<br>
-Suite 1100
-<br>
-Chicago, IL 60601
-</p>
-</section>
-<section class="small-6 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-social-links">
-<h4>Stay Connected</h4>
-<ul>
-<li>
-<a data-gtm="footer|twitter" href="https://twitter.com/careerbuilder">
-<span class="fa fa-twitter-square"></span>
-Twitter
-</a>
-</li>
-<li>
-<a data-gtm="footer|instagram" href="https://instagram.com/careerbuilder/">
-<span class="fa fa-instagram"></span>
-Instagram
-</a>
-</li>
-<li>
-<a data-gtm="footer|youtube" href="https://www.youtube.com/user/CareerBuilder">
-<span class="fa fa-youtube-square"></span>
-Youtube
-</a>
-</li>
-<li>
-<a data-gtm="footer|facebook" href="https://www.facebook.com/careerbuilder">
-<span class="fa fa-facebook-square"></span>
-Facebook
-</a>
-</li>
-<li>
-<a data-gtm="footer|google-plus" href="https://plus.google.com/+careerbuilder/posts">
-<span class="fa fa-google-plus-square"></span>
-Google Plus
-</a>
-</li>
-<li>
-<a data-gtm="footer|pinterest" href="https://www.pinterest.com/careerbuilder/">
-<span class="fa fa-pinterest-square"></span>
-Pinterest
-</a>
-</li>
-<li>
-<a data-gtm="footer|linkedin" href="https://www.linkedin.com/company/careerbuildercom">
-<span class="fa fa-linkedin-square"></span>
-LinkedIn
-</a>
-</li>
-</ul>
-</section>
-<section class="small-12 medium-3 large-2 columns small-offset-3 medium-offset-0 hide-section" id="footer-legal-links">
-<h4>Legal</h4>
-<ul>
-<li>
-<a data-gtm="footer|security-&amp;-fraud" href="https://www.careerbuilder.com/security-and-fraud" target="">Security &amp; Fraud</a>
-</li>
-<li>
-<a data-gtm="footer|privacy-policy" href="https://hiring.careerbuilder.com/company/privacy-policy" target="">Privacy Policy</a>
-</li>
-<li>
-<a data-gtm="footer|terms" href="https://www.careerbuilder.com/terms" target="">Terms</a>
-</li>
-<li>
-<a data-gtm="footer|data-subject-access-request" href="https://app.onetrust.com/app/#/webform/705f4c7c-9cda-496c-b200-8554a7ba75db" target="_blank">Data Subject Access Request</a>
-</li>
-<li>
-<a data-gtm="footer|ad-choices" href="http://preferences-mgr.truste.com/?pid=career01&amp;aid=career01">
-Ad Choices
-<img class="ad-choices" alt="Ad Choices" src="/assets/ad_choices-179a67c29cac43cff327f12ea826145e596d3e93811bd7b89d0f4538e5bfab08.png">
-</a>
-</li>
-</ul>
-</section>
-<section class="bump small-9 medium-3 large-12 columns small-offset-3 medium-offset-0 hide-section end" id="footer-mobile-app-links">
-<h4>Search on the Go</h4>
-<a data-gtm="footer|download-ios-app" href="https://itunes.apple.com/us/app/jobs-by-careerbuilder/id524123670">
-<img class="app_logo_app_store" alt="Download the CB Jobs App in the iOS App Store" src="https://www.careerbuilder.com/assets/s-ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629.gif">
-</a>
-<a data-gtm="footer|download-android-app" href="https://play.google.com/store/apps/details?id=com.careerbuilder.SugarDrone&amp;hl=en_US">
-<img class="app_logo_google_play" alt="Download the CB Jobs App in the Google Play Store" src="https://www.careerbuilder.com/assets/s-ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629.gif">
-</a>
-</section>
-</div>
-<div class="row">
-<div class="columns bold small-12" id="footer-legal-banner">
-<p>
-© 2018 CareerBuilder, LLC. All rights reserved.
-</p>
-</div>
-</div>
-</footer>
-<script src="{% static 'js/all.js' %}"></script>
+		<footer>
+			<div class="block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 column">
+							<div class="widget">
+								<div class="about_widget">
+									<div class="logo">
+										<a href="index.html" title=""><img src="http://grandetest.com/theme/jobhunt-html/images/resource/logo.png" alt=""></a>
+									</div>
+									<span>Collin Street West, Victor 8007, Australia.</span>
+									<span>+1 246-345-0695</span>
+									<span>info@jobhunt.com</span>
+									<div class="social">
+										<a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+										<a href="#" title=""><i class="fab fa-twitter"></i></a>
+										<a href="#" title=""><i class="fab fa-linkedin-in"></i></a>
+										<a href="#" title=""><i class="fab fa-pinterest-p"></i></a>
+										<a href="#" title=""><i class="fab fa-behance"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 column">
+							<div class="widget">
+								<h3 class="footer-title">Frequently Asked Questions</h3>
+								<div class="link_widgets">
+									<div class="row">
+										<div class="col-lg-6">
+											<a href="#" title="">Privacy &amp; Seurty </a>
+											<a href="#" title="">Terms of Serice</a>
+											<a href="#" title="">Communications </a>
+											<a href="#" title="">Referral Terms </a>
+											<a href="#" title="">Lending Licnses </a>
+											<a href="#" title="">Disclaimers </a>	
+										</div>
+										<div class="col-lg-6">
+											<a href="#" title="">Support </a>
+											<a href="/how-it-works" title="how-it-works">How It Works </a>
+											<a href="#" title="">For Employers </a>
+											<a href="#" title="">Underwriting </a>
+											<a href="#" title="">Contact Us</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 column">
+							<div class="widget">
+								<h3 class="footer-title">Find Jobs</h3>
+								<div class="link_widgets">
+									<div class="row">
+										<div class="col-lg-12">
+											<a href="#" title="">US Jobs</a>	
+											<a href="#" title="">Canada Jobs</a>	
+											<a href="#" title="">UK Jobs</a>	
+											<a href="#" title="">Emplois en Fnce</a>	
+											<a href="#" title="">Jobs in Deuts</a>	
+											<a href="#" title="">Vacatures China</a>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 column">
+							<div class="widget">
+								<div class="download_widget">
+									<a href="#" title=""><img src="images/resource/dw1.png" alt=""></a>
+									<a href="#" title=""><img src="images/resource/dw2.png" alt=""></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-line">
+				<span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+				<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+			</div>
+		</footer>
+	</div>
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/parallax.js' %}"></script>
+<script src="{% static 'js/select-chosen.js' %}"></script>
 </body>
 </html>

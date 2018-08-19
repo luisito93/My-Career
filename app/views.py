@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from .forms import MyRegistrationForm, resume_upload
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from .models import Jobs, Company, Cv
-
+from .models import Jobs, Company, Cv, Education, Experience, Award
+from django.contrib.auth.models import User
 def index(request):
     context = {
         'title':'Find a Job | OdamaCareer',
@@ -34,23 +34,27 @@ def jobs(request):
 	if location:
 	    title = "All jobs in " + location
 	    results = Jobs.objects.filter(title__icontains=query, company__city__icontains=location)
+
 	elif not query and not location:
 	    title = "Job results"
-	    results = 0
+	    results = Jobs.objects.all().order_by("-created")
+
 	context = {
 	    'title':title,
 	    'items': results,
 		'location': location,
         'query': query,
     }
-
+    
 	return render(request, 'jobs.html', context)
 
 
 def job_at_company(request, slug):
-    company= Company.objects.get(slug=slug)
-    results = Jobs.objects.filter(company__slug=slug)
+    company = Company.objects.get(slug=slug)
+    results = Jobs.objects.filter(office__company__slug=slug)
+    title = 'Jobs at ' + str(company)
     context = {
+        'title':title,
         'company':company,
 	    'items':results
 	}
@@ -59,14 +63,17 @@ def job_at_company(request, slug):
 
 def job_detail(request,slug):
 	jobs = Jobs.objects.get(slug=slug)
+	title = str(jobs) + ' | OdamaCareer'
 	context = {
+		'title':title,
 		'jobs':jobs,
 	}
 	return render(request, 'job_detail.html', context)
 
 def company_detail(request,slug):
 	company = Company.objects.get(slug=slug)
-	jobs = Jobs.objects.filter(company__slug=slug)
+	jobs = Jobs.objects.filter(office__company__slug=slug)
+
 	context = {
 		'company':company,
 		'jobs':jobs,
@@ -104,7 +111,6 @@ def signup(request):
 		form = MyRegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			email = form.cleaned_data.get('email')
 			username = form.cleaned_data.get('username')
 			raw_password = form.cleaned_data.get('password1')
 			user = authenticate(username=username, password=raw_password)
@@ -122,6 +128,21 @@ def signup(request):
 		return redirect('/')
 	else:
 		return render(request, 'accounts/signup.html',{'form': form, 'title':'Sign Up',})
+
+def profile(request, user):
+	profile = User.objects.get(userprofile__user__username=user)
+	education = Education.objects.filter(user__username=user).order_by('-year')
+	cv = Cv.objects.get(user__userprofile__user__username=user)
+	experience = Experience.objects.filter(user__username=user).order_by("-job_to")
+	awards = Award.objects.filter(user__username=user).order_by("-year")
+	context = {
+		'profile':profile,
+		'education':education,
+		'cv':cv,
+		'experience':experience,
+		'awards':awards,
+	}
+	return render(request, 'profile.html',context)
 
 def resumes(request):
 	user = request.user
@@ -156,3 +177,6 @@ def upload_resume(request):
 		form = resume_upload()
 
 	return render(request, 'upload_resume.html',{'form':form, 'title':'Upload a Resume'})
+
+def how_it_works(request):
+	return render(request, 'others/how_it_works.html')

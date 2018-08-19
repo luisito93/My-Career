@@ -2,61 +2,116 @@
 {% block content %}
 {% load static %}
 {% load thumbnail %}
-<div class="company-profile main-body" id="main-content">
-	<div class="row">
-		<div class="small-12 large-6 large-push-3 columns">
-			<div class="card with-padding company-description">
-				<div class="small-12 item margin-bottom">
-					<h1>{{company.title}}</h1>
-				</div>
-				<div class="row bump">
-					<div class="small-12 columns item company-facts">
-						<span class="tag">Private</span>
-						<span class="tag">Training</span>
-						<span class="tag">Social Services</span>
-						<a class="tag clickable" href="/jobs/company/{{company.slug}}">{{jobs.count}} Active Jobs</a>
-					</div>
-				</div>
+<section class="overlape">
+		<div class="block no-padding">
+			<div data-velocity="-.1" style="background: url() repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax">
 			</div>
-		</div>
-		<div class="small-12 large-3 large-pull-6 columns left-sidebar">
-			<div class="card with-padding company-info-panel margin-below">
+			<div class="container fluid">
 				<div class="row">
-					<div class="small-12 columns item">
-						{% thumbnail company.logo "135x60" corp="centre" format="PNG" as im %} <center><img src="{{ im.url }}"></center> {% endthumbnail %}
-					</div>
-					<hr>
-					{% if company.website%}
-					<div class="small-12 columns item">
-						<h4>Website</h4>
-						<a href="http://{{company.website}}">https://{{company.website}}</a>
-					</div>
-					{% endif%}
-					<div class="small-12 medium-6 large-12 columns item bump">
-						<h4>Connect with Us</h4>
-						<div class="company-social">
-							<ul>
-								<li class="social-item">
-									<a class="facebook" href="https://www.facebook.com/NCSAsports" title="visit company facebook">
-										<img aria-hidden="true" src="{% static 'assets/social_icons/facebook-circle-079c9216f571cb2e35e488abd1cda7a03345f6749903ceb553698e34c04020c8.svg' %}">
-									</a>
-								</li>
-								{% if company.twitter != '' %}
-								<li class="social-item">
-									<a class="twitter" href="https://{{company.twitter}}" title="visit company twitter" target="blank">
-										<img aria-hidden="true" src="{% static 'assets/social_icons/twitter-circle-2195455afb835c81fa5beab78b43a448deeb4f0527f70e3acfecbebcf0a60d2c.svg' %}">
-									</a>
-								</li>
-{% endif %}
-							</ul>
+					<div class="col-lg-12">
+						<div class="inner-header">
+							<h3>{{company.title|capfirst}}</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="small-12 large-3 columns">
-			
+</section>
+<section>
+		<div class="block">
+			<div class="container">
+				<div class="row">
+				 	<div class="col-lg-12 column">
+				 		<div class="job-single-sec style3">
+				 			<div class="job-head-wide">
+				 				<div class="row">
+				 					<div class="col-lg-10">
+				 						<div class="job-single-head3 emplye">
+							 				<div class="job-thumb"> <img src="{{company.logo.url}}" alt="{{company.title}}" /></div>
+							 				<div class="job-single-info3">
+							 					<h3>{{company.title}}</h3>
+							 					<span><i class="la la-map-marker"></i>{{company.city}}</span>
+							 					<ul class="tags-jobs">
+								 					<li><i class="la la-file-text"></i> Jobs {{jobs.count}}</li>
+								 					<li><i class="la la-eye"></i> Views 5683</li>
+								 				</ul>
+							 				</div>
+							 			</div>
+				 					</div>
+				 					<div class="col-lg-2">
+				 						<div class="share-bar">
+							 				<a href="#" title="" class="share-google"><i class="fab fa-google-plus-g"></i></a>
+							 				<a href="#" title="" class="share-fb"><i class="fab fa-facebook-f"></i></a>
+							 				<a href="#" title="" class="share-twitter"><i class="fab fa-twitter"></i></a>
+							 			</div>
+								 		<div class="emply-btns">
+								 			<a class="seemap" href="#" title=""><i class="la la-map-marker"></i> See On Map</a>
+								 			<a class="followus" href="#" title=""><i class="la la-paper-plane"></i> Follow us</a>
+								 		</div>
+				 					</div>
+				 				</div>
+				 			</div>
+				 			<br>
+				 			<div class="job-wide-devider">
+							 	<div class="row">
+							 		<div class="col-lg-8 column">	
+							 			<div class="job-details">
+							 				<h3>About {{company.title}}</h3>
+							 				{{company.Description|safe|linebreaks}}
+							 			</div>
+								 		<div class="recent-jobs">
+							 				<h3>Jobs from {{company.title}}</h3>
+							 				<div class="job-list-modern">
+											 	<div class="job-listings-sec no-border">
+													{% for i in jobs %}
+													<div class="job-listing wtabs noimg">
+														<div class="job-title-sec">
+															<h3><a href="#" title="">{{i.title}}</a></h3>
+															<span>{{i.office.company.title}}</span>
+															<div class="job-lctn"><i class="la la-map-marker"></i>{{i.office.company.city}}</div>
+														</div>
+														<div class="job-style-bx">
+															<span class="job-is pt ">{{i.job_type}}</span>
+															<span class="fav-job"><i class="la la-heart-o"></i></span>
+															<i>{{i.created}}</i>
+														</div>
+													</div>
+													{% endfor %}
+												</div>
+											 </div>
+							 			</div>
+							 		</div>
+							 		<div class="col-lg-4 column">
+							 			<div class="job-overview">
+								 			<h3>Company Information</h3>
+								 			<ul>
+								 				<li><i class="la la-eye"></i><h3>Viewed </h3><span>164</span></li>
+								 				<li><i class="la la-file-text"></i><h3>Posted Jobs</h3><span>{{jobs.count}}</span></li>
+								 				<li><i class="la la-map"></i><h3>Location</h3><span>{{company.country.name}}, {{company.city}}</span></li>
+								 				<li><i class="la la-bars"></i><h3>Categories</h3><span>Arts, Design, Media</span></li>
+								 				<li><i class="la la-clock-o"></i><h3>Since</h3><span>{{company.since}}</span></li>
+								 				<li><i class="la la-users"></i><h3>Team Size</h3><span>15</span></li>
+								 				<li><i class="la la-user"></i><h3>Followers</h3><span>15</span></li>
+								 			</ul>
+								 		</div>
+								 		<div class="quick-form-job">
+								 			<h3>Contact Business Network</h3>
+								 			<form>
+								 				<input type="text" placeholder="Enter your Name *" />
+								 				<input type="text" placeholder="Email Address*" />
+								 				<input type="text" placeholder="Phone Number" />
+								 				<textarea placeholder="Message should have more than 50 characters"></textarea>
+								 				<button class="submit">Send Email</button>
+								 				<span>You accepts our <a href="#" title="">Terms and Conditions</a></span>
+								 			</form>
+								 		</div>
+							 		</div>
+							 	</div>
+							 </div>
+					 	</div>
+				 	</div>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
+	</section>
 {% endblock %}
