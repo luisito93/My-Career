@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Jobs, Company, Cv, Education, Experience, Award
 from django.contrib.auth.models import User
+
 def index(request):
     context = {
         'title':'Find a Job | OdamaCareer',
@@ -33,7 +34,7 @@ def jobs(request):
 	        
 	if location:
 	    title = "All jobs in " + location
-	    results = Jobs.objects.filter(title__icontains=query, company__city__icontains=location)
+	    results = Jobs.objects.filter(title__icontains=query, office__company__city__icontains=location)
 
 	elif not query and not location:
 	    title = "Job results"
