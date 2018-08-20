@@ -26,10 +26,10 @@ class Company(models.Model):
 	Description = FroalaField()
 	since = models.IntegerField(choices=YEAR_CHOICES, default=current_year)
 	contact_info = models.CharField(max_length=100, blank=False, default="")
-	website = models.CharField(max_length=100,blank=False,default="")
-	facebook = models.CharField(max_length=100, blank=True)
-	twitter = models.CharField(max_length=100, blank=True)
-	linkedin = models.CharField(max_length=100, blank=True)
+	website = models.URLField(max_length=100,blank=False,default="")
+	facebook = models.URLField(max_length=100, blank=True)
+	twitter = models.URLField(max_length=100, blank=True)
+	linkedin = models.URLField(max_length=100, blank=True)
 	logo = models.ImageField(upload_to=image_path, default=0)
 
 	def save(self, *args, **kwargs):
