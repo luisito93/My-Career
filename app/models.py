@@ -94,6 +94,7 @@ class UserProfile(models.Model):
 	avatar = models.ImageField(validators=[face_detiction], upload_to='profile_images',default='/default.jpg', blank=False)
 	country = CountryField(default='', blank=False)
 	city = models.CharField(max_length=100, default='', blank=False)
+	industry = models.CharField(max_length=100, default='', blank=False)
 	gender = models.CharField(max_length=100, choices=(('Male', 'Male'),('Female', 'Female')),default='Male')
 	about = models.TextField(max_length=255, default='',blank=False)
 	created = models.DateTimeField(auto_now_add=True)

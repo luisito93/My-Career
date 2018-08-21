@@ -6,7 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Jobs, Company, Cv, Education, Experience, Award
 from django.contrib.auth.models import User
-
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.http import JsonResponse
+from django.core import serializers
+from json import loads as json_loads
 def index(request):
     context = {
         'title':'Find a Job | OdamaCareer',
@@ -29,7 +33,7 @@ def jobs(request):
 	    title = query + " Jobs"
 	    
 	    if location:
-	        results = Jobs.objects.filter(company__city__icontains=location)
+	        results = Jobs.objects.filter(office__company__city__icontains=location)
 	        title = query + " Jobs " + "in " + location
 	        
 	if location:
@@ -49,6 +53,19 @@ def jobs(request):
     
 	return render(request, 'jobs.html', context)
 
+def browse(request):
+	company = Company.objects.all()
+
+	context = {
+		'company':company,
+	}
+	return render(request, 'browse.html', context)
+
+def browse_jobs(request):
+    keyword = request.GET.get('keyword', None)
+    company = Company.objects.filter(title__icontains=keyword)
+    data = serializers.serialize("json", company, fields=('title','country','city','logo'))
+    return JsonResponse({'data':json_loads(data),})
 
 def job_at_company(request, slug):
     company = Company.objects.get(slug=slug)
@@ -129,6 +146,23 @@ def signup(request):
 		return redirect('/')
 	else:
 		return render(request, 'accounts/signup.html',{'form': form, 'title':'Sign Up',})
+
+def password_change(request):
+	if request.method == 'POST':
+		form = PasswordChangeForm(request.user, request.POST)
+		if form.is_valid():
+			user = form.save()
+			update_session_auth_hash(request, user)
+			return redirect('/profile/' + request.user.username)
+		else:
+			messages.error(request, 'Please correct the error below.')
+	else:
+		form = PasswordChangeForm(request.user)
+
+	context = {
+		'form':form,
+	}
+	return render(request, 'accounts/change_password.html', context)
 
 def profile(request, user):
 	profile = User.objects.get(userprofile__user__username=user)

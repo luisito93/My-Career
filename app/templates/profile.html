@@ -45,7 +45,7 @@
 					<div class="cand-single-user">
 						<div class="share-bar circle"></div>
 			 			<div class="can-detail-s">
-			 				<div class="cst"><img src="{{profile.userprofile.avatar.url}}" alt=""></div>
+			 				<div class="cst"><img src="{{profile.userprofile.avatar.url}}" alt="{{profile.first_name}} {{profile.last_name}}"></div>
 			 				<h3>{{profile.first_name}} {{profile.last_name}}</h3>
 			 				{% if experience %}
 			 				<span><i>{{experience.0.job_title}}</i> at {{experience.0.company}}</span>
@@ -70,7 +70,7 @@
 							 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£15,000 - £20,000</span></li>
 							 				<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{profile.userprofile.gender}}</span></li>
 							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>Executive</span></li>
-							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>Management</span></li>
+							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{profile.userprofile.industry}}</span></li>
 							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>
 							 				{% if experience.count == 0 %} 
 							 					0 Years
@@ -97,7 +97,7 @@
 				 									<span>{{i.school.name}} 
 				 										<i>{{i.degree}}</i>
 				 									</span>
-				 									<p>{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+				 									<p>{{i.education_description}}</p>
 				 								</div>
 				 							</div>
 				 							{% endfor %}
@@ -106,7 +106,7 @@
 			 						<div class="edu-history-sec">
 			 							<h2>Work &amp; Experience</h2>
 			 							{% if experience.count == 0 %}
-				 							<p>No Education History</p>
+				 							<p>No Working History</p>
 				 							{% else %}
 					 							{% for i in experience %}
 						 							<div class="edu-history style2">

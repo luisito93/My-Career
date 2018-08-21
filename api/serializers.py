@@ -7,7 +7,7 @@ class CompanySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Company
-        fields = ('title','city','contact_info','website','facebook','twitter','linkedin','logo')
+        fields = ('title','country','Description', 'city','contact_info','website','facebook','twitter','linkedin','logo')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

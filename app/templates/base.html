@@ -48,7 +48,7 @@
 					</span>
 				</div>
 			{% endif %}
-			<form class="res-search">
+			<form methode="GET" action="/jobs-" class="res-search">
 				<input name="keywords" type="text" placeholder="Job title, keywords or company name" />
 				<button type="submit"><i class="la la-search"></i></button>
 			</form>
@@ -160,10 +160,10 @@
 					</div>
 					{% if not user.is_authenticated %}
 					<div class="btn-extars">
-						<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+						<a href="#" title="" class="post-job-btn">Browse Jobs</a>
 						<ul class="account-btns">
-							<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-							<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
+							<li class="signup-popup"><a href="/register" title=""><i class="la la-key"></i> Sign Up</a></li>
+							<li class="signin-popup"><a href="/login" title=""><i class="la la-external-link-square"></i> Login</a></li>
 						</ul>
 					</div>
 					{% else %}
@@ -174,10 +174,13 @@
 						<i class="la la-angle-down"></i>
 					</span>
 					<ul style="display: none;">
+						{% if user.is_superuser %}
+						<li><a href="/admin" title=""><i class="la la-briefcase"></i> Admin Panel</a></li>
+						{% endif %}
 						<li><a href="#" title=""><i class="la la-briefcase"></i> Manage Jobs</a></li>
 						<li><a href="/resumes" title=""><i class="la la-magnet"></i> Resumes</a></li>
 						<li><a href="#" title=""><i class="la la-phone"></i> Job Alerts</a></li>
-						<li><a href="#" title=""><i class="la la-key"></i> Change Password</a></li>
+						<li><a href="/password_change" title=""><i class="la la-key"></i> Change Password</a></li>
 						<li><a href="/logout" title=""><i class="la la-history"></i> Logout</a></li>
 					</ul>
 				</div>
