@@ -24,7 +24,9 @@ def index(request):
 def jobs(request):
 	query = request.GET.get('keywords')
 	location = request.GET.get('location')
-	
+	order = request.GET.get('order_by')
+	per_page = request.GET.get('per_page')
+
 	if query:
 	    results = Jobs.objects.filter(title__icontains=query)
 	    title = query + " Jobs"
@@ -39,18 +41,29 @@ def jobs(request):
 
 	elif not query and not location:
 	    title = "Job results"
-	    results = Jobs.objects.all().order_by("-created")
+	    results = Jobs.objects.all()
 
-	paginator = Paginator(results, 9)
+	if order:
+		results = results.order_by(order)
+	else:
+		order = "created"
+
+	if per_page:
+		paginator = Paginator(results, per_page)
+	else:
+		per_page = 1
+		paginator = Paginator(results, per_page)
+
 	page = request.GET.get('page')
 	results = paginator.get_page(page)
-
-	
+	print(order)
 	context = {
 	    'title':title,
 	    'items': results,
 		'location': location,
         'query': query,
+        'order':order,
+        'per_page':per_page,
     }
     
 	return render(request, 'jobs.html', context)

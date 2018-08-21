@@ -49,15 +49,15 @@
 				 			<h5>{{items.count}} Jobs &amp; Vacancies</h5>
 				 			<div class="sortby-sec">
 				 				<span>Sort by</span>
-				 				<select data-placeholder="Most Recent" class="chosen" style="display: none;">
-									<option>Most Recent</option>
-									<option>Relevance</option>
+				 				<select onchange="location = this.value;" data-placeholder="Most Recent" class="chosen" style="display: none;">
+									<option {% if order == "created" %} selected {% endif %} value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page={{per_page}}">Most Recent</option>
+									<option {% if order == "relevance" %} selected {% endif %} value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=relevance&per_page={{per_page}}">Relevance</option>
 								</select>
-								<select data-placeholder="20 Per Page" class="chosen" style="display: none;">
-									<option>30 Per Page</option>
-									<option>40 Per Page</option>
-									<option>50 Per Page</option>
-									<option>60 Per Page</option>
+								<select onchange="location = this.value;" data-placeholder="20 Per Page" class="chosen" style="display: none;">
+									<option value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page=9" {% if per_page == "9" %} selected {% endif %} >9 Per Page</option>
+									<option value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page=12" {% if per_page == "12" %} selected {% endif %} >12 Per Page</option>
+									<option value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page=15" {% if per_page == "15" %} selected {% endif %} >15 Per Page</option>
+									<option value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page=18" {% if per_page == "18" %} selected {% endif %} >18 Per Page</option>
 								</select>
 				 			</div>
 				 		</div>
@@ -83,17 +83,17 @@
 						<div class="pagination">
 							<ul>
 							  {% if items.has_previous %}
-							    <li class="prev"><a href="?keywords={{query}}&location={{location}}&page={{ items.previous_page_number }}"><i class="la la-long-arrow-left"></i> Prev</a></li>
+							    <li class="prev"><a href="?keywords={{query}}&location={{location}}&page={{ items.previous_page_number }}&order_by={{order}}&per_page={{per_page}}"><i class="la la-long-arrow-left"></i> Prev</a></li>
 							  {% endif %}
 							  {% for num in items.paginator.page_range %}
 							    {% if items.number == num %}
-							    <li class="active"><a href="?keywords={{query}}&location={{location}}&page={{ num }}">{{ num }}</a></li>
+							    <li class="active"><a href="?keywords={{query}}&location={{location}}&page={{ num }}&order_by={{order}}">{{ num }}</a></li>
 							    {% elif num > items.number|add:'-3' and num < items.number|add:'3' %}
-							    <li><a href="?keywords={{query}}&location={{location}}&?page={{ num }}">{{ num }}</a></li>
+							    <li><a href="?keywords={{query}}&location={{location}}&?page={{ num }}&order_by={{order}}&per_page={{per_page}}">{{ num }}</a></li>
 							    {% endif %}
 							  {% endfor %}
 							  {% if items.has_next %}
-							    <li class="next"><a href="?keywords={{query}}&location={{location}}&page={{ items.next_page_number }}">Next <i class="la la-long-arrow-right"></i></a></li>
+							    <li class="next"><a href="?keywords={{query}}&location={{location}}&page={{ items.next_page_number }}&order_by={{order}}&per_page={{per_page}}">Next <i class="la la-long-arrow-right"></i></a></li>
 							  {% endif %}
 							</ul>
 						</div>
