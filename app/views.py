@@ -11,17 +11,14 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.http import JsonResponse
 from django.core import serializers
 from json import loads as json_loads
+from django.core.paginator import Paginator
+
+
 def index(request):
     context = {
         'title':'Find a Job | OdamaCareer',
     }
-    
-    if request.method == 'GET':
-        response = HttpResponse("cookie")
-        response.set_cookie('hhh',"khra")
-        value = request.COOKIES.get('hhh')
-        print(value)
-          
+
     return render(request,"index.html",context)
     
 def jobs(request):
@@ -44,6 +41,11 @@ def jobs(request):
 	    title = "Job results"
 	    results = Jobs.objects.all().order_by("-created")
 
+	paginator = Paginator(results, 9)
+	page = request.GET.get('page')
+	results = paginator.get_page(page)
+
+	
 	context = {
 	    'title':title,
 	    'items': results,
