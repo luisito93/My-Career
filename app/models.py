@@ -1,8 +1,9 @@
+from django.conf import settings
 from django.db import models
 import datetime
 from django.contrib.auth.models import BaseUserManager
 from django.utils.text import slugify
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from .validators import validate_file_extension,image_path, face_detiction
 from django.utils.crypto import get_random_string
 from sorl.thumbnail import ImageField, get_thumbnail
@@ -11,12 +12,17 @@ from djmoney.models.fields import MoneyField
 from django.db.models.signals import post_save
 from django_countries.fields import CountryField
 
+User = settings.AUTH_USER_MODEL
+
+
 YEAR_CHOICES = []
 for r in range(1800, (datetime.datetime.now().year+1)):
 	YEAR_CHOICES.append((r,r))
 
+
 def current_year():
 	return datetime.date.today().year
+
 
 class Company(models.Model):
 	title = models.CharField(max_length=100, blank=False)
@@ -105,7 +111,7 @@ class UserProfile(models.Model):
 		super(UserProfile, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.user.username
+		return self.user.email
 
 def create_profile(sender, **kwargs):
     if kwargs['created']:
@@ -136,7 +142,7 @@ class Experience(models.Model):
 	job_to = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
 	
 	def __str__(self):
-		return self.user.username
+		return self.user.email
 
 
 class Award(models.Model):
@@ -146,4 +152,8 @@ class Award(models.Model):
 	year = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
 	
 	def __str__(self):
+<<<<<<< HEAD
 		return self.user.username
+=======
+		return self.user.email
+>>>>>>> task/abstract-user-model
