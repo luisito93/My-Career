@@ -1,0 +1,1505 @@
+[
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||6659c752a745852b612b5bdfc7fdbc02",
+  "fields": {
+    "value": "{\"name\": \"cache/75/8e/758e48d7fe71f4a6b1e84fbbc06e27cd.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [124, 124]}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||7902e906b2caefb96e317578ca93a162",
+  "fields": {
+    "value": "{\"name\": \"logo/L6t4mohNpEeYdKNBXHxWpfuhYAaqSKNp.jpg\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [693, 693]}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||8f1e02ab811f458b93a87854b45a12d1",
+  "fields": {
+    "value": "{\"name\": \"cache/bf/f8/bff8796e0da4e1ef9b1ce4a9fc86226d.png\", \"storage\": \"django.core.files.storage.FileSystemStorage\", \"size\": [115, 115]}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||thumbnails||7902e906b2caefb96e317578ca93a162",
+  "fields": {
+    "value": "[\"6659c752a745852b612b5bdfc7fdbc02\", \"8f1e02ab811f458b93a87854b45a12d1\"]"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "thumbnail",
+    "model": "kvstore"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "accounts",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "app",
+    "model": "company"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "app",
+    "model": "cv"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "app",
+    "model": "education"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "app",
+    "model": "jobs"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "app",
+    "model": "office"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "app",
+    "model": "school"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "app",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "app",
+    "model": "experience"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "app",
+    "model": "award"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hycj8gc22m9lnzsbs5i9dtwi7avt8tu5",
+  "fields": {
+    "session_data": "YzhhM2JkZGNjMzczMzdjMTlmYjU0ZDVjMzY4ZWQ2NWUwOTk3ODMzNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkY2Y0YjU2YTIxOWU4NGNmNGEzZTUyZDgzNzkyOWU5ZjhhZWQ2MTMxIn0=",
+    "expire_date": "2018-09-05T10:15:50.832Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "i7g40pscxaqe08ivwmq5l2j71ygkxy3p",
+  "fields": {
+    "session_data": "NmY5ODQ2YjllNzQ3MTJiOTk4ZGFjZDFlNTk2MDQ2MDBlZTYzMTcxZDp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1ZWE1Yjc4MDg3MmU1YTYwNGRhMDkxOWJkMDZiOWRhZjNmOTUyZGZkIn0=",
+    "expire_date": "2018-09-05T07:29:54.283Z"
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$pe0EHJ2FupoA$W0izvOgM+xZoygeOnnqGVUFKCQ4dIj/7RqCbdacfHFs=",
+    "last_login": "2018-08-22T10:15:50.783Z",
+    "email": "sunil9766@gmail.com",
+    "first_name": null,
+    "last_name": null,
+    "full_name": "Sunil",
+    "active": true,
+    "staff": true,
+    "admin": true,
+    "timestamp": "2018-08-22T06:47:28.824Z",
+    "confirm": false
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$8rMchGhiapOW$oYVdRbBWOWkEO6xlHZum9NAWu5Ug4+xjfW954Ny54rg=",
+    "last_login": "2018-08-22T07:23:18.731Z",
+    "email": "test_user01@gmail.com",
+    "first_name": null,
+    "last_name": null,
+    "full_name": null,
+    "active": true,
+    "staff": false,
+    "admin": false,
+    "timestamp": "2018-08-22T07:13:28.107Z",
+    "confirm": false
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$UHHNUyzKUZVJ$9wAzcCDZgNN6Cudx3YRo5o82vK6GiTiQfgAZp+8tY1c=",
+    "last_login": "2018-08-22T07:19:47.884Z",
+    "email": "test_user02@gmail.com",
+    "first_name": null,
+    "last_name": null,
+    "full_name": null,
+    "active": true,
+    "staff": false,
+    "admin": false,
+    "timestamp": "2018-08-22T07:19:47.308Z",
+    "confirm": false
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$2jRkbUbXyw08$TWD/5FpfEz51jj8H52q1IZHGcJMVHFABFGUxv7nso4g=",
+    "last_login": "2018-08-22T09:28:23.916Z",
+    "email": "test_user03@gmail.com",
+    "first_name": null,
+    "last_name": null,
+    "full_name": "user3 test3",
+    "active": true,
+    "staff": false,
+    "admin": false,
+    "timestamp": "2018-08-22T09:28:23.456Z",
+    "confirm": false
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$100000$WJq1a9TGT42W$kKWs4xmv9kZJ2xFjhuWG0D0TSFB7Z/UMxUVdAxhRCac=",
+    "last_login": "2018-08-22T09:45:49.948Z",
+    "email": "test_user04@gmail.com",
+    "first_name": "user4",
+    "last_name": "test4",
+    "full_name": "user4 test4",
+    "active": true,
+    "staff": false,
+    "admin": false,
+    "timestamp": "2018-08-22T09:45:49.451Z",
+    "confirm": false
+  }
+},
+{
+  "model": "app.company",
+  "pk": 1,
+  "fields": {
+    "title": "JobHunt",
+    "slug": "cxHFpMBg0nWnAKKq",
+    "city": "Pune",
+    "country": "IN",
+    "Description": "<p>Python Developer</p>",
+    "since": 2018,
+    "contact_info": "7276496098",
+    "website": "http://127.0.0.1:8000",
+    "facebook": "",
+    "twitter": "",
+    "linkedin": "",
+    "logo": "logo/L6t4mohNpEeYdKNBXHxWpfuhYAaqSKNp.jpg"
+  }
+},
+{
+  "model": "app.office",
+  "pk": 1,
+  "fields": {
+    "company": 1,
+    "country": "IN",
+    "city": "Pune"
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 1,
+  "fields": {
+    "title": "Python Developer",
+    "slug": "5umQ3BXE5sQB2DuJEUORfAYIXTKT1siW",
+    "office": 1,
+    "salery_currency": "USD",
+    "salery": "0",
+    "Description": "<p>Python Developer</p>",
+    "created": "2018-08-22T10:20:23.501Z",
+    "updated": "2018-08-22T10:20:23.501Z",
+    "job_type": "Full Time",
+    "tags": "['python', ' django']",
+    "applyed_users": [
+      2
+    ],
+    "saved_users": [
+      2
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 2,
+  "fields": {
+    "title": "mean developer",
+    "slug": "LKgAkXvsDBWIA2kUmCGdxcIrKuI0LckU",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "30000",
+    "Description": "<p>node, mongodb, angular, express</p>",
+    "created": "2018-08-22T10:23:13.016Z",
+    "updated": "2018-08-22T10:23:13.016Z",
+    "job_type": "Full Time",
+    "tags": "['node', ' mongodb', ' angular', ' express']",
+    "applyed_users": [
+      3
+    ],
+    "saved_users": [
+      2
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 3,
+  "fields": {
+    "title": "React Developer",
+    "slug": "mjwaoMQF13pOo06hFYi5iT1rtdkCyM73",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "20000",
+    "Description": "<p>React js, node js</p>",
+    "created": "2018-08-22T10:23:57.870Z",
+    "updated": "2018-08-22T10:23:57.870Z",
+    "job_type": "Full Time",
+    "tags": "['React js', ' node js']",
+    "applyed_users": [
+      4
+    ],
+    "saved_users": [
+      4
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 4,
+  "fields": {
+    "title": "Ios Developer",
+    "slug": "IH24Mgza05C8HHKST0nyUVGukD56jG0P",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "25000",
+    "Description": "<p>ios developer</p>",
+    "created": "2018-08-22T10:41:48.894Z",
+    "updated": "2018-08-22T10:41:48.894Z",
+    "job_type": "Full Time",
+    "tags": "['ios']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 5,
+  "fields": {
+    "title": "Test Engineer",
+    "slug": "AXX4MmCgfs6u3wY9OlNKV6SdXBaSd5cA",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "25000",
+    "Description": "<p>Test Engineer</p>",
+    "created": "2018-08-22T10:51:19.520Z",
+    "updated": "2018-08-22T10:51:19.520Z",
+    "job_type": "Full Time",
+    "tags": "['testing']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 6,
+  "fields": {
+    "title": "Junior Business Operations Lead",
+    "slug": "iH7XsxxV9m3Emk0dWJlcQP7Bu08tdoRv",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "20000",
+    "Description": "<p>Own Business Operations for the Central Europe region (Germany, Austria) directly supporting the country general manager and wider staff team, as well as supporting customer fulfillment and CA attainment.</p>",
+    "created": "2018-08-22T10:52:45.812Z",
+    "updated": "2018-08-22T10:52:45.812Z",
+    "job_type": "Full Time",
+    "tags": "['Operations']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 7,
+  "fields": {
+    "title": "Senior Service Advisor/ Front of House Manager",
+    "slug": "onPa4isEuX3M2WcAmXJpmjXg3IJj3LsC",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "50000",
+    "Description": "<p>We are currently recruiting for a experienced Senior Service Advisor and Front of House Manager to ensure the smooth running of the Service Department. You will take great pride in providing the best customer service whilst looking after a team of 5-7 staff members.</p>",
+    "created": "2018-08-22T10:53:38.367Z",
+    "updated": "2018-08-22T10:53:38.367Z",
+    "job_type": "Full Time",
+    "tags": "['Manager']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 8,
+  "fields": {
+    "title": "Nanny job in York - 3 children",
+    "slug": "6ChkadFBs4m8yije8QRWPcjdfKMagskU",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "25000",
+    "Description": "<p>The Nanny should be capable and responsible, including getting the older children ready for school, taking and collecting from school, preparing nutritious meals, organising &#39;play-dates&#39;; outings to the park and other age applicable social activities. All aspects of childcare and nanny duties will all be part of this fabulous role with this lovely family.</p>",
+    "created": "2018-08-22T10:54:23.098Z",
+    "updated": "2018-08-22T10:54:23.098Z",
+    "job_type": "Full Time",
+    "tags": "['nany']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 9,
+  "fields": {
+    "title": "Windows 10 Testing Coordinator",
+    "slug": "qCif7XteDZDe7msLNCeVHJQrsYUS1ipV",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "15000",
+    "Description": "<p>Windows 10 Testing Coordinator required to support the migration &amp;amp; testing of over 300 applications to approximately 12,000 users from Windows 7 &amp;amp; 8.1 to Windows 10. Applications will range from mission critical to non-critical.</p>",
+    "created": "2018-08-22T10:55:06.676Z",
+    "updated": "2018-08-22T10:55:06.676Z",
+    "job_type": "Full Time",
+    "tags": "['windows']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 10,
+  "fields": {
+    "title": "Customer Consultant",
+    "slug": "ZKCKJwVoCJLXmcDa3sEY68YO9BbgK8rs",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "20000",
+    "Description": "<p>Customer Consultants must be analytical, have great attention to detail, be enquiring and able to think differently. They spend their time problem solving customer&#39;s most complex corporate pension administration queries and are free to innovate new solutions whilst working within the governance framework. Every day is different and you must be able to respond quickly and positively to an often rapidly changing situation.</p>",
+    "created": "2018-08-22T10:56:00.548Z",
+    "updated": "2018-08-22T10:56:00.548Z",
+    "job_type": "Full Time",
+    "tags": "['customer', ' consultants']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 11,
+  "fields": {
+    "title": "Web Developer ( Websites & Apps)",
+    "slug": "si27lDgeQRxxloZ0vrdor8kr0C1WWVnx",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "20000",
+    "Description": "<p>e working with our digital team and creative studio to build functional, responsive websites, iOS &amp;amp; Android mobile apps and digital products using PHP, WordPress, Drupal, JavaScript, CSS3 and HTML5. Working on a fantastic range of blue chip clients you will be responsible for the development, testing and delivery of websites, apps and games; so you&rsquo;ll need an excellent understanding of coding limitations not to mention possessing excellent organisational and self-management skills as you will be taking most of these projects through from initial ideas to completion. You will be an integral part of the creative technology digital team and will be actively participating in the creative design, and development of a variety of digital projects and website development using HTML, CSS JavaScript and WordPress. Developing web pages and interfaces, creating the look and feel of the websites for a variety of clients You will need to be able to demonstrate competent experience in developing eye-catching websites with experience in PHP, HTML5, CSS and JavaScript WordPress or Magento and iOS or Android App development experience and some UI and UX design would be an added advantage You will probably have a portfolio to showcase your recent work that will demonstrate your passion and experience</p>",
+    "created": "2018-08-22T10:58:00.635Z",
+    "updated": "2018-08-22T10:58:00.635Z",
+    "job_type": "Full Time",
+    "tags": "['web']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 12,
+  "fields": {
+    "title": "Web Developer - PHP / Backend - Rugby - \u00a340k",
+    "slug": "b0EVLDzrCGgLXwTFNdFEO6xQ9d5v1AK3",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "22000",
+    "Description": "<p>Full service creative agency is looking for a Front End Web Developer. You will be working with our digital team and creative studio to build functional, responsive websites, iOS &amp;amp; Android mobile apps and digital products using PHP, WordPress, Drupal, JavaScript, CSS3 and HTML5. Working on a fantastic range of blue chip clients you will be responsible for the development, testing and delivery of websites, apps and games; so you&rsquo;ll need an excellent understanding of coding limitations not to mention possessing excellent organisational and self-management skills as you will be taking most of these projects through from initial ideas to completion. You will be an integral part of the creative technology digital team and will be actively participating in the creative design, and development of a variety of digital projects and website development using HTML, CSS JavaScript and WordPress. Developing web pages and interfaces, creating the look and feel of the websites for a variety of clients You will need to be able to demonstrate competent experience in developing eye-catching websites with experience in PHP, HTML5, CSS and JavaScript WordPress or Magento and iOS or Android App development experience and some UI and UX design would be an added advantage You will probably have a portfolio to showcase your recent work that will demonstrate your passion and experience</p>",
+    "created": "2018-08-22T10:58:45.076Z",
+    "updated": "2018-08-22T10:58:45.076Z",
+    "job_type": "Full Time",
+    "tags": "['web', ' ruby', ' ui', 'ux']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 13,
+  "fields": {
+    "title": "Web Designer",
+    "slug": "TWenWcGCFy871z7PvVkpqWDKhEakC71H",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "15000",
+    "Description": "<p>Due to our continued growth we are now looking for a web designer to take over the design and maintenance of our global online presence. We&#39;re looking for a candidate who has experience in WordPress content management systems and who has maintained intuitive, professional and well designed websites for medium to larger sized companies. If your portfolio includes clean, modern websites built using mobile optimised best practices with excellent navigational structures then we want to hear from you. Your Responsibilities: - Maintain our company websites - Create visual layouts for web pages using HTML and CSS - Maintain and update all JQuery plugins - Implement and maintain high-quality SEO policies and incorporate them with content produced for the website Required Skills: - 2+ years (paid) web design experience - Advanced Photoshop and Illustrator skills and InDesign Skills are essential - Knowledge of WordPress standards and functionality - Professional portfolio with at least 5 designs for internal review - Proficiency with HTML, CSS, Javascript and JQuery is beneficial but not essential</p>",
+    "created": "2018-08-22T10:59:26.253Z",
+    "updated": "2018-08-22T10:59:26.253Z",
+    "job_type": "Full Time",
+    "tags": "['web design']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 14,
+  "fields": {
+    "title": "Web Developer Wordpress",
+    "slug": "gyuNIRWA6F4F8KWE3XA3FVclHxKm62bU",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "35000",
+    "Description": "<p>You will be joining a dynamic and fast-paced environment, working with cross-functional team that is responsible for all aspects of the ongoing web development from the initial specification, through to developing, testing and launching of a suite of impressive Wordpress based web sites.</p>",
+    "created": "2018-08-22T11:00:09.263Z",
+    "updated": "2018-08-22T11:00:09.263Z",
+    "job_type": "Full Time",
+    "tags": "['wordpress', ' web developer']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 15,
+  "fields": {
+    "title": "Web Developer - PHP / WordPress - Circa \u00a335,000 - Southam",
+    "slug": "JqeK3WQHPG6YQ7ORc7VZwEmHSrbAnFeY",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "35000",
+    "Description": "<p>The client is a successful online marketing agency looking to expand their team with a Wordpress and PHP specialist. The exciting role will be a diverse one, meeting clients face-to-face to discuss requirements and offer solutions, and taking the project through the full development cycle to implementation.</p>",
+    "created": "2018-08-22T11:01:35.339Z",
+    "updated": "2018-08-22T11:01:35.339Z",
+    "job_type": "Full Time",
+    "tags": "['wordpress']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.jobs",
+  "pk": 16,
+  "fields": {
+    "title": "Website Developer",
+    "slug": "GdcgPqdsoKqUOrHGLuOLmTQRoztiKNrn",
+    "office": 1,
+    "salery_currency": "INR",
+    "salery": "25000",
+    "Description": "<p>We are recruiting for an experienced, dedicated and enthusiastic Website Developer for an industry leading Digital Marketing business in Westbury. This busy and varied role is focused around developing and maintaining the current website by using your technical expertise! We are seeking candidates with a strong working knowledge and a demonstrable history of... PHP, Linux, Apache and MySQL WordPress MVC framework (preferably CodeIgniter) E-commerce platforms (Magento and WooCommerce in particular) JavaScript jQuery, HTML and CSS Salary is negotiable and will be based on your experience.</p>",
+    "created": "2018-08-22T11:02:21.291Z",
+    "updated": "2018-08-22T11:02:21.291Z",
+    "job_type": "Full Time",
+    "tags": "['web']",
+    "applyed_users": [
+      5
+    ],
+    "saved_users": [
+      5
+    ]
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "cv": "",
+    "slug": "0ks4k6BoKKsS9KK2q9n4sHKL9yKom29k",
+    "job_title": "",
+    "created": "2018-08-22T06:47:28.914Z",
+    "updated": "2018-08-22T06:47:28.914Z"
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "cv": "",
+    "slug": "U6M0h4EMpnjPK2wAUOcN4GqY8G8KDuH3",
+    "job_title": "",
+    "created": "2018-08-22T07:13:28.115Z",
+    "updated": "2018-08-22T07:13:28.115Z"
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "cv": "",
+    "slug": "8z0r42FQIDPG5SWCjQ5piR0CakMBt4WI",
+    "job_title": "",
+    "created": "2018-08-22T07:19:47.408Z",
+    "updated": "2018-08-22T07:19:47.408Z"
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "cv": "",
+    "slug": "P42G1Xux9gn3kgxtDZCOqY8ZNpze2Cm1",
+    "job_title": "",
+    "created": "2018-08-22T09:28:23.542Z",
+    "updated": "2018-08-22T09:28:23.542Z"
+  }
+},
+{
+  "model": "app.cv",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "cv": "",
+    "slug": "V7rcJTVJ53hnrP7kYDniwYYbCFtUUDlW",
+    "job_title": "",
+    "created": "2018-08-22T09:45:49.556Z",
+    "updated": "2018-08-22T09:45:49.556Z"
+  }
+},
+{
+  "model": "app.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "slug": "OgHgmNmseqFvGwW1ymuFpMjXGa7NEnmR",
+    "avatar": "/default.jpg",
+    "country": "",
+    "city": "",
+    "industry": "",
+    "gender": "Male",
+    "about": "",
+    "created": "2018-08-22T06:47:28.871Z",
+    "updated": "2018-08-22T06:47:28.871Z"
+  }
+},
+{
+  "model": "app.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "slug": "jAbhaqO5JwScJUfRJXptEV2iBp74VhtJ",
+    "avatar": "/default.jpg",
+    "country": "",
+    "city": "",
+    "industry": "",
+    "gender": "Male",
+    "about": "",
+    "created": "2018-08-22T07:13:28.110Z",
+    "updated": "2018-08-22T07:13:28.110Z"
+  }
+},
+{
+  "model": "app.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "slug": "of6r08UQidtltUZnZRtImaAn1UG1pX10",
+    "avatar": "/default.jpg",
+    "country": "",
+    "city": "",
+    "industry": "",
+    "gender": "Male",
+    "about": "",
+    "created": "2018-08-22T07:19:47.357Z",
+    "updated": "2018-08-22T07:19:47.357Z"
+  }
+},
+{
+  "model": "app.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "slug": "udDmhuGz7U4sYv0TsVbjfVmoZGZivORO",
+    "avatar": "/default.jpg",
+    "country": "",
+    "city": "",
+    "industry": "",
+    "gender": "Male",
+    "about": "",
+    "created": "2018-08-22T09:28:23.499Z",
+    "updated": "2018-08-22T09:28:23.499Z"
+  }
+},
+{
+  "model": "app.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "slug": "b8TcEJOGZU23lJiIhzyA0D3mHIq5mB0Y",
+    "avatar": "/default.jpg",
+    "country": "",
+    "city": "",
+    "industry": "",
+    "gender": "Male",
+    "about": "",
+    "created": "2018-08-22T09:45:49.507Z",
+    "updated": "2018-08-22T09:45:49.507Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add kv store",
+    "content_type": 1,
+    "codename": "add_kvstore"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change kv store",
+    "content_type": 1,
+    "codename": "change_kvstore"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete kv store",
+    "content_type": 1,
+    "codename": "delete_kvstore"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 2,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 2,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 2,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 4,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 4,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 4,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 7,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 7,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 7,
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 8,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 8,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 8,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add company",
+    "content_type": 9,
+    "codename": "add_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change company",
+    "content_type": 9,
+    "codename": "change_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete company",
+    "content_type": 9,
+    "codename": "delete_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can add cv",
+    "content_type": 10,
+    "codename": "add_cv"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can change cv",
+    "content_type": 10,
+    "codename": "change_cv"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can delete cv",
+    "content_type": 10,
+    "codename": "delete_cv"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can add education",
+    "content_type": 11,
+    "codename": "add_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can change education",
+    "content_type": 11,
+    "codename": "change_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can delete education",
+    "content_type": 11,
+    "codename": "delete_education"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can add jobs",
+    "content_type": 12,
+    "codename": "add_jobs"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can change jobs",
+    "content_type": 12,
+    "codename": "change_jobs"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can delete jobs",
+    "content_type": 12,
+    "codename": "delete_jobs"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add office",
+    "content_type": 13,
+    "codename": "add_office"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change office",
+    "content_type": 13,
+    "codename": "change_office"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete office",
+    "content_type": 13,
+    "codename": "delete_office"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add school",
+    "content_type": 14,
+    "codename": "add_school"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change school",
+    "content_type": 14,
+    "codename": "change_school"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete school",
+    "content_type": 14,
+    "codename": "delete_school"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can add user profile",
+    "content_type": 15,
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can change user profile",
+    "content_type": 15,
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can delete user profile",
+    "content_type": 15,
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can add experience",
+    "content_type": 16,
+    "codename": "add_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can change experience",
+    "content_type": 16,
+    "codename": "change_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can delete experience",
+    "content_type": 16,
+    "codename": "delete_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add award",
+    "content_type": 17,
+    "codename": "add_award"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change award",
+    "content_type": 17,
+    "codename": "change_award"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete award",
+    "content_type": 17,
+    "codename": "delete_award"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2018-08-22T06:47:56.127Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "sunil9766@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"full_name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2018-08-22T07:13:28.119Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "test_user01@gmail.com",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2018-08-22T10:17:30.411Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "JobHunt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2018-08-22T10:18:08.311Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "JobHunt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2018-08-22T10:20:23.518Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Python Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2018-08-22T10:23:13.034Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "mean developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2018-08-22T10:23:57.890Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "React Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2018-08-22T10:41:48.913Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "Ios Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2018-08-22T10:51:19.538Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Test Engineer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2018-08-22T10:52:45.833Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "Junior Business Operations Lead",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2018-08-22T10:53:38.380Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "Senior Service Advisor/ Front of House Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2018-08-22T10:54:23.121Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "Nanny job in York - 3 children",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2018-08-22T10:55:06.685Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "9",
+    "object_repr": "Windows 10 Testing Coordinator",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2018-08-22T10:56:00.563Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "10",
+    "object_repr": "Customer Consultant",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2018-08-22T10:58:00.655Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "11",
+    "object_repr": "Web Developer ( Websites & Apps)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2018-08-22T10:58:45.096Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "12",
+    "object_repr": "Web Developer - PHP / Backend - Rugby - \u00a340k",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2018-08-22T10:59:26.270Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "13",
+    "object_repr": "Web Designer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2018-08-22T11:00:09.289Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "14",
+    "object_repr": "Web Developer Wordpress",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2018-08-22T11:01:35.368Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "15",
+    "object_repr": "Web Developer - PHP / WordPress - Circa \u00a335,000 - Southam",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2018-08-22T11:02:21.313Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "16",
+    "object_repr": "Website Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]

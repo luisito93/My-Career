@@ -27,53 +27,53 @@ def index(request):
 
 
 def jobs(request):
-	query = request.GET.get('keywords')
-	location = request.GET.get('location')
-	order = request.GET.get('order_by')
-	per_page = request.GET.get('per_page')
+    query = request.GET.get('keywords')
+    location = request.GET.get('location')
+    order = request.GET.get('order_by')
+    per_page = request.GET.get('per_page')
+    page_num = request.GET.get('page',1)
 
-	if query:
-	    results = Jobs.objects.filter(title__icontains=query)
-	    title = query + " Jobs"
+    if query:
+        results = Jobs.objects.filter(title__icontains=query)
+        title = query + " Jobs"
 	    
-	    if location:
-	        results = Jobs.objects.filter(office__company__city__icontains=location)
-	        title = query + " Jobs " + "in " + location
+        if location:
+            results = Jobs.objects.filter(office__company__city__icontains=location)
+            title = query + " Jobs " + "in " + location
 	        
-	if location:
-	    title = "All jobs in " + location
-	    results = Jobs.objects.filter(title__icontains=query, office__company__city__icontains=location)
+    if location:
+        title = "All jobs in " + location
+        results = Jobs.objects.filter(title__icontains=query, office__company__city__icontains=location)
 
-	elif not query and not location:
-	    title = "Job results"
-	    results = Jobs.objects.all()
+    elif not query and not location:
+        title = "Job results"
+        results = Jobs.objects.all()
 
-	if order:
-		results = results.order_by(order)
-	else:
-		order = "created"
+    if order:
+        results = results.order_by(order)
+    else:
+        order = "created"
 
-	if per_page:
-		paginator = Paginator(results, per_page)
-	else:
-		per_page = 1
-		paginator = Paginator(results, per_page)
+    if per_page:
+        paginator = Paginator(results, per_page)
+    else:
+        per_page = 9
+        paginator = Paginator(results, per_page)
 
-
-	page = request.GET.get('per_page')
-	results = paginator.get_page(page)
+    results = paginator.get_page(page_num)
 
 
-	context = {
+    context = {
         'title': title,
         'items': results,
         'location': location,
         'query': query,
         'order':order,
         'per_page':per_page,
+        'page_num':page_num,
     }
     
-	return render(request, 'jobs.html', context)
+    return render(request, 'jobs.html', context)
 
 
 def browse(request):
