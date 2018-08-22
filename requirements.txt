@@ -8,6 +8,7 @@ django-money==0.14.2
 django-pipeline==1.6.14
 django-social-auth==0.7.28
 djangorestframework==3.8.2
+flake8==3.5.0
 gunicorn==19.9.0
 httplib2==0.11.3
 idna==2.7
