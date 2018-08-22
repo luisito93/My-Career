@@ -80,6 +80,7 @@
 								{% endfor %}
 							</div>
 						</div>
+						{% if items.count > per_page %}
 						<div class="pagination">
 							<ul>
 							  {% if items.has_previous %}
@@ -97,6 +98,7 @@
 							  {% endif %}
 							</ul>
 						</div>
+						{% endif %}
 				 	</div>
 				 </div>
 			</div>
