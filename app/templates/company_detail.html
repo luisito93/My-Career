@@ -63,7 +63,7 @@
 							 				<h3>Jobs from {{company.title}}</h3>
 							 				<div class="job-list-modern">
 											 	<div class="job-listings-sec no-border">
-													{% for i in jobs %}
+													{% for i in jobs|slice:":4" %}
 													<div class="job-listing wtabs noimg">
 														<div class="job-title-sec">
 															<h3><a href="#" title="">{{i.title}}</a></h3>
