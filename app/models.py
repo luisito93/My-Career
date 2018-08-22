@@ -152,8 +152,6 @@ class Award(models.Model):
 	year = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
 	
 	def __str__(self):
-<<<<<<< HEAD
 		return self.user.username
-=======
 		return self.user.email
->>>>>>> task/abstract-user-model
+

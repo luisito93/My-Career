@@ -11,16 +11,12 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.http import JsonResponse
 from django.core import serializers
 from json import loads as json_loads
-<<<<<<< HEAD
 from django.core.paginator import Paginator
-=======
 from django.contrib.auth import get_user_model
 
 
 User = get_user_model()
 # User = settings.AUTH_USER_MODEL
->>>>>>> task/abstract-user-model
-
 
 def index(request):
     context = {
@@ -31,7 +27,6 @@ def index(request):
 
 
 def jobs(request):
-<<<<<<< HEAD
 	query = request.GET.get('keywords')
 	location = request.GET.get('location')
 	order = request.GET.get('order_by')
@@ -64,44 +59,21 @@ def jobs(request):
 		per_page = 1
 		paginator = Paginator(results, per_page)
 
-	page = request.GET.get('page')
+
+	page = request.GET.get('per_page')
 	results = paginator.get_page(page)
-	print(order)
+
+
 	context = {
-	    'title':title,
-	    'items': results,
-		'location': location,
-=======
-    query = request.GET.get('keywords')
-    location = request.GET.get('location')
-    
-    if query:
-        results = Jobs.objects.filter(title__icontains=query)
-        title = query + " Jobs"
-        
-        if location:
-            results = Jobs.objects.filter(office__company__city__icontains=location)
-            title = query + " Jobs " + "in " + location
-            
-    if location:
-        title = "All jobs in " + location
-        results = Jobs.objects.filter(title__icontains=query, office__company__city__icontains=location)
-
-    elif not query and not location:
-        title = "Job results"
-        results = Jobs.objects.all().order_by("-created")
-
-    context = {
         'title': title,
         'items': results,
         'location': location,
->>>>>>> task/abstract-user-model
         'query': query,
         'order':order,
         'per_page':per_page,
     }
     
-    return render(request, 'jobs.html', context)
+	return render(request, 'jobs.html', context)
 
 
 def browse(request):
