@@ -1,7 +1,11 @@
 from django import forms
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from .models import Cv
+
+User = get_user_model()
 
 
 class MyRegistrationForm(UserCreationForm):
@@ -9,9 +13,10 @@ class MyRegistrationForm(UserCreationForm):
     first_name = forms.CharField(required = False)
     last_name = forms.CharField(required = True)
     zipcode = forms.IntegerField(required = False)
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'zipcode')
+        fields = ('email', 'password1', 'zipcode')
 
     def save(self,commit = True):
         user = super(MyRegistrationForm, self).save(commit = False)
@@ -19,8 +24,7 @@ class MyRegistrationForm(UserCreationForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.zipcode = self.cleaned_data['zipcode']
-
-        
+ 
         if commit:
             user.save()
 
