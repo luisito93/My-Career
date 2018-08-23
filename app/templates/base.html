@@ -174,7 +174,7 @@
 						<i class="la la-angle-down"></i>
 					</span>
 					<ul style="display: none;">
-						{% if user.is_superuser %}
+						{% if user.admin %}
 						<li><a href="/admin" title=""><i class="fa fa-user"></i> Admin Panel</a></li>
 						{% endif %}
 						<li><a href="#" title=""><i class="la la-briefcase"></i> Manage Jobs</a></li>

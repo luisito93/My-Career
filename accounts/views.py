@@ -32,7 +32,10 @@ def signin(request):
                 if next:
                     return redirect(next)
                 else:
-                    return redirect("/")
+                    if request.user.admin:
+                        return redirect('/admin')
+                    else: 
+                        return redirect("/")
         else:
             messages.error(request,"Oops! That didn't work. Please check your email and password and try again")
     else:
