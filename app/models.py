@@ -130,7 +130,8 @@ class Education(models.Model):
 	education_level = models.CharField(max_length=100, choices=(('University', 'University'),('High School', 'High School')),default='University')
 	degree = models.CharField(max_length=100,blank=False)
 	education_description = models.TextField(max_length=255, default='',blank=False)
-	year = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
+	year_from = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
+	year_to = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
 
 
 class Experience(models.Model):

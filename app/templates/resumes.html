@@ -1,110 +1,148 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="row search-form">
-	<form action="{% url 'app:jobs' %}" method="get">
-		<article class="small-12 medium-5 columns search-form-column">
-			<div class="search-input-container">
-				<input class="search-input keywords ui-autocomplete-input" data-autocomplete="keywords" id="header-keywords" name="keywords" placeholder="Job Title, Skills, or Company" type="text" value="{{query|capfirst}}" autocomplete="off"><span class="clear-field"></span>
-				<label class="input-icon fa fa-search" for="header-keywords">
-					<span class="small-screen-search">Search</span>
-				</label>
-			</div>
-		</article>
-		<article class="small-12 medium-5 columns search-form-column">
-			<div class="search-input-container">
-				<input class="search-input location" data-autocomplete="location" id="header-location" name="location" placeholder="City, State or ZIP" type="text" value="{{location}}"><span class="clear-field" style="display: none;"></span>
-				<label class="input-icon fa fa-location-arrow" for="header-location">
-					<span class="accessibility-hide-text">Location</span>
-				</label>
-			</div>
-		</article>
-		<article class="small-12 medium-2 columns search-form-column">
-			<input class="btn search-jobs" data-gtm="header_search_form_find_jobs_btn_clicked" type="submit" value="Find Jobs">
-		</article>
-	</form>
-</div>
-{% if message %}
-<span id="messagebox">
-    <table id="MXMessageBoxError" cellspacing="4" cellpadding="0" align="Center" border="0" style="">
-        <tbody>
-            <tr>
-                <td valign="top"></td>
-                <td valign="top" style="text-align: center;">
-                    <span style="color: rgb(221, 77, 57); font-weight: 700; font-size: 16px;">{{message}}</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</span>
-{% endif %}
-<div class="main-body" id="main-content">
-	<div class="page-header">
-		<div class="row">
-			<div class="small-12 columns">
-				<h1>Your Resumes</h1>
-			</div>
+<section class="overlape">
+	<div class="block no-padding">
+		<div data-velocity="-.1" style="background: url() repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax">
 		</div>
-	</div>
-	<div class="your-resumes">
-		{% if resumes.count < 1 %}
-		<div class="blank-slate bump row">
-			<div class="small-12 columns">
-				<h3>You haven't added a resume yet</h3>
-			</div>
-		<div class="small-12 columns margin-below">Recruiters or future employers could be looking for you.</div>
-			<div class="small-12 medium-6 large-4 columns end">
-				<a class="btn" id="post-new-resume" href="/resumes/new">Add a New Resume</a>
-			</div>
-		</div>
-		{% else %}
-		<div class="row">
-			<div class="small-12 columns">
-				<div class="card with-padding">
-					{% for i in resumes %}
-					<div class="resume-container">
-						<div class="row">
-							<div class="small-10 columns">
-								<h3><a href="/resume/{{i.slug}}">{{i.job_title}}</a></h3>
-							</div>
-							<div class="small-2 columns text-right">
-								<a class="delete-resume font-icon" href="/resumes/{{i.slug}}">
-									<i class="fa fa-times" title="Delete"></i>
-								</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="small-12 columns">Updated: {{i.updated}}</div>
-						</div>
-						{% if not resumes.last.job_title == i.job_title %}
-								<hr>
-						{% endif %}
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="inner-header">
+						<h3>My Resume</h3>
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		</div>
-		<div class="bump row">
-			<div class="small-12 medium-6 large-4 columns end">
-				<a class="btn secondary" id="post-new-resume" href="/resumes/new">Add a New Resume</a>
-			</div>
-		</div>
-		{% endif %}
 	</div>
-	<div class="" data-remodal-id="delete-error-modal" id="delete-error-modal">
-		<button class="remodal-close" data-remodal-action="close">
-			<span class="accessibility-hide-text">Close</span>
-		</button>
-		<div class="row">
-			<div class="small-12 columns">
-				<p>There was an error deleting your resume.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns">
-				<button class="btn" data-remodal-action="confirm">Ok</button>
-			</div>
+</section>
+<section>
+	<div class="block remove-top">
+		<div class="container">
+			 <div class="row no-gape">
+			 	<aside class="col-lg-3 column border-right">
+			 		<div class="widget">
+			 			<div class="tree_widget-sec">
+			 				<ul>
+			 					<li>
+			 						<a href="#" title=""><i class="la la-briefcase"></i>Manage Jobs</a>
+			 					</li>
+			 					<li class="inner-child active">
+			 						<a href="/resume" title=""><i class="la la-paper-plane"></i>Resume</a>
+			 					</li>
+			 					<li>
+			 						<a href="#" title=""><i class="la la-flash"></i>Job Alerts</a>
+			 					</li>
+			 					<li> 
+			 						<a href="/password_change" title=""><i class="la la-lock"></i>Change Password</a>
+			 					</li>
+			 					<li>
+			 						<a href="/logout" title=""><i class="la la-unlink"></i>Logout</a>
+			 					</li>
+			 				</ul>
+			 			</div>
+			 		</div>
+			 	</aside>
+			 	<div class="col-lg-9 column">
+			 		<div class="padding-left">
+				 		<div class="manage-jobs-sec">
+				 			<div class="border-title"><h3>Candidates Dashboard</h3><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
+				 			{% if education.count == 0 %}
+			 					<p>No Education History</p>
+			 				{% else %}
+					 		<div class="edu-history-sec">
+					 			{% for i in education %}
+	 							<div class="edu-history">
+	 								<i class="la la-graduation-cap"></i>
+	 								<div class="edu-hisinfo">
+	 									<h3>{{i.education_level}}</h3>
+	 									<i>{{i.year_from}} - {{i.year_to}}</i>
+	 									<span>{{i.school.name}} <i>{{i.degree}}</i></span>
+	 									<p>{{i.education_description}}</p>
+	 								</div>
+	 								<ul class="action_job">
+			 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+			 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+			 						</ul>
+	 							</div>
+	 							{% endfor %}
+	 						</div>
+	 						{% endif %}
+	 						<div class="border-title"><h3>Work Experience</h3><a href="#" title=""><i class="la la-plus"></i> Add Experience</a></div>
+					 		<div class="edu-history-sec">
+					 			{% if experience.count == 0 %}
+				 					<p>No Working History</p>
+				 					<br>
+				 				{% else %}
+					 				{% for i in experience %}
+			 							<div class="edu-history style2">
+			 								<i></i>
+			 								<div class="edu-hisinfo">
+			 									<h3>{{i.job_title}} <span>{{i.company.title}}</span></h3>
+			 									<i>{{i.job_from}} - {{i.job_to}}</i>
+			 									<p>{{i.experience_description}}.</p>
+			 								</div>
+			 								<ul class="action_job">
+					 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+					 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+					 						</ul>
+			 							</div>
+			 						{% endfor %}
+			 					{% endif %}
+	 						</div>
+	 						<div class="border-title"><h3>Professional Skills</h3><a href="#" title=""><i class="la la-plus"></i> Add Skills</a></div>
+	 						<div class="progress-sec">
+	 							<div class="progress-sec with-edit">
+	 								<span>Adobe Photoshop</span>
+	 								<div class="progressbar"> <div class="progress" style="width: 80%;"><span>80%</span></div> </div>
+	 								<ul class="action_job">
+			 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+			 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+			 						</ul>
+	 							</div>
+	 							<div class="progress-sec with-edit">
+	 								<span>Production In Html</span>
+	 								<div class="progressbar"> <div class="progress" style="width: 60%;"><span>60%</span></div> </div>
+	 								<ul class="action_job">
+			 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+			 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+			 						</ul>
+	 							</div>
+	 							<div class="progress-sec with-edit">
+	 								<span>Graphic Design</span>
+	 								<div class="progressbar"> <div class="progress" style="width: 75%;"><span>75%</span></div> </div>
+	 								<ul class="action_job">
+			 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+			 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+			 						</ul>
+	 							</div>
+	 						</div>
+	 						<div class="border-title"><h3>Awards</h3><a href="#" title=""><i class="la la-plus"></i> Add Awards</a></div>
+	 						<div class="edu-history-sec">
+	 							{% if awards.count == 0 %}
+				 					<p>No Awards</p>
+				 				{% else %}
+				 					{% for i in awards %}
+			 							<div class="edu-history style2">
+			 								<i></i>
+			 								<div class="edu-hisinfo">
+			 									<h3>{{i.company}}</h3>
+			 									<i>{{i.year}}</i>
+			 									<p>{{i.award_description}}.</p>
+			 								</div>
+			 								<ul class="action_job">
+					 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+					 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+					 						</ul>
+			 							</div>
+	 								{% endfor %}
+	 							{% endif %}
+	 						</div>
+				 		</div>
+				 	</div>
+				</div>
+			 </div>
 		</div>
 	</div>
-</div>
+</section>
 {% endblock %}

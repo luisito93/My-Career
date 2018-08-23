@@ -53,7 +53,7 @@
 			 					<p>No Working History</p>
 			 				{% endif %}
 			 				<p>{{profile.email}}</p>
-			 				<p>Member Since, {{profile.userprofile.created|date:"Y"}}</p>
+			 				<p>Member Since, {{profile.userprofile.created|date:"  M Y"}}</p>
 			 				<p><i class="la la-map-marker"></i>{{profile.userprofile.city}} / {{profile.userprofile.country.name}}</p>
 			 				<div class="skills-badge">
 			 					<span>Photoshop</span><span>Designer</span><span>Ilustrator</span>
@@ -86,7 +86,7 @@
 			 						<div class="edu-history-sec">
 			 							<h2>Education</h2>
 			 							{% if education.count == 0 %}
-			 							<p>No Education History</p>
+			 								<p>No Education History</p>
 			 							{% else %}
 				 							{% for i in education %}
 				 							<div class="edu-history">
@@ -114,7 +114,7 @@
 						 								<div class="edu-hisinfo">
 						 									<h3>{{i.job_title}} <span>{{i.company.title}}</span></h3>
 						 									<i>{{i.job_from}} - {{i.job_to}}</i>
-						 									<p>{{i.experience_description}}</p>
+						 									<p>{{i.experience_description}}.</p>
 						 								</div>
 						 							</div>
 					 							{% endfor %}

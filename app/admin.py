@@ -14,7 +14,7 @@ class User_profileAdmin(admin.ModelAdmin):
     list_display = ('user','slug', 'city', 'country','gender','created')
     
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ('education_level', 'degree','year')
+    list_display = ('education_level', 'degree','year_from','year_to')
 
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('user', 'company', 'job_title','job_from','job_to')
