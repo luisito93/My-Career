@@ -42,15 +42,16 @@
 								</div>
 							</div>
 						</div>
-						<div class="scroll-to">
+						<!-- <div class="scroll-to">
 							<a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+{% if not user.is_authenticated %}
 <section>
 	<div class="block double-gap-top double-gap-bottom">
 		<div data-velocity="-.1" style="background: url(&quot;images/resource/parallax1.jpg&quot;) 50% -56px repeat scroll transparent;" class="parallax scrolly-invisible layer color"></div>
@@ -67,6 +68,9 @@
 		</div>	
 	</div>
 </section>
+
+{% endif %}
+
 <section>
 	<div class="block no-padding">
 		<div class="container fluid">
