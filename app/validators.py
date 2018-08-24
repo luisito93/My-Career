@@ -5,6 +5,7 @@ from PIL import Image
 import numpy as np
 import cv2
 from django.contrib.staticfiles.storage import staticfiles_storage
+
 def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]
     valid_extensions = ['.doc', '.docx', '.pdf', '.rtf', '.txt', '.odt', '.wps']

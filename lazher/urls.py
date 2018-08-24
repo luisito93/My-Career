@@ -11,6 +11,9 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('app.urls', namespace="app")),
+    path('', include('company.urls', namespace="company")),
+    path('', include('jobs.urls', namespace="jobs")),
+    path('', include('userprofile.urls', namespace="userprofile")),
     url(r'^login/$', accounts_views.signin, name='login'),
     url(r'^password_change/$', login_required(accounts_views.password_change), name='password_change'),
     url(r'^register/$', accounts_views.signup, name='register'),

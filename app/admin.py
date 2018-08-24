@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Jobs, Company,Cv, UserProfile,Education, School, Office, Experience, Award
+from company.models import Company, Office
+from jobs.models import Jobs
+from userprofile.models import Cv, UserProfile,Education, School, Experience, Award
 
 class JobsAdmin(admin.ModelAdmin):
     list_display = ('title', 'office', 'salery','job_type','created')

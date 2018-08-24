@@ -1,4 +1,5 @@
-from app.models import Jobs, Company
+from jobs.models import Jobs
+from company.models import Company
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
