@@ -47,27 +47,27 @@
 			 		<div class="padding-left">
 				 		<div class="manage-jobs-sec">
 				 			<div class="border-title"><h3>Candidates Dashboard</h3><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
-				 			{% if education.count == 0 %}
-			 					<p>No Education History</p>
-			 				{% else %}
 					 		<div class="edu-history-sec">
-					 			{% for i in education %}
-	 							<div class="edu-history">
-	 								<i class="la la-graduation-cap"></i>
-	 								<div class="edu-hisinfo">
-	 									<h3>{{i.education_level}}</h3>
-	 									<i>{{i.year_from}} - {{i.year_to}}</i>
-	 									<span>{{i.school.name}} <i>{{i.degree}}</i></span>
-	 									<p>{{i.education_description}}</p>
-	 								</div>
-	 								<ul class="action_job">
-			 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
-			 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-			 						</ul>
-	 							</div>
-	 							{% endfor %}
+					 			{% if education.count == 0 %}
+			 						<p>No Education History</p>
+			 					{% else %}
+						 			{% for i in education %}
+		 							<div class="edu-history">
+		 								<i class="la la-graduation-cap"></i>
+		 								<div class="edu-hisinfo">
+		 									<h3>{{i.education_level}}</h3>
+		 									<i>{{i.year_from}} - {{i.year_to}}</i>
+		 									<span>{{i.school.name}} <i>{{i.degree}}</i></span>
+		 									<p>{{i.education_description}}</p>
+		 								</div>
+		 								<ul class="action_job">
+				 							<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+				 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+				 						</ul>
+		 							</div>
+		 							{% endfor %}
+		 							 						{% endif %}
 	 						</div>
-	 						{% endif %}
 	 						<div class="border-title"><h3>Work Experience</h3><a href="#" title=""><i class="la la-plus"></i> Add Experience</a></div>
 					 		<div class="edu-history-sec">
 					 			{% if experience.count == 0 %}

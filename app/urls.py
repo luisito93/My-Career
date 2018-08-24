@@ -16,9 +16,9 @@ urlpatterns = [
     url(r'^company/(?P<slug>[\w-]+)/$', views.company_detail, name='company_detail'),
     # url(r'^login/$', views.signin, name='login'),
     # url(r'^password_change/$', login_required(views.password_change), name='password_change'),
-    url(r'^profile/(?P<user>[\w-]+)/$', login_required(views.profile), name='profile'),
+    url(r'^profile/$', login_required(views.profile), name='profile'),
     # url(r'^register/$', views.signup, name='register'),
-    url(r'^resumes/$', login_required(views.resumes), name='resumes'),
+    url(r'^resume/$', login_required(views.resume), name='resume'),
     url(r'^resume/(?P<slug>[\w-]+)/$', login_required(views.resume_view), name='resume_view'),
     url(r'^resumes/new/$', login_required(views.upload_resume), name='upload_resume'),
     # others pages url

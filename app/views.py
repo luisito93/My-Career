@@ -126,12 +126,13 @@ def company_detail(request,slug):
     return render(request, 'company_detail.html', context)
 
 
-def profile(request, user):
-    profile = User.objects.get(userprofile__user__username=user)
-    education = Education.objects.filter(user__username=user).order_by('-year')
-    cv = Cv.objects.get(user__userprofile__user__username=user)
-    experience = Experience.objects.filter(user__username=user).order_by("-job_to")
-    awards = Award.objects.filter(user__username=user).order_by("-year")
+def profile(request):
+    user = request.user
+    profile = User.objects.get(userprofile__user=user)
+    education = Education.objects.filter(user=user).order_by('-year_to')
+    cv = Cv.objects.get(user__userprofile__user=user)
+    experience = Experience.objects.filter(user=user).order_by("-job_to")
+    awards = Award.objects.filter(user=user).order_by("-year")
     context = {
         'profile':profile,
         'education':education,
@@ -142,15 +143,20 @@ def profile(request, user):
     return render(request, 'profile.html',context)
 
 
-def resumes(request):
+def resume(request):
     user = request.user
-    resumes = Cv.objects.filter(user=user)
+    profile = User.objects.get(userprofile__user=user)
+    education = Education.objects.filter(user=user).order_by('-year_to')
+    experience = Experience.objects.filter(user=user).order_by("-job_to")
+    awards = Award.objects.filter(user=user).order_by("-year")
 
     context = {
         'title':'Resumes',
-        'resumes':resumes,
+        'education':education,
+        'experience':experience,
+        'awards':awards,
     }
-    return render(request, 'resumes.html', context)
+    return render(request, 'resume.html', context)
 
 
 def resume_view(request, slug):
