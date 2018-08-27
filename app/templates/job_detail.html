@@ -26,7 +26,7 @@
 				 				<div class="job-title2"><h3>{{jobs.title}}</h3><span class="job-is ft">{{jobs.job_type}}</span><i class="la la-heart-o"></i></div>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i>{{jobs.office.company.city}}</li>
-				 					<li><i class="la la-money"></i> Monthly Salary : <span>{{jobs.salery}}</span></li>
+				 					<li><i class="la la-money"></i> Monthly Salary : <span>{{jobs.salary}}</span></li>
 				 					<li><i class="la la-calendar-o"></i> Post Date: {{jobs.created|date:"F d Y"}} </li>
 				 				</ul>
 				 				<span><strong>Roles</strong> : 
@@ -35,7 +35,7 @@
 				 			</div>
 				 			<div class="job-details">
 				 				<h3>Job Description</h3>
-				 				{{jobs.Description|safe|linebreaks}}
+				 				{{jobs.description|safe|linebreaks}}
 				 			</div>	
 				 			<div class="share-bar">
 				 				<span>Share</span><a href="#" title="" class="share-fb"><i class="fab fa-facebook-f"></i></a><a href="#" title="" class="share-twitter"><i class="fab fa-twitter"></i></a>

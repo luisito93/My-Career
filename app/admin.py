@@ -1,10 +1,7 @@
 from django.contrib import admin
 from company.models import Company, Office
-from jobs.models import Jobs
 from userprofile.models import Cv, UserProfile,Education, School, Experience, Award
 
-class JobsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'office', 'salery','job_type','created')
 
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('title', 'city','since', 'contact_info')
@@ -24,7 +21,6 @@ class ExperienceAdmin(admin.ModelAdmin):
 class AwardAdmin(admin.ModelAdmin):
     list_display = ('user', 'company', 'year')
 
-admin.site.register(Jobs, JobsAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Cv ,CvAdmin)
 admin.site.register(UserProfile, User_profileAdmin)
