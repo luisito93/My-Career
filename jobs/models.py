@@ -60,7 +60,7 @@ class ApplicationInfo(models.Model):
     instruction = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.application_email
+        return self.job.title
 
 
 class CompensationInfo(models.Model):
@@ -81,7 +81,7 @@ class CompensationInfo(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.amount
+        return self.job.title
 
 
 class CustomAttribute(models.Model):

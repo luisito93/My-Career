@@ -12,15 +12,15 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ApplicationInfoAdmin(admin.ModelAdmin):
-    list_display = ['application_email', 'experience']
+    list_display = ['job', 'experience']
 
 
 class CompensationInfoAdmin(admin.ModelAdmin):
-    list_display = ['amount', 'unit']
+    list_display = ['job', 'unit']
 
 
 class CustomAttributeAdmin(admin.ModelAdmin):
-    list_display = ['attribute', 'value']
+    list_display = ['job', 'attribute', 'value']
 
 
 admin.site.register(Jobs, JobsAdmin)
