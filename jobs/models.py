@@ -38,7 +38,7 @@ class Jobs(models.Model):
     promotion_value = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    expire_time = models.DateTimeField(null=True, blank=True, default=(date.today() + timedelta(days=30)).isoformat())
+    expire_time = models.DateTimeField(null=True, blank=True)
     applied_users = models.ManyToManyField(User, blank=True, related_name='applied_users')
     saved_users = models.ManyToManyField(User, blank=True, related_name='saved_users')
     tags = models.TextField(max_length=100, default="")
