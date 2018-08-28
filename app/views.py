@@ -7,7 +7,7 @@ class HomeView(ListView):
     model = Jobs
     template_name = 'index.html'
     context_object_name = 'jobs'
-    paginate_by = 10
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Jobs.objects.all().order_by("-created")

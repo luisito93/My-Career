@@ -81,7 +81,7 @@
 						<span>Leading Employers already using job and talent.</span>
 					</div>
 					<div class="job-listings-sec">
-						{% for i in jobs|slice:":4" %}
+						{% for i in jobs %}
 						<div class="job-listing">
 							<div class="job-title-sec">
 								<div class="c-logo"> {% thumbnail i.office.company.logo "98x51" crop="center" as im %}
@@ -99,7 +99,7 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="browse-all-cat">
-						<a href="#" title="">Load more listings</a>
+						<a href="/jobs-?keywords=&location=" title="">Find more jobs</a>
 					</div>
 				</div>
 			</div>
