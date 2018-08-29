@@ -20,10 +20,8 @@ class HomeView(ListView):
 
 
 def index(request):
-    jobs = Jobs.objects.all().order_by("-created")
     context = {
         'title': 'Find a Job | OdamaCareer',
-        'jobs': jobs,
     }
 
     return render(request, "index.html", context)
