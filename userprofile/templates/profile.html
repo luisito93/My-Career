@@ -2,6 +2,7 @@
 {% block content %}
 {% load static %}
 {% load subtractify %}
+{% load year %}
 <section class="overlape">
 	<div class="block no-padding">
 		<div data-velocity="-.1" style="background: url(% static 'images/resource/slider2.jpg' %}) 50% -76.3px repeat scroll transparent;" class="parallax scrolly-invisible no-parallax"></div>
@@ -67,7 +68,7 @@
 			 					<div class="cand-details">
 			 						<div class="job-overview style2">
 							 			<ul>
-							 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£15,000 - £20,000</span></li>
+							 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>{% if experience.count == 0 %} No Working History {% else %} {{experience.0.salary_from}} - {{experience.0.salary_to}} {% endif %} </span></li>
 							 				<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{profile.userprofile.gender}}</span></li>
 							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>Executive</span></li>
 							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{profile.userprofile.industry}}</span></li>
@@ -113,8 +114,8 @@
 						 								<i></i>
 						 								<div class="edu-hisinfo">
 						 									<h3>{{i.job_title}} <span>{{i.company.title}}</span></h3>
-						 									<i>{{i.job_from}} - {{i.job_to}}</i>
-						 									<p>{{i.experience_description}}.</p>
+						 									<i>{{i.job_from}} - {% year i.job_to %}</i>
+															 <p>{{i.experience_description}}.</p>
 						 								</div>
 						 							</div>
 					 							{% endfor %}
