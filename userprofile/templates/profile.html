@@ -73,7 +73,7 @@
 							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{profile.userprofile.industry}}</span></li>
 							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>
 							 				{% if experience.count == 0 %} 
-							 					0 Years
+							 					No Working History
 							 				{% else %} 
 							 					{% subtractify experience.last.job_from experience.0.job_to %} Years
 							 				{% endif %}
