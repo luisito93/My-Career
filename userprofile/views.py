@@ -14,6 +14,7 @@ def profile(request):
     cv = Cv.objects.get(user__userprofile__user=user)
     experience = Experience.objects.filter(user=user).order_by("-job_to")
     awards = Award.objects.filter(user=user).order_by("-year")
+    
     context = {
         'title':'My Profile',
         'profile':profile,

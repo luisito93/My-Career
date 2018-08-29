@@ -4,6 +4,7 @@ from django_countries.fields import CountryField
 from django.utils.crypto import get_random_string
 from django.db.models.signals import post_save
 import datetime
+from djmoney.models.fields import MoneyField
 from django.conf import settings
 from app.validators import validate_file_extension, face_detiction
 User = settings.AUTH_USER_MODEL
@@ -79,7 +80,9 @@ class Experience(models.Model):
 	experience_description = models.TextField(max_length=255, default='',blank=False)
 	job_from = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
 	job_to = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
-	
+	salary_from = MoneyField(max_digits=14, decimal_places=2, default_currency='USD')
+	salary_to = MoneyField(max_digits=14, decimal_places=2, default_currency='USD')
+
 	def __str__(self):
 		return self.user.email
 
