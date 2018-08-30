@@ -3,6 +3,7 @@
 {% load static %}
 {% load subtractify %}
 {% load year %}
+{% load career_level %}
 <section class="overlape">
 	<div class="block no-padding">
 		<div data-velocity="-.1" style="background: url(% static 'images/resource/slider2.jpg' %}) 50% -76.3px repeat scroll transparent;" class="parallax scrolly-invisible no-parallax"></div>
@@ -70,7 +71,7 @@
 							 			<ul>
 							 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>{% if experience.count == 0 %} No Working History {% else %} {{experience.0.salary_from}} - {{experience.0.salary_to}} {% endif %} </span></li>
 							 				<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{profile.userprofile.gender}}</span></li>
-							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>Executive</span></li>
+							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{% if experience.count == 0 %} No Working History {% else %} {% career_level experience.last.job_from experience.0.job_to %} {% endif %} </span></li>
 							 				<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{profile.userprofile.industry}}</span></li>
 							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>
 							 				{% if experience.count == 0 %} 
