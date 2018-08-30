@@ -46,7 +46,7 @@
 				 	<div class="col-lg-12">
 				 		<span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
 				 		<div class="filterbar">
-				 			<h5>{{items.count}} Jobs &amp; Vacancies</h5>
+				 			<h5>{{items.paginator.count}} Jobs &amp; Vacancies</h5>
 				 			<div class="sortby-sec">
 				 				<span>Sort by</span>
 				 				<select onchange="location = this.value;" data-placeholder="Most Recent" class="chosen" style="display: none;">
@@ -80,6 +80,7 @@
 								{% endfor %}
 							</div>
 						</div>
+						{% if items.has_next or items.has_previous %}
 						<div class="pagination">
 							<ul>
 							  {% if items.has_previous %}
@@ -97,6 +98,9 @@
 							  {% endif %}
 							</ul>
 						</div>
+						{% else %}
+						<h1>bhim</h1>
+						{% endif %}
 				 	</div>
 				 </div>
 			</div>
