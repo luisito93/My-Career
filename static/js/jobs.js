@@ -53,5 +53,54 @@ $(document).ready(function(){
     });
    });
 
+   // sort by per page
+   let sortPerPage = $(".sort-per-page");
+   sortPerPage.change(function(event) {
+    event.preventDefault();
+
+    let $this = $(this);
+    let actionParams = $this.val();
+    let actionEndpoint = $this.attr("data-endpoint");
+    let urlEndpoint = `${actionEndpoint}${actionParams}`;
+
+    $.ajax({
+        url: urlEndpoint,
+        method: "GET",
+        data: '',
+        success: function(data){
+          let body = $(data);
+          SearchResults.html(body.find('.search-result'));
+          $(".pagination").html(body.find('.pagination'));
+        },
+        error: function(error){ 
+          console.log(error);
+        }
+    });
+   });
+
+   // sort by order
+  let sortOrder = $(".sort-order");
+  sortOrder.change(function(event) {
+    event.preventDefault();
+
+    let $this = $(this);
+    let actionParams = $this.val();
+    let actionEndpoint = $this.attr("data-endpoint");
+    let urlEndpoint = `${actionEndpoint}${actionParams}`;
+
+    $.ajax({
+        url: urlEndpoint,
+        method: "GET",
+        data: '',
+        success: function(data){
+          let body = $(data);
+          SearchResults.html(body.find('.search-result'));
+          $(".pagination").html(body.find('.pagination'));
+        },
+        error: function(error){ 
+          console.log(error);
+        }
+    });
+   });
 
 });
