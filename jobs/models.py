@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import post_save
 from froala_editor.fields import FroalaField
 from djmoney.models.fields import MoneyField

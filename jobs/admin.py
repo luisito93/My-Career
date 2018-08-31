@@ -5,10 +5,12 @@ from jobs.models import Jobs, Category, ApplicationInfo, CompensationInfo, Custo
 
 class JobsAdmin(admin.ModelAdmin):
     list_display = ('title', 'office', 'salary','job_type','created')
+    prepopulated_fields = {"slug": ("title",)}
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug']
+    prepopulated_fields = {"slug": ("title",)}
 
 
 class ApplicationInfoAdmin(admin.ModelAdmin):
