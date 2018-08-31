@@ -155,7 +155,10 @@
 			<div class="menu-sec">
 				<div class="container">
 					<div class="logo">
-						<a href="/" title=""><img class="hidesticky" src="{% static 'images/resource/logo.png' %}" alt=""><img class="showsticky" src="{% static 'images/resource/logo10.png' %}" alt=""></a>
+						<a href="/" title="">
+							<img src="{% static '/images/resource/logo.png' %}" class="hidesticky">
+							<img src="{% static '/images/resource/logo10.png' %}" class="showsticky">
+						</a>
 					</div>
 					{% if not user.is_authenticated %}
 					<div class="btn-extars">
@@ -306,8 +309,7 @@
 						<div class="col-lg-3 column">
 							<div class="widget">
 								<div class="download_widget">
-									<a href="#" title=""><img src="images/resource/dw1.png" alt=""></a>
-									<a href="#" title=""><img src="images/resource/dw2.png" alt=""></a>
+
 								</div>
 							</div>
 						</div>
@@ -315,7 +317,9 @@
 				</div>
 			</div>
 			<div class="bottom-line">
-				<span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+				<span>© 2018 My-Career All rights reserved. Made with <i class="fas fa-heart" style="color:red"></i> <br> Powered with</span>
+				<br>
+				<i class="fab fa-python fa-4x" style="color:#6a7d9b"></i>
 				<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
 			</div>
 		</footer>
