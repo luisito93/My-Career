@@ -32,7 +32,8 @@ def jobs(request):
     if order:
         results = results.order_by(order)
     else:
-        order = "created"
+        order = "-created"
+        results = results.order_by("-created")
 
     if per_page:
         paginator = Paginator(results, per_page)
