@@ -49,11 +49,11 @@
 				 			<h5 id="result-count">{{items.paginator.count}} Jobs &amp; Vacancies</h5>
 				 			<div class="sortby-sec">
 				 				<span>Sort by</span>
-				 				<select onchange="location = this.value;" data-placeholder="Most Recent" class="chosen" style="display: none;">
+				 				<select onchange="location = this.value;" data-placeholder="Most Recent" class="chosen sort-date" style="display: none;">
 									<option {% if order == "created" %} selected {% endif %} value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=created&per_page={{per_page}}">Most Recent</option>
 									<option {% if order == "relevance" %} selected {% endif %} value="?keywords={{query}}&location={{location}}&page={{ num }}&order_by=relevance&per_page={{per_page}}">Relevance</option>
 								</select>
-								<select onchange="location = this.value;" data-placeholder="20 Per Page" class="chosen" style="display: none;">
+								<select onchange="location = this.value;" data-placeholder="20 Per Page" class="chosen sort-per-page" style="display: none;">
 									<option value="?keywords={{query}}&location={{location}}&page={{ page_num }}&order_by=created&per_page=9" {% if per_page == "9" %} selected {% endif %} >9 Per Page</option>
 									<option value="?keywords={{query}}&location={{location}}&page={{ page_num }}&order_by=created&per_page=12" {% if per_page == "12" %} selected {% endif %} >12 Per Page</option>
 									<option value="?keywords={{query}}&location={{location}}&page={{ page_num }}&order_by=created&per_page=15" {% if per_page == "15" %} selected {% endif %} >15 Per Page</option>
@@ -93,13 +93,13 @@
 							  {% endif %}
 							  {% for num in items.paginator.page_range %}
 							    {% if items.number == num %}
-							    <li class="active"><a href="?keywords={{query}}&location={{location}}&page={{ num }}&order_by={{order}}">{{ num }}</a></li>
+							    <li class="active"><a href="?keywords={{query}}&location={{location}}&page={{ num }}&order_by={{order}}" class="page-next-prev" data-endpoint='{% url "jobs:jobs" %}'>{{ num }}</a></li>
 							    {% elif num > items.number|add:'-3' and num < items.number|add:'3' %}
-							    <li><a href="?keywords={{query}}&location={{location}}&page={{ num }}&order_by={{order}}&per_page={{per_page}}">{{ num }}</a></li>
+							    <li><a href="?keywords={{query}}&location={{location}}&page={{ num }}&order_by={{order}}&per_page={{per_page}}" class="page-next-prev" data-endpoint='{% url "jobs:jobs" %}'>{{ num }}</a></li>
 							    {% endif %}
 							  {% endfor %}
 							  {% if items.has_next %}
-							    <li class="next"><a href="?keywords={{query}}&location={{location}}&page={{ items.next_page_number }}&order_by={{order}}&per_page={{per_page}}">Next <i class="la la-long-arrow-right"></i></a></li>
+							    <li class="next"><a href="?keywords={{query}}&location={{location}}&page={{ items.next_page_number }}&order_by={{order}}&per_page={{per_page}}" class="page-next-prev" data-endpoint='{% url "jobs:jobs" %}'>Next <i class="la la-long-arrow-right"></i></a></li>
 							  {% endif %}
 							</ul>
 						</div>

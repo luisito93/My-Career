@@ -8,7 +8,7 @@ $(document).ready(function(){
     event.preventDefault();
 
     let thisForm = $(this);
-    let actionEndpoint = thisForm.attr("data-endpoint")
+    let actionEndpoint = thisForm.attr("data-endpoint");
     let formData = thisForm.serialize();
 
     console.log(formData);
@@ -18,17 +18,40 @@ $(document).ready(function(){
         data: formData,
         success: function(data){
           let body = $(data);
-          console.log(body);
           $("#result-count").html(body.find('#result-count'));
-          // $(".sortby-sec").html(body.find('.sortby-sec'));
           SearchResults.html(body.find('.search-result'));
           $(".pagination").html(body.find('.pagination'));
-          // $("#main_results").html(body.find('.result-block'));
         },
         error: function(error){ 
           console.log(error);
         }
     });
    });
+
+   // Ajax pagination
+   let pageNextPrev = $(".page-next-prev");
+   $(document.body).on("click", ".page-next-prev", function(event){
+    event.preventDefault();
+
+    let thisPage = $(this);
+    let actionParams = thisPage.attr("href");
+    let actionEndpoint = thisPage.attr("data-endpoint");
+    let urlEndpoint = `${actionEndpoint}${actionParams}`;
+
+    $.ajax({
+        url: urlEndpoint,
+        method: "GET",
+        data: '',
+        success: function(data){
+          let body = $(data);
+          SearchResults.html(body.find('.search-result'));
+          $(".pagination").html(body.find('.pagination'));
+        },
+        error: function(error){ 
+          console.log(error);
+        }
+    });
+   });
+
 
 });
