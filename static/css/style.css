@@ -106,7 +106,7 @@ button,a,input[type="submit"], input[type="button"]{
 *{outline:none!important}
 h1, h2, h3, h4, h5, h6{
     margin-bottom:20px;
-    font-family:'Quicksand', sans-serif;
+    font-family:'Quicksand', sans-serif !important;
 }
 h1{font-size:36px}
 h2{font-size:32px}
