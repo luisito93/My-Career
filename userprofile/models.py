@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 import datetime
 from djmoney.models.fields import MoneyField
 from django.conf import settings
-from app.validators import validate_file_extension
+from app.validators import validate_file_extension, face_detiction
 User = settings.AUTH_USER_MODEL
 
 YEAR_CHOICES = []
@@ -29,14 +29,14 @@ class Cv(models.Model):
 		self.slug = get_random_string(length=32)
 		super(Cv, self).save(*args, **kwargs)
 
-
+	
 	def __str__(self):
 		return self.job_title
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	slug = models.SlugField(blank=True, default='')
-	avatar = models.ImageField(upload_to='profile_images',default='/default.jpg', blank=False)
+	avatar = models.ImageField(validators=[face_detiction], upload_to='profile_images',default='/default.jpg', blank=False)
 	country = CountryField(default='', blank=False)
 	city = models.CharField(max_length=100, default='', blank=False)
 	industry = models.CharField(max_length=100, default='', blank=False)
@@ -62,7 +62,7 @@ class School(models.Model):
 	name = models.CharField(max_length=100, default='', blank='False')
 	def __str__(self):
 		return self.name
-
+		
 class Education(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -92,7 +92,8 @@ class Award(models.Model):
 	company = models.ForeignKey(Company, on_delete=models.CASCADE)
 	award_description = models.TextField(max_length=255, default='',blank=False)
 	year = models.IntegerField(choices=YEAR_CHOICES, default=current_year, blank=False)
-
+	
 	def __str__(self):
 		return self.user.username
 		return self.user.email
+
