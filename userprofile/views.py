@@ -16,7 +16,7 @@ def profile(request):
     awards = Award.objects.filter(user=user).order_by("-year")
     
     context = {
-        'title':'My Profile',
+        'title':'My Profile' + ' | ' +settings.SITE_NAME,
         'profile':profile,
         'education':education,
         'cv':cv,
@@ -34,23 +34,12 @@ def resume(request):
     awards = Award.objects.filter(user=user).order_by("-year")
 
     context = {
-        'title':'Resume',
+        'title':'My Resume' + ' | ' +settings.SITE_NAME,
         'education':education,
         'experience':experience,
         'awards':awards,
     }
     return render(request, 'resume.html', context)
-
-
-def resume_view(request, slug):
-    resumes = Cv.objects.filter(slug=slug)
-
-    context = {
-        'title':'Resumes',
-        'resumes':resumes,
-    }
-    return render(request, 'resumes.html', context)
-
 
 def upload_resume(request):
     if request.method == 'POST':
@@ -64,6 +53,9 @@ def upload_resume(request):
             messages.error(request, "Oops! That didn't work. Please try again")
     else:
         form = resume_upload()
-
-    return render(request, 'upload_resume.html',{'form': form, 'title': 'Upload a Resume'})
+    context = {
+        'form': form, 
+        'title': 'Upload a Resume' + ' | ' + settings.SITE_NAME
+    }
+    return render(request, 'upload_resume.html',context)
 

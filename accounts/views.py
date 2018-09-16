@@ -12,7 +12,7 @@ from django.core import serializers
 from json import loads as json_loads
 from django.core.paginator import Paginator
 from django.contrib.auth import get_user_model
-
+from django.conf import settings
 
 User = get_user_model()
 # User = settings.AUTH_USER_MODEL
@@ -43,7 +43,12 @@ def signin(request):
     if request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'accounts/signin.html',{'form': form,'next':next,})
+        context = {
+            'form': form,
+            'next':next,
+            'title': 'Sign In ' + '| ' + settings.SITE_NAME,
+        }
+        return render(request, 'accounts/signin.html', context)
 
 
 def signup(request):
@@ -67,7 +72,11 @@ def signup(request):
     if request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'accounts/signup.html',{'form': form, 'title':'Sign Up',})
+        context = {
+            'title': 'Sign Up ' + '| ' + settings.SITE_NAME,
+            'form': form,
+        }
+        return render(request, 'accounts/signup.html', context)
 
 
 def password_change(request):
@@ -84,6 +93,7 @@ def password_change(request):
         form = PasswordChangeForm(request.user)
 
     context = {
+        'title': 'Change Password ' + '| ' + settings.SITE_NAME,
         'form':form,
     }
     return render(request, 'accounts/change_password.html', context)

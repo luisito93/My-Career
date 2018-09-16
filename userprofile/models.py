@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 import datetime
 from djmoney.models.fields import MoneyField
 from django.conf import settings
-from app.validators import validate_file_extension, face_detiction
+from app.validators import validate_file_extension
 User = settings.AUTH_USER_MODEL
 
 YEAR_CHOICES = []
