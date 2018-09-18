@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
-from .forms import MyRegistrationForm
+from .forms import MyRegistrationForm, LoginForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 # from django.contrib.auth.models import User
@@ -21,7 +21,7 @@ User = get_user_model()
 def signin(request):
     next = request.GET.get('next')
     if request.method == 'POST':
-        form = AuthenticationForm(request.POST)
+        form = LoginForm(request.POST)
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(email=email, password=password)
@@ -46,6 +46,7 @@ def signin(request):
         context = {
             'form': form,
             'next':next,
+            'email': request.POST.get('email'),
             'title': 'Sign In ' + '| ' + settings.SITE_NAME,
         }
         return render(request, 'accounts/signin.html', context)
@@ -65,7 +66,6 @@ def signup(request):
                 return redirect(next)
             else:
                 return redirect('/')
-
     else:
         form = MyRegistrationForm()
                 
@@ -74,6 +74,11 @@ def signup(request):
     else:
         context = {
             'title': 'Sign Up ' + '| ' + settings.SITE_NAME,
+            'first_name': request.POST.get('first_name'),
+            'last_name': request.POST.get('last_name'),
+            'email': request.POST.get('email'),
+            'zip_code': request.POST.get('zip_code'),
+            'phone_number': request.POST.get('phone_number'),
             'form': form,
         }
         return render(request, 'accounts/signup.html', context)

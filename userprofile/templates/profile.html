@@ -76,7 +76,7 @@ p{
 									<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>{% if experience.count == 0 %} No Working History {% else %} {{experience.0.salary_from}} - {{experience.0.salary_to}} {% endif %} </span></li>
 									<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{profile.userprofile.gender}}</span></li>
 									<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{% if experience.count == 0 %} No Working History {% else %} {% career_level experience.last.job_from experience.0.job_to %} {% endif %} </span></li>
-									<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{profile.userprofile.industry}}</span></li>
+									<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{% if profile.userprofile.industry %} {{profile.userprofile.industry}} {% else %} Non specified {% endif %}</span></li>
 									<li><i class="la la-shield"></i><h3>Experience</h3><span>
 										{% if experience.count == 0 %}
 										No Working History

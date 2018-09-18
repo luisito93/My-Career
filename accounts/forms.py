@@ -12,6 +12,11 @@ class LoginForm(forms.Form):
     email = forms.EmailField(label='Email')
     password = forms.CharField(widget=forms.PasswordInput)
 
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.fields['email'].error_messages = {'required': 'Email is required'}
+        self.fields['password'].error_messages = {'required': 'Password is required'}
+
 
 class RegisterForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -111,4 +116,6 @@ class MyRegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['email'].error_messages = {'required': 'Email is required'}
+        self.fields['password1'].error_messages = {'required': 'Password is required'}
         self.fields.pop('password2')

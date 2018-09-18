@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-{% if messages %}
-    {% for message in messages %}
-        <script type="text/javascript">alert("{{message}}");</script>
-    {% endfor %}
-{% endif %}
 <section class="overlape">
         <div class="block no-padding">
             <div data-velocity="-.1" style="background: url({% static 'images/resource/slider1.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div>
@@ -32,9 +27,9 @@
                         </div>
                         <div class="page-breacrumbs">
                             <ul class="breadcrumbs">
-                                <li><a href="#" title="">Home</a></li>
-                                <li><a href="#" title="">Pages</a></li>
-                                <li><a href="#" title="">Login</a></li>
+                                <li><a href="/" title="Home">Home</a></li>
+                                <li><a href="/register?next={% if next %}{{next}}{% endif %}" title="Register">Register</a></li>
+                                <li><a href="/login?next={% if next %}{{next}}{% endif %}" title="Login">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -54,8 +49,21 @@
                             <span>Keep up to date with the latest news</span>
                             <form method="POST">
                                 {% csrf_token %}
+                                {% if messages and not form.email.errors %}
+                                    {% for message in messages %}
+                                    <div style="text-align:left;" class="alert alert-danger" role="alert">{{message}}</div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if form.errors %}
+									{% if form.email.errors %}
+                                        <div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.email.errors.as_text }}</div>
+                                    {% endif %}
+                                    {% if form.password1.errors %}
+                                        <div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.password.errors.as_text }}</div>
+                                    {% endif %}
+								{% endif %}
                                 <div class="cfield">
-                                    <input name="email" type="text" placeholder="Email">
+                                    <input value="{% if email %} {{email}} {% endif %}" name="email" type="text" placeholder="Email">
                                     <i class="la la-user"></i>
                                 </div>
                                 <div class="cfield">
