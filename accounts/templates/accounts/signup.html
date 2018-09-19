@@ -27,9 +27,9 @@
 						</div>
 						<div class="page-breacrumbs">
 							<ul class="breadcrumbs">
-								<li><a href="#" title="">Home</a></li>
-								<li><a href="#" title="">Pages</a></li>
-								<li><a href="#" title="">Register</a></li>
+								<li><a href="/" title="">Home</a></li>
+								<li><a href="/login" title="">Login</a></li>
+								<li><a href="/register" title="">Register</a></li>
 							</ul>
 						</div>
 					</div>
@@ -47,22 +47,29 @@
 						<div class="account-popup">
 							<h3>Sign Up</h3>
 							<span>Keep up to date with the latest news</span>
-							<div class="select-user">
-								<span>Candidate</span>
-								<span>Employer</span>
-							</div>
 							<form method="POST">
 								{% csrf_token %}
+								{% if form.errors %}
+									{% if form.first_name.errors %}
+										<div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.first_name.errors.as_text }}</div>
+									{% elif form.last_name.errors %}
+										<div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.last_name.errors.as_text }}</div>
+									{% elif form.email.errors %}
+										<div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.email.errors.as_text }}</div>
+									{% elif form.password1.errors %}
+										<div style="text-align:left;" class="alert alert-danger" role="alert">{{ form.password1.errors.as_text }}</div>
+									{% endif %}
+								{% endif %}
 								<div class="cfield">
-									<input name="first_name" type="text" placeholder="First Name" />
+									<input name="first_name" value="{% if first_name %} {{first_name}} {% endif %}" type="text" placeholder="First Name" />
 									<i class="la la-user"></i>
 								</div>
 								<div class="cfield">
-									<input name="last_name" type="text" placeholder="Last Name" />
+									<input name="last_name" value="{% if last_name %} {{last_name}} {% endif %}" type="text" placeholder="Last Name" />
 									<i class="la la-user"></i>
 								</div>
 								<div class="cfield">
-									<input name="email" type="text" placeholder="Email" />
+									<input name="email" value="{% if email %} {{email}} {% endif %}" type="text" placeholder="Email" />
 									<i class="la la-envelope-o"></i>
 								</div>
 								<div class="cfield">
@@ -70,11 +77,11 @@
 									<i class="la la-key"></i>
 								</div>
 								<div class="cfield">
-									<input name="zipcode" type="text" placeholder="Zip Code" />
+									<input name="zip_code" value="{% if zip_code %} {{zip_code}} {% endif %}" type="text" placeholder="Zip Code" />
 									<i class="la la-map-marker"></i>
 								</div>
 								<div class="cfield">
-									<input type="text" placeholder="Phone Number" />
+									<input name="phone_number" value="{% if phone_number %} {{phone_number}} {% endif %}" name="phone_number" type="text" placeholder="Phone Number" />
 									<i class="la la-phone"></i>
 								</div>
 								<button type="submit">Signup</button>

@@ -5,7 +5,9 @@
 	{% load static %}
 	{% load thumbnail %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="http://v1-my-career.herokuapp.com/static/images/resource/og-graph.png" />
+	<meta property="og:title" content="My-Career | Modern Job Portal" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/icons.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}">
@@ -14,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/chosen.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/colors.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
@@ -153,7 +156,10 @@
 			<div class="menu-sec">
 				<div class="container">
 					<div class="logo">
-						<a href="/" title=""><img class="hidesticky" src="{% static 'images/resource/logo.png' %}" alt=""><img class="showsticky" src="{% static 'images/resource/logo10.png' %}" alt=""></a>
+						<a href="/" title="">
+							<img src="{% static '/images/resource/logo.png' %}" class="hidesticky">
+							<img src="{% static '/images/resource/logo10.png' %}" class="showsticky">
+						</a>
 					</div>
 					{% if not user.is_authenticated %}
 					<div class="btn-extars">
@@ -166,7 +172,7 @@
 					{% else %}
 					<div class="btns-profiles-sec">
 					<span>
-						<img src="{{ user.userprofile.avatar.url }}" width="50px" height="50px"> 
+						<img src="{{ user.userprofile.avatar.url }}" width="50px" height="50px">
 						{{user.full_name}}
 						<i class="la la-angle-down"></i>
 					</span>
@@ -245,7 +251,7 @@
 							<div class="widget">
 								<div class="about_widget">
 									<div class="logo">
-										<a href="index.html" title=""><img src="http://grandetest.com/theme/jobhunt-html/images/resource/logo.png" alt=""></a>
+										<a href="index.html" title=""><img src="{% static 'images/resource/logo.png' %}" alt=""></a>
 									</div>
 									<span>Collin Street West, Victor 8007, Australia.</span>
 									<span>+1 246-345-0695</span>
@@ -271,7 +277,7 @@
 											<a href="#" title="">Communications </a>
 											<a href="#" title="">Referral Terms </a>
 											<a href="#" title="">Lending Licnses </a>
-											<a href="#" title="">Disclaimers </a>	
+											<a href="#" title="">Disclaimers </a>
 										</div>
 										<div class="col-lg-6">
 											<a href="#" title="">Support </a>
@@ -290,12 +296,12 @@
 								<div class="link_widgets">
 									<div class="row">
 										<div class="col-lg-12">
-											<a href="#" title="">US Jobs</a>	
-											<a href="#" title="">Canada Jobs</a>	
-											<a href="#" title="">UK Jobs</a>	
-											<a href="#" title="">Emplois en Fnce</a>	
-											<a href="#" title="">Jobs in Deuts</a>	
-											<a href="#" title="">Vacatures China</a>	
+											<a href="#" title="">US Jobs</a>
+											<a href="#" title="">Canada Jobs</a>
+											<a href="#" title="">UK Jobs</a>
+											<a href="#" title="">Emplois en Fnce</a>
+											<a href="#" title="">Jobs in Deuts</a>
+											<a href="#" title="">Vacatures China</a>
 										</div>
 									</div>
 								</div>
@@ -304,8 +310,7 @@
 						<div class="col-lg-3 column">
 							<div class="widget">
 								<div class="download_widget">
-									<a href="#" title=""><img src="images/resource/dw1.png" alt=""></a>
-									<a href="#" title=""><img src="images/resource/dw2.png" alt=""></a>
+
 								</div>
 							</div>
 						</div>
@@ -313,7 +318,9 @@
 				</div>
 			</div>
 			<div class="bottom-line">
-				<span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+				<span>© 2018 My-Career All rights reserved. Made with <i class="fas fa-heart" style="color:#fE424d"></i> <br> Powered with</span>
+				<br>
+				<i class="fab fa-python fa-4x" style="color:#fff"></i>
 				<a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
 			</div>
 		</footer>
@@ -325,8 +332,12 @@
 	<script src="{% static 'js/wow.min.js' %}"></script>
 	<script src="{% static 'js/slick.min.js' %}"></script>
 	<script src="{% static 'js/parallax.js' %}"></script>
+	<script src="{% static 'js/loadingoverlay.min.js' %}"></script>
 	<script src="{% static 'js/select-chosen.js' %}"></script>
 	<script src="{% static 'js/csrf-ajax.js' %}"></script>
 	<script src="{% static 'js/jobs.js' %}"></script>
+	<script src="{% static 'js/swiper.min.js' %}"></script>
+	<script src="{% static 'js/components.js' %}"></script>
+
 </body>
 </html>
