@@ -3,57 +3,54 @@
 {% load marktags %}
 {% load thumbnail %}
 {% load static %}
-<section style="height: 100vh">
-	<div class="block no-padding" style="height: 100vh; background-color: #005980">
-		<div class="container fluid" style="height: 100vh">
+<section>
+	<div class="block no-padding">
+		<div class="container fluid">
 			<div class="row">
 				<div class="col-lg-12">
-					<div id="img-search-container" style="margin-top: 15%">
-
-						<div class="main-featured-sec" >
-							<div id="img-career-parent" style="position: relative;width: 600px; height: 280px; margin: 0 auto;" >
-								<img src="{% static 'images/resource/carreeerback.png' %}" alt=""  class="img-fluid"/>
-							</div>
-							<div class="job-search-sec">
-								<div class="job-search" >
-									<h3>The Easiest Way to Get Your New Job</h3>
-									<span>Find Jobs, Employment & Career Opportunities</span>
-									<form action="jobs-" method="GET">
-										<div class="row">
-											<div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
-												<div class="job-field">
-													<input type="text" placeholder="Job title, keywords or company name" name="keywords" />
-													<i class="la la-keyboard-o"></i>
-												</div>
-											</div>
-
-
-											<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-												<div class="job-field">
-													<input type="text" placeholder="City, province or region" name="location" />
-													<i class="la la-map-marker"></i>
-												</div>
-											</div>
-											<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
-												<button type="submit"><i class="la la-search"></i></button>
+					<div class="main-featured-sec">
+						<ul class="main-slider-sec text-arrows">
+							<li class="slideHome"><img src="{% static 'images/resource/slider1.jpg' %}" alt="" /></li>
+							<li class="slideHome"><img src="{% static 'images/resource/slider2.jpg' %}" alt="" /></li>
+							<li class="slideHome"><img src="{% static 'images/resource/slider3.jpg' %}" alt="" /></li>
+						</ul>
+						<div class="job-search-sec">
+							<div class="job-search">
+								<h3>The Easiest Way to Get Your New Job</h3>
+								<span>Find Jobs, Employment & Career Opportunities</span>
+								<form action="jobs-" method="GET">
+									<div class="row">
+										<div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
+											<div class="job-field">
+												<input type="text" placeholder="Job title, keywords or company name" name="keywords" />
+												<i class="la la-keyboard-o"></i>
 											</div>
 										</div>
-									</form>
-									<div class="or-browser">
-										<span>Browse job offers by</span>
-										<a href="#" title="">Category</a>
+										<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+											<div class="job-field">
+												<input type="text" placeholder="City, province or region" name="location" />
+												<i class="la la-map-marker"></i>
+											</div>
+										</div>
+										<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+											<button type="submit"><i class="la la-search"></i></button>
+										</div>
 									</div>
+								</form>
+								<div class="or-browser">
+									<span>Browse job offers by</span>
+									<a href="#" title="">Category</a>
 								</div>
 							</div>
 						</div>
 						<!-- <div class="scroll-to">
-						<a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
-					</div> -->
+							<a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
+						</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
 {% if not user.is_authenticated %}
 <section>
@@ -69,7 +66,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 </section>
 
@@ -88,39 +85,39 @@
 						<div class="job-listing">
 							<div class="job-title-sec">
 								<div class="c-logo"> {% thumbnail i.office.company.logo "98x51" crop="center" as im %}
-									<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+										<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
 									{% endthumbnail %} </div>
-									<h3><a href="/jobs/{{i.slug}}" title="">{{i.title}}</a></h3>
-									<span>{{i.office.company.title}}</span>
-								</div>
-								<span class="job-lctn"><i class="la la-map-marker"></i>{{i.office.company.city}}, {{i.office.company.country.name}}</span>
-								<span class="fav-job"><i class="la la-heart-o"></i></span>
-								<span class="job-is ft">{{i.job_type}}</span>
+								<h3><a href="/jobs/{{i.slug}}" title="">{{i.title}}</a></h3>
+								<span>{{i.office.company.title}}</span>
 							</div>
-							{% endfor %}
+							<span class="job-lctn"><i class="la la-map-marker"></i>{{i.office.company.city}}, {{i.office.company.country.name}}</span>
+							<span class="fav-job"><i class="la la-heart-o"></i></span>
+							<span class="job-is ft">{{i.job_type}}</span>
 						</div>
+						{% endfor %}
 					</div>
-					<div class="col-lg-12">
-						<div class="browse-all-cat">
-							<a href="/jobs-?keywords=&location=" title="">Find more jobs</a>
-						</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="browse-all-cat">
+						<a href="/jobs-?keywords=&location=" title="">Find more jobs</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<section>
-		<div class="block no-padding">
-			<div class="container fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="simple-text">
-							<h3>Gat a question?</h3>
-							<span>We're here to help. Check out our FAQs, send us an email or call us at 1 (800) 555-5555</span>
-						</div>
+	</div>
+</section>
+<section>
+	<div class="block no-padding">
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="simple-text">
+						<h3>Gat a question?</h3>
+						<span>We're here to help. Check out our FAQs, send us an email or call us at 1 (800) 555-5555</span>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	{% endblock %}
+	</div>
+</section>
+{% endblock %}

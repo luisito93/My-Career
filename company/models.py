@@ -3,7 +3,7 @@ from django_countries.fields import CountryField
 from froala_editor.fields import FroalaField
 from django.utils.crypto import get_random_string
 import datetime
-from app.validators import validate_file_extension, image_path
+from app.validators import validate_file_extension, image_path, face_detiction
 
 
 YEAR_CHOICES = []

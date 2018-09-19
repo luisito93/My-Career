@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/components.css' %}">
-
 <section class="overlape">
 	<div class="block no-padding">
 		<div data-velocity="-.1" style="background: url({% static 'images/resource/slider1.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div>
@@ -11,7 +9,7 @@
 				<div class="col-lg-12">
 					<div class="inner-header wform">
 						<div class="job-search-sec">
-
+	
 						</div>
 					</div>
 				</div>
@@ -19,35 +17,46 @@
 		</div>
 	</div>
 </section>
-
 <section>
-
-	<div class="timeline">
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background-image: url('../static/images/resource/slider1.jpg');" data-year="1">
-					<div class="swiper-slide-content"><span class="timeline-year">1</span>
-						<h4 class="timeline-title">Register an account</h4>
-						<p class="timeline-text">inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
+	<div class="block ">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="how-works">
+						<div class="how-workimg"><img src="{% static 'images/resource/slider1.jpg' %}" alt=""></div>
+						<div class="how-work-detail">
+							<div class="how-work-box">
+								<span>1</span>
+								<i class="la la-user"></i>
+								<h3>Register an account</h3>
+								<p>inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
+							</div>
+						</div>
+					</div>
+					<div class="how-works flip">
+						<div class="how-workimg"><img src="{% static 'images/resource/slider2.jpg' %}" alt=""></div>
+						<div class="how-work-detail">
+							<div class="how-work-box">
+								<span>2</span>
+								<i class="la la-file-text"></i>
+								<h3>Specify &amp; Search Your Job</h3>
+								<p>You’ll receive applications via email. You can also manage jobs and candidates from your Indeed dashboard. Review applications, Schedule interviews and view recommended candidates all from one place.</p>
+							</div>
+						</div>
+					</div>
+					<div class="how-works">
+						<div class="how-workimg"><img src="{% static 'images/resource/slider3.jpg' %}" alt=""></div>
+						<div class="how-work-detail">
+							<div class="how-work-box">
+								<span>3</span>
+								<i class="la la-pencil"></i>
+								<h3>Apply For Job</h3>
+								<p>inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="swiper-slide" style="background-image: url('../static/images/resource/slider2.jpg');" data-year="2">
-					<div class="swiper-slide-content"><span class="timeline-year">2</span>
-						<h4 class="timeline-title">Specify & Search Your Job</h4>
-						<p class="timeline-text">You’ll receive applications via email. You can also manage jobs and candidates from your Indeed dashboard. Review applications, Schedule interviews and view recommended candidates all from one place.</p>
-					</div>
-				</div>
-				<div class="swiper-slide" style="background-image: url('../static/images/resource/slider3.jpg');" data-year="3">
-					<div class="swiper-slide-content"><span class="timeline-year">3</span>
-						<h4 class="timeline-title">Apply For Job</h4>
-						<p class="timeline-text">inJob is the leading and longest-running online recruitment in Turkey. We understand that job-seekers come to us not only for a job, but for an pportunity to realize their professional.</p>
-					</div>
-				</div>
-
 			</div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-			<div class="swiper-pagination"></div>
 		</div>
 	</div>
 </section>

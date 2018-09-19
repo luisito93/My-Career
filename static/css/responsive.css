@@ -1,24 +1,14 @@
-/*  EDITED BY: MEHDI BOUZIDI*/
-
 @media (max-width:1440px){
-  .job-search-sec{
-    top: 60%;
-  }
 
 }
 
 @media (max-width:1300px){
-  .job-search-sec{
-    top: 60%;
-  }
-  #img-search-container{
-    margin-top: 20% !important;
-  }
+    
 }
 
 @media (max-width:1200px){
 
-
+    
 .error-sec {
     width: 100%;
     padding: 0 100px;
@@ -95,12 +85,9 @@ header {
 .how-work-box {
     padding: 57px 60px;
 }
-.job-search-sec{
-  top: 50%;
-}
 .job-search-sec .job-search > h3 {
     font-size: 30px;
-
+   
 }
 .how-to-sec > .how-to::before {
     display: none;
@@ -250,7 +237,7 @@ header {
     float: left;
     width: 100%;
     padding: 0;
-
+    
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -270,8 +257,7 @@ header {
 }
 .job-search-sec {
     padding: 0 30px;
-    width: 80%;
-    top: 40%;
+    width: 100%;
 }
 .job-search-sec .job-search > h3 {
     font-size: 22px;
@@ -284,14 +270,7 @@ header {
 .job-search form {
     margin-top: 22px;
 }
-.job-search-sec .job-field input{
-  height: 40px !important;
-  line-height: 40px !important;
 
-}
-.job-search-sec .job-field i{
-  top: 8px;
-}
 
 
 select {
@@ -307,14 +286,14 @@ select {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
-
+   
 }
 
 .job-field select{border: none;}
 
 .job-search .job-field {
     margin: 0 0 15px 0;
-
+   
 }
 
 .job-field .chosen-container-single .chosen-single {
@@ -367,7 +346,7 @@ select {
 .search-job2.style2 form div button {
     float: left;
     width: 100%;
-
+    
     -webkit-border-radius: 0 0 !important;
     -moz-border-radius: 0 0 !important;
     -ms-border-radius: 0 0 !important;
@@ -379,7 +358,7 @@ select {
 .search-job2.style2 form div button {
     float: left;
     width: 100%;
-
+    
     -webkit-border-radius: 0 0 !important;
     -moz-border-radius: 0 0 !important;
     -ms-border-radius: 0 0 !important;
@@ -411,7 +390,7 @@ select {
     padding-top: 100px;
 }
 .inner-header.wform .job-field {
-
+    
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -487,17 +466,6 @@ select {
 
 
 @media (max-width:767px){
-  #img-search-container{
-  margin-top: 30% !important;
-  }
-  #img-career-parent .img-fluid{
-    width: 500px;
-    height: 220px;
-  }
-  #img-career-parent{
-    width: 500px !important;
-    height: 220px !important;
-  }
 .error-sec > p {
     display: none;
 }
@@ -510,7 +478,7 @@ select {
     position: static;
     float: left;
     width: 100%;
-
+    
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
@@ -755,7 +723,7 @@ select {
     margin: 0;
 }
 .search-job2 form {
-
+    
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -764,7 +732,7 @@ select {
 
 }
 .search-job2 {
-
+    
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -773,7 +741,7 @@ select {
 
 }
 .search-job2 form .row > div:last-child button {
-
+    
     -webkit-border-radius: 0 0;
     -moz-border-radius: 0 0;
     -ms-border-radius: 0 0;
@@ -810,7 +778,7 @@ select {
     opacity: 0.1;
 }
 .job-listing.rounded {
-
+    
     -webkit-border-radius: 0 0 !important;
     -moz-border-radius: 0 0 !important;
     -ms-border-radius: 0 0 !important;
@@ -819,7 +787,7 @@ select {
 
 }
 .job-listing.rounded:hover {
-
+    
     -webkit-border-radius: 0 0 !important;
     -moz-border-radius: 0 0 !important;
     -ms-border-radius: 0 0 !important;
@@ -963,7 +931,7 @@ select {
 .account-popup-area.static .account-popup {
     width: 100%;
     left: 0;
-
+    
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
@@ -981,10 +949,7 @@ select {
 
 }
 
-@media (max-width:520px){
-  #img-career-parent{
-    display: none;
-  }
+@media (max-width:520px){	
  .error-sec form > input {
     float: left;
     width: 100%;
@@ -1241,22 +1206,22 @@ select {
     width: 100%;
     position: static;
     padding: 70px 20px;
-
+    
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
     -o-transform: none;
     transform: none;
 
-    /* background: rgb(66, 165, 245); */
-    /* background: -moz-linear-gradient(45deg,  rgba(66, 165, 245,1) 0%, rgba(44, 62, 80) 71%, rgba(44, 62, 80) 100%);
+    background: rgb(66, 165, 245);
+    background: -moz-linear-gradient(45deg,  rgba(66, 165, 245,1) 0%, rgba(44, 62, 80) 71%, rgba(44, 62, 80) 100%);
     background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(66, 165, 245,1)), color-stop(71%,rgba(44, 62, 80)), color-stop(100%,rgba(44, 62, 80)));
     background: -webkit-linear-gradient(45deg,  rgba(66, 165, 245,1) 0%,rgba(44, 62, 80) 71%,rgba(44, 62, 80) 100%);
     background: -o-linear-gradient(45deg,  rgba(66, 165, 245,1) 0%,rgba(44, 62, 80) 71%,rgba(44, 62, 80) 100%);
     background: -ms-linear-gradient(45deg,  rgba(66, 165, 245,1) 0%,rgba(44, 62, 80) 71%,rgba(44, 62, 80) 100%);
     background: linear-gradient(45deg,  rgba(66, 165, 245,1) 0%,rgba(44, 62, 80) 71%,rgba(44, 62, 80) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1976d2', endColorstr='#10195d',GradientType=1 );
-    opacity: 0.9; */
+    opacity: 0.9;
 
     margin: 0;
 }
@@ -1279,7 +1244,7 @@ select {
 }
 .job-search-sec.style3 {
     left: 0;
-
+    
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;

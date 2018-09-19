@@ -1,18 +1,5 @@
 $(document).ready(function(){
   
-  // loading spinner
-  let showSpinner = function() {
-    $("#job-search-results").LoadingOverlay("show", {
-      image       : "",
-      fontawesome : "fa fa-cog fa-spin"
-    });  
-  }
-
-  let hideSpinner = function() {
-    $("#job-search-results").LoadingOverlay("hide", true);
-  }
-  
-
   // search jobs form
    let searchForm = $(".search-form");
    let SearchResults = $("#job-search-results");
@@ -23,8 +10,8 @@ $(document).ready(function(){
     let thisForm = $(this);
     let actionEndpoint = thisForm.attr("data-endpoint");
     let formData = thisForm.serialize();
-    showSpinner();
 
+    console.log(formData);
     $.ajax({
         url: actionEndpoint,
         method: "GET",
@@ -34,7 +21,6 @@ $(document).ready(function(){
           $("#result-count").html(body.find('#result-count'));
           SearchResults.html(body.find('.search-result'));
           $(".pagination").html(body.find('.pagination'));
-          hideSpinner();
         },
         error: function(error){ 
           console.log(error);
@@ -51,7 +37,6 @@ $(document).ready(function(){
     let actionParams = thisPage.attr("href");
     let actionEndpoint = thisPage.attr("data-endpoint");
     let urlEndpoint = `${actionEndpoint}${actionParams}`;
-    showSpinner();
 
     $.ajax({
         url: urlEndpoint,
@@ -59,7 +44,6 @@ $(document).ready(function(){
         data: '',
         success: function(data){
           let body = $(data);
-          hideSpinner();
           SearchResults.html(body.find('.search-result'));
           $(".pagination").html(body.find('.pagination'));
         },
@@ -78,7 +62,6 @@ $(document).ready(function(){
     let actionParams = $this.val();
     let actionEndpoint = $this.attr("data-endpoint");
     let urlEndpoint = `${actionEndpoint}${actionParams}`;
-    showSpinner();
 
     $.ajax({
         url: urlEndpoint,
@@ -88,7 +71,6 @@ $(document).ready(function(){
           let body = $(data);
           SearchResults.html(body.find('.search-result'));
           $(".pagination").html(body.find('.pagination'));
-          hideSpinner();
         },
         error: function(error){ 
           console.log(error);
@@ -105,7 +87,6 @@ $(document).ready(function(){
     let actionParams = $this.val();
     let actionEndpoint = $this.attr("data-endpoint");
     let urlEndpoint = `${actionEndpoint}${actionParams}`;
-    showSpinner();
 
     $.ajax({
         url: urlEndpoint,
@@ -115,7 +96,6 @@ $(document).ready(function(){
           let body = $(data);
           SearchResults.html(body.find('.search-result'));
           $(".pagination").html(body.find('.pagination'));
-          hideSpinner();
         },
         error: function(error){ 
           console.log(error);

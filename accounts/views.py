@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
-from .forms import MyRegistrationForm, LoginForm
+from .forms import MyRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 # from django.contrib.auth.models import User
@@ -12,7 +12,7 @@ from django.core import serializers
 from json import loads as json_loads
 from django.core.paginator import Paginator
 from django.contrib.auth import get_user_model
-from django.conf import settings
+
 
 User = get_user_model()
 # User = settings.AUTH_USER_MODEL
@@ -21,7 +21,7 @@ User = get_user_model()
 def signin(request):
     next = request.GET.get('next')
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = AuthenticationForm(request.POST)
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(email=email, password=password)
@@ -43,13 +43,7 @@ def signin(request):
     if request.user.is_authenticated:
         return redirect('/')
     else:
-        context = {
-            'form': form,
-            'next':next,
-            'email': request.POST.get('email'),
-            'title': 'Sign In ' + '| ' + settings.SITE_NAME,
-        }
-        return render(request, 'accounts/signin.html', context)
+        return render(request, 'accounts/signin.html',{'form': form,'next':next,})
 
 
 def signup(request):
@@ -66,22 +60,14 @@ def signup(request):
                 return redirect(next)
             else:
                 return redirect('/')
+
     else:
         form = MyRegistrationForm()
                 
     if request.user.is_authenticated:
         return redirect('/')
     else:
-        context = {
-            'title': 'Sign Up ' + '| ' + settings.SITE_NAME,
-            'first_name': request.POST.get('first_name'),
-            'last_name': request.POST.get('last_name'),
-            'email': request.POST.get('email'),
-            'zip_code': request.POST.get('zip_code'),
-            'phone_number': request.POST.get('phone_number'),
-            'form': form,
-        }
-        return render(request, 'accounts/signup.html', context)
+        return render(request, 'accounts/signup.html',{'form': form, 'title':'Sign Up',})
 
 
 def password_change(request):
@@ -98,7 +84,6 @@ def password_change(request):
         form = PasswordChangeForm(request.user)
 
     context = {
-        'title': 'Change Password ' + '| ' + settings.SITE_NAME,
         'form':form,
     }
     return render(request, 'accounts/change_password.html', context)

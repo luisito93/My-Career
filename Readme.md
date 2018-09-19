@@ -23,12 +23,3 @@ Make Migrations
 Run the server
 
 ``` python manage.py runserver ```
-
-# Contributors
-#### BACK-END (Python)
-  - Chams Agouni (chamsou123)
-  - Sunil More (sunilsm7)
-  - Suryakant Phalle (suryaphalle)
-
-#### FRONT-END (HTML, CSS, JS)
-  - Mehdi BOUZIDI (mehdibouzidi)

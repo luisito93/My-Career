@@ -33,7 +33,7 @@
 			 					<li>
 			 						<a href="#" title=""><i class="la la-flash"></i>Job Alerts</a>
 			 					</li>
-			 					<li>
+			 					<li> 
 			 						<a href="/password_change" title=""><i class="la la-lock"></i>Change Password</a>
 			 					</li>
 			 					<li>
@@ -46,7 +46,7 @@
 			 	<div class="col-lg-9 column">
 			 		<div class="padding-left">
 				 		<div class="manage-jobs-sec">
-				 			<div class="border-title"><h3>Candidates Dashboard</h3></div>
+				 			<div class="border-title"><h3>Candidates Dashboard</h3><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
 					 		<div class="edu-history-sec">
 					 			{% if education.count == 0 %}
 			 						<p>No Education History</p>
@@ -68,9 +68,7 @@
 		 							{% endfor %}
 		 						{% endif %}
 	 						</div>
-							<div class="add-history"><a href="#" title=""><i class="la la-plus"></i> Add Education</a></div>
-
-	 						<div class="border-title"><h3>Work Experience</h3></div>
+	 						<div class="border-title"><h3>Work Experience</h3><a href="#" title=""><i class="la la-plus"></i> Add Experience</a></div>
 					 		<div class="edu-history-sec">
 					 			{% if experience.count == 0 %}
 				 					<p>No Working History</p>
@@ -92,10 +90,8 @@
 			 						{% endfor %}
 			 					{% endif %}
 	 						</div>
-							<div class="add-history"><a href="#" title=""><i class="la la-plus"></i> Add Experience</a></div>
-
+	 						<div class="border-title"><h3>Professional Skills</h3><a href="#" title=""><i class="la la-plus"></i> Add Skills</a></div>
 	 						<div class="progress-sec">
-								<div class="border-title"><h3>Professional Skills</h3></div>
 	 							<div class="progress-sec with-edit">
 	 								<span>Adobe Photoshop</span>
 	 								<div class="progressbar"> <div class="progress" style="width: 80%;"><span>80%</span></div> </div>
@@ -121,9 +117,7 @@
 			 						</ul>
 	 							</div>
 	 						</div>
-							<div class="add-history"><a href="#" title=""><i class="la la-plus"></i> Add Skills</a></div>
-
-	 						<div class="border-title"><h3>Awards</h3></div>
+	 						<div class="border-title"><h3>Awards</h3><a href="#" title=""><i class="la la-plus"></i> Add Awards</a></div>
 	 						<div class="edu-history-sec">
 	 							{% if awards.count == 0 %}
 				 					<p>No Awards</p>
@@ -144,8 +138,6 @@
 	 								{% endfor %}
 	 							{% endif %}
 	 						</div>
-							<div class="add-history"><a href="#" title=""><i class="la la-plus"></i> Add Awards</a></div>
-
 				 		</div>
 				 	</div>
 				</div>

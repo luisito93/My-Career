@@ -1,1 +1,1 @@
-web: gunicorn lazher.wsgi
+web: gunicorn lazher.wsgi --log-file -
