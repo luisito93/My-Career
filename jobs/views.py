@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Jobs
 from company.models import Company
+from django.conf import settings
 from django.http import JsonResponse
 from django.core import serializers
 from json import loads as json_loads
@@ -15,14 +16,14 @@ def jobs(request):
 
     if query:
         results = Jobs.objects.filter(title__icontains=query)
-        title = query + " Jobs"
+        title = query + " Jobs" + " | " + settings.SITE_NAME
 	    
         if location:
             results = Jobs.objects.filter(office__company__city__icontains=location)
-            title = query + " Jobs " + "in " + location
+            title = query + " Jobs " + "in " + location + " | " + settings.SITE_NAME
 	        
     if location:
-        title = "All jobs in " + location
+        title = "All jobs in " + location + " | " + settings.SITE_NAME
         results = Jobs.objects.filter(title__icontains=query, office__company__city__icontains=location)
 
     elif not query and not location:
@@ -59,24 +60,18 @@ def jobs(request):
 
 def browse(request):
     company = Company.objects.all()
-
+    title = 'Browse Jobs' + " | " + settings.SITE_NAME
     context = {
+        'title':title,
         'company':company,
     }
     return render(request, 'browse.html', context)
 
 
-def browse_jobs(request):
-    keyword = request.GET.get('keyword', None)
-    company = Company.objects.filter(title__icontains=keyword)
-    data = serializers.serialize("json", company, fields=('title','country','city','logo'))
-    return JsonResponse({'data':json_loads(data),})
-
-
 def job_at_company(request, slug):
     company = Company.objects.get(slug=slug)
     results = Jobs.objects.filter(office__company__slug=slug)
-    title = 'Jobs at ' + str(company)
+    title = 'Jobs at ' + str(company) + " | " + settings.SITE_NAME
     context = {
         'title':title,
         'company':company,
@@ -88,7 +83,7 @@ def job_at_company(request, slug):
 
 def job_detail(request,slug):
     jobs = Jobs.objects.get(slug=slug)
-    title = str(jobs) + ' | OdamaCareer'
+    title = str(jobs) + " | " + settings.SITE_NAME
     context = {
         'title':title,
         'jobs':jobs,

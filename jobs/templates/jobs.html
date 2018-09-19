@@ -4,7 +4,7 @@
 {% load static %}
 <section class="overlape">
 		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url({% static 'images/resource/slider1.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div>
+			<div data-velocity="-.1" style="background: #005980;" class="parallax scrolly-invisible no-parallax"></div>
 			<div class="container fluid">
 				<div class="row">
 					<div class="col-lg-12">
@@ -89,7 +89,7 @@
 						<div class="pagination">
 							<ul>
 							  {% if items.has_previous %}
-							    <li class="prev"><a href="?keywords={{query}}&location={{location}}&page={{ items.previous_page_number }}&order_by={{order}}&per_page={{per_page}}"><i class="la la-long-arrow-left"></i> Prev</a></li>
+							    <li class="prev"><a href="?keywords={{query}}&location={{location}}&page={{ items.previous_page_number }}&order_by={{order}}&per_page={{per_page}}" class="page-next-prev" data-endpoint='{% url "jobs:jobs" %}'><i class="la la-long-arrow-left"></i> Prev</a></li>
 							  {% endif %}
 							  {% for num in items.paginator.page_range %}
 							    {% if items.number == num %}

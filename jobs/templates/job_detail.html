@@ -29,17 +29,20 @@
 				 					<li><i class="la la-money"></i> Monthly Salary : <span>{{jobs.salary}}</span></li>
 				 					<li><i class="la la-calendar-o"></i> Post Date: {{jobs.created|date:"F d Y"}} </li>
 				 				</ul>
-				 				<span><strong>Roles</strong> : 
+				 				<span><strong>Roles</strong> :
 				 					Coming Soon
 				 				</span>
 				 			</div>
 				 			<div class="job-details">
 				 				<h3>Job Description</h3>
 				 				{{jobs.description|safe|linebreaks}}
-				 			</div>	
+				 			</div>
 				 			<div class="share-bar">
 				 				<span>Share</span><a href="#" title="" class="share-fb"><i class="fab fa-facebook-f"></i></a><a href="#" title="" class="share-twitter"><i class="fab fa-twitter"></i></a>
 				 			</div>
+							<div class="apply-btn">
+								<a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Apply for job</a>
+							</div>
 				 		</div>
 				 	</div>
 				 	<div class="col-lg-4 column">
@@ -56,7 +59,6 @@
 			 					<p><i class="la la-phone"></i> +90 538 963 54 87</p>
 			 					<p><i class="la la-envelope-o"></i>{{jobs.office.company.email}}</p>
 			 				</div>
-			 				<a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Apply for job</a>
 			 				<a href="/jobs/company/{{jobs.office.company.slug}}" title="" class="viewall-jobs">View all Jobs</a>
 			 			</div>
 				 	</div>
