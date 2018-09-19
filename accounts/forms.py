@@ -93,7 +93,7 @@ class UserAdminChangeForm(forms.ModelForm):
 
 class MyRegistrationForm(UserCreationForm):
     email = forms.EmailField(required = True)
-    first_name = forms.CharField(required = False)
+    first_name = forms.CharField(required = True)
     last_name = forms.CharField(required = True)
     zipcode = forms.IntegerField(required = False)
 
@@ -116,6 +116,8 @@ class MyRegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].error_messages = {'required': 'First Name is required'}
+        self.fields['last_name'].error_messages = {'required': 'Last Name is required'}
         self.fields['email'].error_messages = {'required': 'Email is required'}
         self.fields['password1'].error_messages = {'required': 'Password is required'}
         self.fields.pop('password2')
