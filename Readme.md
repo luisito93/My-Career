@@ -5,6 +5,12 @@ We are a team from India, Algeria, Egypt, Poland and we are working on this proj
 Feel free to contribute and improve this in any way you see fit.
 
 # Installation
+You need to install opencv before using this Project.
+
+You can install it from here :
+
+``` https://opencv.org ```
+
 First clone it
 
 ``` git clone https://github.com/chamsou123/My-Career.git ```
@@ -15,9 +21,8 @@ Install requirements
 
 ``` pip install -r requirements.txt ```
 
-Make Migrations
+Migrate The Database
 
-``` python manage.py makemigrations ```
 ```  manage.py migrate ```
 
 Run the server
